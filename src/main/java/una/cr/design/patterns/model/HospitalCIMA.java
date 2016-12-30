@@ -1,4 +1,4 @@
-package una.cr.design.entities;
+package una.cr.design.patterns.model;
 
 public class HospitalCIMA extends Consultorio {
 
