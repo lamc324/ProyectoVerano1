@@ -1,4 +1,4 @@
-package una.cr.design.patterns.model;
+package una.cr.design.entities;
 
 public class CM_Este extends Consultorio {
 

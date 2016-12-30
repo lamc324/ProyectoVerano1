@@ -58,7 +58,7 @@ public class PacientesView extends JFrame {
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePaneStudent");
         tableScrollPane.setPreferredSize(new Dimension(700, 182));
-        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Market Movers",
+        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, ctrlPane, tableScrollPane);
