@@ -21,30 +21,20 @@ import javax.swing.JTable;
  */
 public class MenuView extends JFrame {
 
-    private JMenuBar barraMenu;
-    private JMenu menuFile;
-    private JMenu menuPaciente;
-    private JMenu menuCita;
-    private JMenu menuHelp;
-    private JMenuItem fileSalir;
-    private JMenuItem mostrarPacientes;
-    private JMenuItem mostrarCitas;
+    JMenuBar barraMenu = new JMenuBar();
+    JMenu menuFile = new JMenu("Archivo");
+    JMenu menuPaciente = new JMenu("Paciente");
+    JMenu menuCita = new JMenu("Cita");
+    JMenu menuHelp = new JMenu("Ayuda");
+    JMenuItem fileSalir = new JMenuItem("Salir");
+    JMenuItem mostrarPacientes = new JMenuItem("Mostrar Pacientes");
+    JMenuItem mostrarCitas = new JMenuItem("Mostrar Citas");
     //private JTable table;
 
     public MenuView() throws HeadlessException {
         super("Gestor de Citas");
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        barraMenu = new JMenuBar();
-        menuFile = new JMenu("Archivo");
-        menuPaciente = new JMenu("Paciente");
-        menuCita = new JMenu("Cita");
-        menuHelp = new JMenu("Ayuda");
-        
-        fileSalir = new JMenuItem("Salir");
-        mostrarPacientes = new JMenuItem("Mostrar Pacientes");
-        mostrarCitas = new JMenuItem("Mostrar Citas");
 
         barraMenu.setName("menuBar");
         menuFile.setName("menuFile");
@@ -58,7 +48,7 @@ public class MenuView extends JFrame {
         barraMenu.add(menuPaciente);
         barraMenu.add(menuCita);
         barraMenu.add(menuHelp);
-        
+
         menuFile.add(fileSalir);
         menuPaciente.add(mostrarPacientes);
         menuCita.add(mostrarCitas);
