@@ -1,4 +1,4 @@
-package una.cr.design.entities;
+package una.cr.design.model;
 
 public class Paciente {
 

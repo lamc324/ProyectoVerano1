@@ -8,6 +8,7 @@ package una.cr.design.patterns.view;
 import java.awt.Dimension;
 import java.io.IOException;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -48,12 +49,15 @@ public class PacientesView extends JFrame {
 
         // Set the view layout
         JPanel ctrlPane = new JPanel();
+        JPanel ctrlPane2 = new JPanel();
+        JPanel ctrlPane3 = new JPanel();
+        
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
-        ctrlPane.add(eliminarButton);
-        ctrlPane.add(cerrarButton);
+        ctrlPane2.add(eliminarButton);
+        ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePaneStudent");
@@ -61,16 +65,25 @@ public class PacientesView extends JFrame {
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
 
-        JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, ctrlPane, tableScrollPane);
-        splitPane.setName("splitPane");
-        splitPane.setDividerLocation(35);
-        splitPane.setEnabled(false);
+//        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,  tableScrollPane, ctrlPane2);
+//        splitPane.setName("splitPane");
+//        splitPane.setDividerLocation(35);
+//        splitPane.setEnabled(false);
+
+    
+    ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
+    ctrlPane3.add(ctrlPane);
+    ctrlPane3.add(tableScrollPane);
+    ctrlPane3.add(ctrlPane2);
+  
+    
+   // ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.X_AXIS));
         
      
 
         // Display it all in a scrolling window and make the window appear
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        add(splitPane);
+        add(ctrlPane3);
         pack();
 
         setLocationRelativeTo(null);
