@@ -5,41 +5,32 @@
  */
 package una.cr.design.patterns.view;
 
-import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.Spring;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 import una.cr.design.utils.SpringUtilities;
 
 /**
  *
- * @author John
+ * @author venegas97k
  */
-public class AgregarPacienteView extends JFrame {
-
-    JTextField id = new JTextField(15);
-    JTextField nombre = new JTextField(15);
-    JTextField telefono = new JPasswordField(15);
-    JTextField direccion = new JPasswordField(15);
-    JTextField fechaNac = new JPasswordField(15);
-    JTextField enfermedades = new JPasswordField(15);
-    JTextArea observaciones = new JTextArea(4, 15);
+public class AgregarConsultorioView extends JFrame {
+    
+    JTextField nombre = new JTextField(20);
+    JTextField fechaAtencion = new JTextField(20);
+    JTextField telefonoContacto = new JTextField(20);
     JButton aceptar = new JButton("Aceptar");
     JButton cancelar = new JButton("Cancelar");
-
-    public AgregarPacienteView() {
-        super("Agregar Paciente");
-        String[] labels = {"Identificación: ", "Nombre: ", "Teléfono: ", "Dirección: ", "Fecha Nacimiento: ",
-            "Enfermedades Asociadas: ", "Observaciones: "};
+    
+    public AgregarConsultorioView() {
+        super("Agregar Consultorio");
+        String[] labels = {"Nombre: ", "Horario de Atencion: ", "Teléfono: "};
         int numPairs = labels.length;
 
         //Create and populate the panel.
@@ -76,8 +67,8 @@ public class AgregarPacienteView extends JFrame {
         /*frame.*/
         pack();
         /*frame.*/
+        this.setMinimumSize(new Dimension(300, 200));
         setLocationRelativeTo(null);
-        this.setMinimumSize(new Dimension(300, 300));
         setVisible(true);
 
     }
@@ -91,5 +82,4 @@ public class AgregarPacienteView extends JFrame {
             System.out.println(exc.getMessage());
         }
     }
-
 }

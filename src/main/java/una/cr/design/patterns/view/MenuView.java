@@ -60,8 +60,10 @@ public class MenuView extends JFrame {
         
         add(ctrlPane);*/
         pack();
-
+//
         setBounds(10, 20, 300, 200);
+        this.setMinimumSize(new Dimension(700, 500));
+        setLocationRelativeTo(null);
         setVisible(true);
 
     }

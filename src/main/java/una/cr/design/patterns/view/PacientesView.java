@@ -69,6 +69,7 @@ public class PacientesView extends JFrame {
         add(ctrlPane3);
         pack();
 
+        this.setMinimumSize(new Dimension(700, 300));
         setLocationRelativeTo(null);
         setVisible(true);
     }

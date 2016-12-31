@@ -70,6 +70,7 @@ public class CitasView extends JFrame {
         pack();
 
         setLocationRelativeTo(null);
+        this.setMinimumSize(new Dimension(700, 300));
         setVisible(true);
     }
 
