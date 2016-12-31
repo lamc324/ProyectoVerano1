@@ -2,6 +2,7 @@ package una.cr.design.model;
 
 public class Paciente {
 
+    private String id;
     private String nombre;
     private String telefono;
     private String direccion;
@@ -11,12 +12,21 @@ public class Paciente {
     public Paciente() {
     }
 
-    public Paciente(String nombre, String telefono, String direccion, String fechaNacimiento, String Enfermedades) {
+    public Paciente(String id, String nombre, String telefono, String direccion, String fechaNacimiento, String Enfermedades) {
+        this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
         this.Enfermedades = Enfermedades;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -58,10 +68,10 @@ public class Paciente {
     public void setEnfermedadesAsoc(String Enfermedades) {
         this.Enfermedades = Enfermedades;
     }
-    
 
     @Override
     public String toString() {
-        return "Paciente{" + "nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", Enfermedades=" + Enfermedades + '}';
+        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", Enfermedades=" + Enfermedades + '}';
     }
+
 }

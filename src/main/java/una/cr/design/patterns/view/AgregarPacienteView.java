@@ -25,6 +25,7 @@ import una.cr.design.utils.SpringUtilities;
  */
 public class AgregarPacienteView extends JFrame {
 
+    JTextField id = new JTextField(15);
     JTextField nombre = new JTextField(15);
     JTextField telefono = new JPasswordField(15);
     JTextField direccion = new JPasswordField(15);
@@ -36,7 +37,7 @@ public class AgregarPacienteView extends JFrame {
 
     public AgregarPacienteView() {
         super("Agregar Paciente");
-        String[] labels = {"Nombre: ", "Telefono: ", "Direccion: ", "Fecha Nacimiento: ",
+        String[] labels = {"Identificación: ", "Nombre: ", "Teléfono: ", "Dirección: ", "Fecha Nacimiento: ",
             "Enfermedades Asociadas: ", "Observaciones: "};
         int numPairs = labels.length;
 
