@@ -3,6 +3,8 @@ package una.cr.design.patterns.view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,21 +13,33 @@ import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 
 public class AgregarCitaView extends JFrame {
+    
 
+    String[] consultorios = {"Elegir Consultorio de preferencia: ","Hospital CIMA", "Centro Medico del Este"};
     String[] horas = {"Elegir hora de atencion: ", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30",
         "11:00", "11:30", "12:00"};
-    String[] consultorios = {"Hospital CIMA\nHorario de Atencion:\nLunes y Martes de 8 am a 8 pm",
+    String[] descripConsultorios = {"Hospital CIMA\nHorario de Atencion:\nLunes y Martes de 8 am a 8 pm",
         "Centro Medico del Este\nHorario de Atencion:\nJueves y Viernes de 8 am a 6 pm"};
-    JComboBox horaBox = new JComboBox(horas);
+    JComboBox horaBox = new JComboBox();
+    JComboBox consultorioBox = new JComboBox();
     JTextArea campoDescrip = new JTextArea();
+    JButton atras = new JButton("Atras");
+    JButton terminar = new JButton("Terminar");
 
     public AgregarCitaView() {
         super("Agregar Cita");
-        setSize(600, 500);
-        JPanel p = new JPanel();
-        JPanel p2 = new JPanel();
+        setSize(500, 360);
+        JPanel ctrlPane = new JPanel();
+        JPanel ctrlPane_1 = new JPanel();
+        JPanel ctrlPane2 = new JPanel();
+        JPanel ctrlPane2_1 = new JPanel();
+        JPanel ctrlPane3 = new JPanel();
         
-        p.setLayout(new BorderLayout());
+        
+        ctrlPane.setLayout(new BorderLayout());
+        for (int i = 0; i < consultorios.length; i++) {
+            consultorioBox.addItem(consultorios[i]);
+        }
         for (int i = 0; i < horas.length; i++) {
             horaBox.addItem(horas[i]);
         }
@@ -36,11 +50,19 @@ public class AgregarCitaView extends JFrame {
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Descripcion del Consultorio: ",
                 TitledBorder.CENTER, TitledBorder.TOP));
         
-        p.add(BorderLayout.NORTH, horaBox);
-        p.add(BorderLayout.CENTER, tableScrollPane);
-        p2.add(p);
-        add(p2);
+        ctrlPane.add(BorderLayout.NORTH, consultorioBox);
+        ctrlPane.add(BorderLayout.CENTER, tableScrollPane);
+        ctrlPane_1.add(ctrlPane);
+        ctrlPane2.add(atras);
+        ctrlPane2.add(terminar);
+        ctrlPane2_1.add(ctrlPane2);
+        
+        ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
+        ctrlPane3.add(ctrlPane_1);
+        ctrlPane3.add(ctrlPane2_1);
+        add(ctrlPane3);
 
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
     }
 }

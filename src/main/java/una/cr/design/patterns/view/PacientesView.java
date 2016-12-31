@@ -25,7 +25,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PacientesView extends JFrame {
 
-    JTextField searchTermTextField = new JTextField("Nombre",26);
+    JTextField searchTermTextField = new JTextField("Nombre", 26);
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
     JButton eliminarButton = new JButton("Eliminar Paciente");
@@ -37,21 +37,15 @@ public class PacientesView extends JFrame {
 
         super("Pacientes");
 
-        
         // Create table model
         table.setName("mainTable");
         table.setModel(tableModel);
-
-        // Create controller
-        //PracticaController controller = new PracticaController(searchTermTextField, tableModel);
-        //filterButton.addActionListener(controller);
-        //searchTermTextField.addKeyListener(controller);
 
         // Set the view layout
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-        
+
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
@@ -65,21 +59,10 @@ public class PacientesView extends JFrame {
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
 
-//        JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,  tableScrollPane, ctrlPane2);
-//        splitPane.setName("splitPane");
-//        splitPane.setDividerLocation(35);
-//        splitPane.setEnabled(false);
-
-    
-    ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
-    ctrlPane3.add(ctrlPane);
-    ctrlPane3.add(tableScrollPane);
-    ctrlPane3.add(ctrlPane2);
-  
-    
-   // ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.X_AXIS));
-        
-     
+        ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
+        ctrlPane3.add(ctrlPane);
+        ctrlPane3.add(tableScrollPane);
+        ctrlPane3.add(ctrlPane2);
 
         // Display it all in a scrolling window and make the window appear
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
