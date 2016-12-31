@@ -31,29 +31,27 @@ public class CitasView extends JFrame {
 
     public CitasView() {
         super("Citas");
-        
-               // Create table model
+
+        // Create table model
         table.setName("mainTable");
         table.setModel(tableModel);
-        
-                JPanel ctrlPane = new JPanel();
+
+        JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(cerrarButton);
-        
+
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePaneStudent");
         tableScrollPane.setPreferredSize(new Dimension(700, 182));
-        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
+        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Citas",
                 TitledBorder.CENTER, TitledBorder.TOP));
 
         JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT, ctrlPane, tableScrollPane);
         splitPane.setName("splitPane");
         splitPane.setDividerLocation(35);
         splitPane.setEnabled(false);
-        
-     
 
         // Display it all in a scrolling window and make the window appear
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
