@@ -1,6 +1,7 @@
 package una.cr.design.patterns;
 
 import una.cr.design.patterns.view.AgregarPacienteView;
+import una.cr.design.patterns.view.CitasView;
 import una.cr.design.patterns.view.MenuView;
 import una.cr.design.patterns.view.PacientesView;
 
@@ -10,5 +11,6 @@ public class Main {
         MenuView v = new MenuView();
         PacientesView p = new PacientesView();
         AgregarPacienteView pv = new AgregarPacienteView();
+        CitasView c = new CitasView();
     }
 }
