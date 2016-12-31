@@ -14,7 +14,8 @@ import una.cr.design.model.Paciente;
  * @author John
  */
 public class PacientesController {
-        private JTextField searchTermTextField = new JTextField(26);
+
+    private JTextField searchTermTextField = new JTextField(26);
     private DefaultTableModel tableModel;
     private Paciente Paciente;
     private Object[][] personas;

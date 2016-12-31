@@ -18,6 +18,7 @@ import javax.swing.JTextField;
 import javax.swing.Spring;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
+import una.cr.design.controller.AgregarPacienteController;
 import una.cr.design.utils.SpringUtilities;
 
 /**
@@ -73,6 +74,15 @@ public class AgregarPacienteView extends JFrame {
         /*frame.*/
         setContentPane(controlPane);
 
+        
+        // Create controller
+        AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones);
+        aceptar.setActionCommand("clicAceptar");
+        aceptar.addActionListener(controller);
+        cancelar.setActionCommand("clicCancelar");
+        cancelar.addActionListener(controller);
+        
+        
         /*frame.*/
         pack();
         /*frame.*/

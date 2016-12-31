@@ -7,18 +7,20 @@ public class Paciente {
     private String telefono;
     private String direccion;
     private String fechaNacimiento;
-    private String Enfermedades;
+    private String enfermedadesAsociadas;
+    private String observaciones;
 
     public Paciente() {
     }
 
-    public Paciente(String id, String nombre, String telefono, String direccion, String fechaNacimiento, String Enfermedades) {
+    public Paciente(String id, String nombre, String telefono, String direccion, String fechaNacimiento, String enfermedadesAsociadas, String observaciones) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
-        this.Enfermedades = Enfermedades;
+        this.enfermedadesAsociadas = enfermedadesAsociadas;
+        this.observaciones = observaciones;
     }
 
     public String getId() {
@@ -61,17 +63,25 @@ public class Paciente {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getEnfermedades() {
-        return Enfermedades;
+    public String getEnfermedadesAsociadas() {
+        return enfermedadesAsociadas;
     }
 
-    public void setEnfermedadesAsoc(String Enfermedades) {
-        this.Enfermedades = Enfermedades;
+    public void setEnfermedadesAsociadas(String enfermedadesAsociadas) {
+        this.enfermedadesAsociadas = enfermedadesAsociadas;
+    }
+
+    public String getObservaciones() {
+        return observaciones;
+    }
+
+    public void setObservaciones(String observaciones) {
+        this.observaciones = observaciones;
     }
 
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", Enfermedades=" + Enfermedades + '}';
+        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedadesAsociadas + ", observaciones=" + observaciones + '}';
     }
 
 }
