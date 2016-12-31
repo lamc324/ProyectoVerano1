@@ -6,6 +6,7 @@
 package una.cr.design.patterns.view;
 
 import java.awt.Container;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,29 +41,40 @@ public class AgregarPacienteView extends JFrame {
         int numPairs = labels.length;
 
         //Create and populate the panel.
-        JPanel p = new JPanel(new SpringLayout());
+        JPanel stringPane = new JPanel(new SpringLayout());
         for (int i = 0; i < numPairs; i++) {
             JLabel l = new JLabel(labels[i], JLabel.TRAILING);
-            p.add(l);
+            stringPane.add(l);
             JTextField textField = new JTextField(10);
             l.setLabelFor(textField);
-            p.add(textField);
+            stringPane.add(textField);
         }
 
+        JPanel buttonPane = new JPanel();
+        buttonPane.add(aceptar);
+        buttonPane.add(cancelar);
+
         //Lay out the panel.
-        SpringUtilities.makeCompactGrid(p,
+        SpringUtilities.makeCompactGrid(stringPane,
                 numPairs, 2, //rows, cols
                 6, 6, //initX, initY
                 6, 6);       //xPad, yPad
 
         //JFrame frame = new JFrame("Informacion Paciente");
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JPanel controlPane = new JPanel();
+        controlPane.add(stringPane);
+        controlPane.add(buttonPane);
+        
+        controlPane.setLayout(new BoxLayout(controlPane, BoxLayout.Y_AXIS));
+        stringPane.setOpaque(true);
+        /*frame.*/
+        setContentPane(controlPane);
 
-        p.setOpaque(true);
-        /*frame.*/setContentPane(p);
-
-        /*frame.*/pack();
-        /*frame.*/setVisible(true);
+        /*frame.*/
+        pack();
+        /*frame.*/
+        setVisible(true);
 
     }
 
