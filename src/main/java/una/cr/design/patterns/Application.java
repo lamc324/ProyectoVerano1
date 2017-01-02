@@ -4,6 +4,7 @@ import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.AgregarConsultorioView;
 import una.cr.design.patterns.view.AgregarPacienteView;
 import una.cr.design.patterns.view.CitasView;
+import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.patterns.view.MenuView;
 import una.cr.design.patterns.view.PacientesView;
 
@@ -16,5 +17,6 @@ public class Application {
         CitasView c = new CitasView();
         AgregarCitaView ac = new AgregarCitaView();
         AgregarConsultorioView ACV =  new AgregarConsultorioView();
+        ConsultorioView Cv = new ConsultorioView();
     }
 }
