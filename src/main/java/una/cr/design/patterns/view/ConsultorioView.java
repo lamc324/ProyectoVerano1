@@ -28,7 +28,7 @@ public class ConsultorioView extends JFrame {
     JTextField searchTermTextField = new JTextField("Nombre", 26);
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
-    JButton eliminarButton = new JButton("Eliminar Paciente");
+    JButton eliminarButton = new JButton("Eliminar Consultorio");
     JButton cerrarButton = new JButton("Cerrar");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -56,7 +56,7 @@ public class ConsultorioView extends JFrame {
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePaneStudent");
         tableScrollPane.setPreferredSize(new Dimension(700, 182));
-        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
+        tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Consultorios Disponibles",
                 TitledBorder.CENTER, TitledBorder.TOP));
 
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
