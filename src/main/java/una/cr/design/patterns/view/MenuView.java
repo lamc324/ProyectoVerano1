@@ -25,10 +25,12 @@ public class MenuView extends JFrame {
     JMenu menuFile = new JMenu("Archivo");
     JMenu menuPaciente = new JMenu("Paciente");
     JMenu menuCita = new JMenu("Cita");
+    JMenu menuConsulturio = new JMenu("Consultorio");
     JMenu menuHelp = new JMenu("Ayuda");
     JMenuItem fileSalir = new JMenuItem("Salir");
     JMenuItem mostrarPacientes = new JMenuItem("Mostrar Pacientes");
     JMenuItem mostrarCitas = new JMenuItem("Mostrar Citas");
+    JMenuItem mostrarCosultorio = new JMenuItem("Mostrar Consultorio");
     //private JTable table;
 
     public MenuView() throws HeadlessException {
@@ -41,17 +43,20 @@ public class MenuView extends JFrame {
         menuPaciente.setName("menuPaciente");
         menuCita.setName("menuCita");
         menuHelp.setName("menuHelp");
+        menuConsulturio.setName("Consultorio");
 
         setJMenuBar(barraMenu);
 
         barraMenu.add(menuFile);
         barraMenu.add(menuPaciente);
         barraMenu.add(menuCita);
+        barraMenu.add(menuConsulturio);
         barraMenu.add(menuHelp);
 
         menuFile.add(fileSalir);
         menuPaciente.add(mostrarPacientes);
         menuCita.add(mostrarCitas);
+        menuConsulturio.add(mostrarCosultorio);
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(barraMenu);
