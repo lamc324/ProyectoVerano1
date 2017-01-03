@@ -11,7 +11,6 @@ import una.cr.design.patterns.view.PacientesView;
 public class Application {
 
     public static void main(String[] args) {
-        MenuView v = new MenuView();
-        AgregarPacienteView av = new AgregarPacienteView();
+        MenuView v = new MenuView();        
     }
 }
