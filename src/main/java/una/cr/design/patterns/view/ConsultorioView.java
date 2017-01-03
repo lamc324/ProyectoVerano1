@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author John
  */
+
 public class ConsultorioView extends JFrame {
 
     JTextField searchTermTextField = new JTextField(26);
