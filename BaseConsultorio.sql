@@ -3,22 +3,22 @@ create database Consulturio;
 use Consulturio;
 
 CREATE TABLE Paciente (
-    id NOT NULL VARCHAR(16),
-    nombre NOT NULL VARCHAR(25),
+    id VARCHAR(16) NOT NULL,
+    nombre VARCHAR(25) NOT NULL,
     telefono VARCHAR(16),
     direccion VARCHAR(40),
-    fechaNaciemiento NOT NULL VARCHAR(15),
+    fechaNaciemiento VARCHAR(15) NOT NULL,
     enfermedades VARCHAR(60),
     observaciones VARCHAR(60),
     PRIMARY KEY (id)
 );
 
-CREATE TABLE Consultorio {
-	nombre NOT NULL VARCHAR(30),
-	horarioAtencion NOT NULL VARCHAR(30),
-	telefono VARCHAR(15),
-	PRIMARY KEY (nombre)
-}
+CREATE TABLE Consultorio (
+    nombre VARCHAR(30) NOT NULL,
+    horarioAtencion VARCHAR(30) NOT NULL,
+    telefono VARCHAR(15),
+    PRIMARY KEY (nombre)
+);
 
 CREATE TABLE Cita (
     idPaciente VARCHAR(16),
