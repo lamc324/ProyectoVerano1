@@ -73,7 +73,7 @@ public class AgregarPacienteView extends JFrame {
         setContentPane(controlPane);
 
         // Create controller
-        AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones);
+        AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
         aceptar.setActionCommand("clicAceptar");
         aceptar.addActionListener(controller);
         cancelar.setActionCommand("clicCancelar");

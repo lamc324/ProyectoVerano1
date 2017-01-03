@@ -29,6 +29,7 @@ public class AgregarPacienteController implements ActionListener {
     private JTextField fechaNac;
     private JTextField enfermedades;
     private JTextArea observaciones;
+    private AgregarPacienteView view;   
 
     public AgregarPacienteController(
             JTextField id,
@@ -37,7 +38,8 @@ public class AgregarPacienteController implements ActionListener {
             JTextField direccion,
             JTextField fechaNac,
             JTextField enfermedades,
-            JTextArea observaciones) {
+            JTextArea observaciones,
+            AgregarPacienteView view) {
         super();
         
         this.id = id;
@@ -47,23 +49,27 @@ public class AgregarPacienteController implements ActionListener {
         this.fechaNac = fechaNac;
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
+        this.view=view;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()) {
             case "clicAceptar":
-                Paciente p = new Paciente();
+                Paciente p = new Paciente();                
                 p.setId(id.getText());
                 p.setNombre(nombre.getText());
                 p.setTelefono(telefono.getText());
                 p.setDireccion(direccion.getText());
                 p.setFechaNacimiento(fechaNac.getText());
                 p.setEnfermedadesAsociadas(enfermedades.getText());
-                p.setObservaciones(observaciones.getText());
+                p.setObservaciones(observaciones.getText()); 
+                JOptionPane.showMessageDialog(view, "Paciente Agregado", "",JOptionPane.INFORMATION_MESSAGE);
+                view.setVisible(false);
                 System.out.println(p.toString());
                 break;
             case "clicCancelar":
+                view.setVisible(false);
                 System.out.println("cancelar");
                 break;
         }
