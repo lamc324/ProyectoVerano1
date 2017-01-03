@@ -14,11 +14,11 @@ CREATE TABLE Paciente (
 );
 
 CREATE TABLE Consultorio (
-	nombre NOT NULL VARCHAR(30),
-	horarioAtencion NOT NULL VARCHAR(30),
-	telefono VARCHAR(15),
-	PRIMARY KEY (nombre)
-)
+    nombre VARCHAR(30) NOT NULL,
+    horarioAtencion VARCHAR(30) NOT NULL,
+    telefono VARCHAR(15),
+    PRIMARY KEY (nombre)
+);
 
 CREATE TABLE Cita (
     idPaciente VARCHAR(16),
