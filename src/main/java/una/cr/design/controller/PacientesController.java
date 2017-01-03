@@ -49,8 +49,4 @@ public class PacientesController implements ActionListener {
                 break;
         }        
     }
-    
-    
-    
-    
 }

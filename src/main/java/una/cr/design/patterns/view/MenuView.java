@@ -7,6 +7,7 @@ package una.cr.design.patterns.view;
 
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -32,6 +33,7 @@ public class MenuView extends JFrame {
     JMenuItem mostrarPacientes = new JMenuItem("Mostrar Pacientes");
     JMenuItem mostrarCitas = new JMenuItem("Mostrar Citas");
     JMenuItem mostrarCosultorio = new JMenuItem("Mostrar Consultorio");
+   
     //private JTable table;
 
     public MenuView() throws HeadlessException {
@@ -57,7 +59,8 @@ public class MenuView extends JFrame {
         menuFile.add(fileSalir);
         menuPaciente.add(mostrarPacientes);
         menuCita.add(mostrarCitas);
-        menuConsulturio.add(mostrarCosultorio);
+        menuConsulturio.add(mostrarCosultorio);                
+        
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(barraMenu);
