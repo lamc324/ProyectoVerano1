@@ -30,7 +30,7 @@ public class PacientesView extends JFrame {
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
-    JButton eliminarButton = new JButton("Eliminar Paciente");
+    JButton eliminarButton = new JButton("Eliminar");
     JButton cerrarButton = new JButton("Cerrar");
     JLabel nombreLabel = new JLabel("Nombre:");
     JTable table = new JTable();
