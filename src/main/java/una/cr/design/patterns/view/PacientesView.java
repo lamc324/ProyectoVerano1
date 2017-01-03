@@ -11,6 +11,7 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
@@ -25,11 +26,12 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PacientesView extends JFrame {
 
-    JTextField searchTermTextField = new JTextField("Nombre", 26);
+    JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
     JButton eliminarButton = new JButton("Eliminar Paciente");
     JButton cerrarButton = new JButton("Cerrar");
+    JLabel nombreLabel = new JLabel("Nombre:");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
 
@@ -47,6 +49,7 @@ public class PacientesView extends JFrame {
         JPanel ctrlPane3 = new JPanel();
 
         ctrlPane.setName("ctrlPanel");
+        ctrlPane.add(nombreLabel);
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
