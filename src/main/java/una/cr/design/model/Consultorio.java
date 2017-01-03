@@ -21,6 +21,30 @@ public abstract class Consultorio {
         return fechaAtencion[0] + " y " + fechaAtencion[1];
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String[] getFechaAtencion() {
+        return fechaAtencion;
+    }
+
+    public void setFechaAtencion(String[] fechaAtencion) {
+        this.fechaAtencion = fechaAtencion;
+    }
+
+    public String getTelefonoContacto() {
+        return telefonoContacto;
+    }
+
+    public void setTelefonoContacto(String telefonoContacto) {
+        this.telefonoContacto = telefonoContacto;
+    }
+
     // ----- Metodos de prueba para obtener la fecha por medio de Calendar ----- //
     
     /*public String mostrarFecha() {
