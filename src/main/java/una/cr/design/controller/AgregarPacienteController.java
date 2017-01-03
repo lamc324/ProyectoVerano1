@@ -14,6 +14,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import una.cr.design.model.Paciente;
+import una.cr.design.patterns.view.AgregarPacienteView;
 
 /**
  *
@@ -52,20 +53,18 @@ public class AgregarPacienteController implements ActionListener {
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()) {
             case "clicAceptar":
-                Paciente paciente = new Paciente();
-                paciente.setId(id.getText());
-                paciente.setNombre(nombre.getText());
-                paciente.setDireccion(direccion.getText());
-                paciente.setFechaNacimiento(fechaNac.getText());
-                paciente.setEnfermedadesAsociadas(enfermedades.getText());
-                paciente.setObservaciones(observaciones.getText());
+                Paciente p = new Paciente();
+                p.setId(id.getText());
+                p.setNombre(nombre.getText());
+                p.setDireccion(direccion.getText());
+                p.setFechaNacimiento(fechaNac.getText());
+                p.setEnfermedadesAsociadas(enfermedades.getText());
+                p.setObservaciones(observaciones.getText());
+                System.out.println(p.toString());
                 break;
             case "clicCancelar":
-                break;
-            default:
-                JOptionPane.showMessageDialog(null, "FINALICE ANTES DE CONTINUAR", "Error", JOptionPane.INFORMATION_MESSAGE);
+                System.out.println("cancelar");
                 break;
         }
     }
-
 }
