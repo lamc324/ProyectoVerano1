@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import una.cr.design.controller.ConsultorioController;
 
 /**
  *
@@ -30,7 +31,7 @@ public class ConsultorioView extends JFrame {
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
-    JButton eliminarButton = new JButton("Eliminar Consultorio");
+    JButton eliminarButton = new JButton("Eliminar");
     JButton cerrarButton = new JButton("Cerrar");
     JTable table = new JTable();
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
@@ -76,6 +77,18 @@ public class ConsultorioView extends JFrame {
         this.setMinimumSize(new Dimension(700, 300));
         setLocationRelativeTo(null);
         setVisible(true);
+        
+         //Controller        
+        ConsultorioController controller = new ConsultorioController();
+        buscarButton.setActionCommand("clicBuscar");
+        buscarButton.addActionListener(controller);
+        agregarButton.setActionCommand("clicAgregar");
+        agregarButton.addActionListener(controller);
+        eliminarButton.setActionCommand("clicEliminar");
+        eliminarButton.addActionListener(controller);
+        cerrarButton.setActionCommand("clicCerrar");
+        cerrarButton.addActionListener(controller);
+        
     }
 
 }

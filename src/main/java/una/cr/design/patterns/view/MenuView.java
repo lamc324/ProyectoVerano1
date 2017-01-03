@@ -14,6 +14,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.JTable;
+import una.cr.design.controller.MenuController;
 
 /**
  *
@@ -71,6 +72,17 @@ public class MenuView extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        //Controller        
+        MenuController controller = new MenuController();
+        mostrarPacientes.setActionCommand("clicMostrarPacientes");
+        mostrarPacientes.addActionListener(controller);
+        mostrarCitas.setActionCommand("clicMostrarCitas");
+        mostrarCitas.addActionListener(controller);
+        mostrarCosultorio.setActionCommand("clicMostrarConsultorios");
+        mostrarCosultorio.addActionListener(controller);
+        fileSalir.setActionCommand("clicSalir");
+        fileSalir.addActionListener(controller);        
+        
     }
 
 }

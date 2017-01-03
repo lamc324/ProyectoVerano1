@@ -18,6 +18,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import una.cr.design.controller.CitasController;
 
 /**
  *
@@ -26,7 +27,8 @@ import javax.swing.table.DefaultTableModel;
 public class CitasView extends JFrame {
 
     String[] consultorios = {"Elegir Consultorio de preferencia: ","Hospital CIMA", "Centro Medico del Este"};
-    JButton buscarButton = new JButton("Filtrar");
+    JButton buscarButton = new JButton("Buscar");
+    JButton agregarButton = new JButton("Agregar");
     JButton cerrarButton = new JButton("Cerrar");
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
@@ -51,6 +53,7 @@ public class CitasView extends JFrame {
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(consultorioBox);
         ctrlPane.add(buscarButton);
+        ctrlPane.add(agregarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -72,6 +75,16 @@ public class CitasView extends JFrame {
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(700, 300));
         setVisible(true);
+        
+         //Controller        
+        CitasController controller = new CitasController();
+        buscarButton.setActionCommand("clicBuscar");
+        buscarButton.addActionListener(controller);
+        agregarButton.setActionCommand("clicAgregar");
+        agregarButton.addActionListener(controller);
+        cerrarButton.setActionCommand("clicCerrar");
+        cerrarButton.addActionListener(controller);
+        
     }
 
 }

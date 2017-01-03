@@ -19,6 +19,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
+import una.cr.design.controller.PacientesController;
 
 /**
  *
@@ -75,6 +76,17 @@ public class PacientesView extends JFrame {
         this.setMinimumSize(new Dimension(700, 300));
         setLocationRelativeTo(null);
         setVisible(true);
+
+        //Controller        
+        PacientesController controller = new PacientesController();
+        buscarButton.setActionCommand("clicBuscar");
+        buscarButton.addActionListener(controller);
+        agregarButton.setActionCommand("clicAgregar");
+        agregarButton.addActionListener(controller);
+        eliminarButton.setActionCommand("clicEliminar");
+        eliminarButton.addActionListener(controller);
+        cerrarButton.setActionCommand("clicCerrar");
+        cerrarButton.addActionListener(controller);
     }
 
 }

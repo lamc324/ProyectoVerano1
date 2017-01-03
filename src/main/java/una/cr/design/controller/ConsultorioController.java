@@ -7,29 +7,13 @@ package una.cr.design.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-import una.cr.design.model.Paciente;
-import una.cr.design.patterns.view.AgregarPacienteView;
+import una.cr.design.patterns.view.AgregarConsultorioView;
 
 /**
  *
- * @author John
+ * @author Usuario
  */
-public class PacientesController implements ActionListener {
-
-    private JTextField searchTermTextField;
-    private DefaultTableModel tableModel;
-    private Paciente Paciente;
-    private Object[][] personas;
-
-    public PacientesController() {
-       searchTermTextField = new JTextField(26);
-    }
-
-    public PacientesController(JTextField searchTermTextField) {
-        this.searchTermTextField = searchTermTextField;
-    }
+public class ConsultorioController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -38,7 +22,7 @@ public class PacientesController implements ActionListener {
                 System.out.println("buscar");
                 break;
             case "clicAgregar":
-                AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
+                AgregarConsultorioView viewAgregarPaciente = new AgregarConsultorioView();
                 viewAgregarPaciente.setVisible(true);
                 break;    
             case "clicEliminar":
@@ -49,8 +33,6 @@ public class PacientesController implements ActionListener {
                 break;
         }        
     }
-    
-    
     
     
 }

@@ -35,8 +35,8 @@ public class AgregarPacienteView extends JFrame {
     JLabel fechaLabel = new JLabel("Fecha Nacimiento: ");
     JLabel EnfermLabel = new JLabel("Enfermedades Asociadas: ");
     JLabel ObvsLabel = new JLabel("Observaciones: ");
-    JButton aceptar = new JButton("Aceptar: ");
-    JButton cancelar = new JButton("Cancelar: ");
+    JButton aceptar = new JButton("Aceptar");
+    JButton cancelar = new JButton("Cancelar");
 
     public AgregarPacienteView() {
         super("Agregar Paciente");

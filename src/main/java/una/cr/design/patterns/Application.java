@@ -12,11 +12,5 @@ public class Application {
 
     public static void main(String[] args) {
         MenuView v = new MenuView();
-        PacientesView p = new PacientesView();
-        AgregarPacienteView pv = new AgregarPacienteView();
-        CitasView c = new CitasView();
-        AgregarCitaView ac = new AgregarCitaView();
-        AgregarConsultorioView ACV =  new AgregarConsultorioView();
-        ConsultorioView Cv = new ConsultorioView();
     }
 }
