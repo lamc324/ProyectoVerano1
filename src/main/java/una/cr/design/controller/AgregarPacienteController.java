@@ -69,9 +69,9 @@ public class AgregarPacienteController implements ActionListener {
                 System.out.println(p.toString());
                 break;
             case "clicCancelar":
-                view.setVisible(false);
-                System.out.println("cancelar");
+                view.setVisible(false);                
                 break;
         }
     }
+
 }

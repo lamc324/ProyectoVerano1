@@ -54,7 +54,7 @@ public class PacientesView extends JFrame {
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
-        ctrlPane2.add(eliminarButton);
+        ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -78,7 +78,7 @@ public class PacientesView extends JFrame {
         setVisible(true);
 
         //Controller        
-        PacientesController controller = new PacientesController();
+        PacientesController controller = new PacientesController(searchTermTextField, this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");

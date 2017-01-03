@@ -8,12 +8,19 @@ package una.cr.design.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import una.cr.design.patterns.view.AgregarCitaView;
+import una.cr.design.patterns.view.CitasView;
 
 /**
  *
  * @author Usuario
  */
 public class CitasController implements ActionListener {
+    
+    private CitasView view;
+
+    public CitasController(CitasView view) {
+        this.view = view;
+    }        
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -26,7 +33,7 @@ public class CitasController implements ActionListener {
                 viewAgregarCita.setVisible(true);
                 break;    
             case "clicCerrar":
-                System.out.println("cerrar");
+                view.setVisible(false);
                 break;
         }  
     }

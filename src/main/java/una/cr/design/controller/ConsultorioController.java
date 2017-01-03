@@ -8,12 +8,19 @@ package una.cr.design.controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import una.cr.design.patterns.view.AgregarConsultorioView;
+import una.cr.design.patterns.view.ConsultorioView;
 
 /**
  *
  * @author Usuario
  */
 public class ConsultorioController implements ActionListener {
+
+    private ConsultorioView view;
+
+    public ConsultorioController(ConsultorioView view) {
+        this.view = view;
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -24,15 +31,14 @@ public class ConsultorioController implements ActionListener {
             case "clicAgregar":
                 AgregarConsultorioView viewAgregarPaciente = new AgregarConsultorioView();
                 viewAgregarPaciente.setVisible(true);
-                break;    
+                break;
             case "clicEliminar":
                 System.out.println("eliminar");
-                break;    
-            case "clicCerrar":
-                System.out.println("cerrar");
                 break;
-        }        
+            case "clicCerrar":
+                view.setVisible(false);
+                break;
+        }
     }
-    
-    
+
 }

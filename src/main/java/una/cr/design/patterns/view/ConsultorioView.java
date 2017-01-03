@@ -25,7 +25,6 @@ import una.cr.design.controller.ConsultorioController;
  *
  * @author John
  */
-
 public class ConsultorioView extends JFrame {
 
     JTextField searchTermTextField = new JTextField(26);
@@ -77,9 +76,9 @@ public class ConsultorioView extends JFrame {
         this.setMinimumSize(new Dimension(700, 300));
         setLocationRelativeTo(null);
         setVisible(true);
-        
-         //Controller        
-        ConsultorioController controller = new ConsultorioController();
+
+        //Controller        
+        ConsultorioController controller = new ConsultorioController(this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");
@@ -88,7 +87,7 @@ public class ConsultorioView extends JFrame {
         eliminarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
-        
+
     }
 
 }

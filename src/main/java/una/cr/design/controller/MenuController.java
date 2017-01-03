@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.patterns.view.ConsultorioView;
+import una.cr.design.patterns.view.MenuView;
 import una.cr.design.patterns.view.PacientesView;
 
 /**
@@ -16,6 +17,12 @@ import una.cr.design.patterns.view.PacientesView;
  * @author Usuario
  */
 public class MenuController implements ActionListener {
+    
+    private MenuView view;
+
+    public MenuController(MenuView view) {
+        this.view = view;
+    }        
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -31,10 +38,10 @@ public class MenuController implements ActionListener {
             case "clicMostrarConsultorios":
                 ConsultorioView viewConsultorio = new ConsultorioView();
                 viewConsultorio.setVisible(true);
-                System.out.println("eliminar");
+                System.out.println("Consultorio");
                 break;    
             case "clicSalir":
-                System.out.println("cerrar");
+                view.setVisible(false);
                 break;
         }
     }

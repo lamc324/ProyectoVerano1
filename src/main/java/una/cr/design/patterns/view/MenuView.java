@@ -28,12 +28,12 @@ public class MenuView extends JFrame {
     JMenu menuFile = new JMenu("Archivo");
     JMenu menuPaciente = new JMenu("Paciente");
     JMenu menuCita = new JMenu("Cita");
-    JMenu menuConsulturio = new JMenu("Consultorio");
+    JMenu menuConsultorio = new JMenu("Consultorio");
     JMenu menuHelp = new JMenu("Ayuda");
     JMenuItem fileSalir = new JMenuItem("Salir");
     JMenuItem mostrarPacientes = new JMenuItem("Mostrar Pacientes");
     JMenuItem mostrarCitas = new JMenuItem("Mostrar Citas");
-    JMenuItem mostrarCosultorio = new JMenuItem("Mostrar Consultorio");
+    JMenuItem mostrarConsultorio = new JMenuItem("Mostrar Consultorio");
     //private JTable table;
 
     public MenuView() throws HeadlessException {
@@ -46,19 +46,20 @@ public class MenuView extends JFrame {
         menuPaciente.setName("menuPaciente");
         menuCita.setName("menuCita");
         menuHelp.setName("menuHelp");
-        menuConsulturio.setName("Consultorio");
+        menuConsultorio.setName("Consultorio");
 
         setJMenuBar(barraMenu);
 
         barraMenu.add(menuFile);
         barraMenu.add(menuPaciente);
         barraMenu.add(menuCita);
-        barraMenu.add(menuConsulturio);
+        barraMenu.add(menuConsultorio);
         barraMenu.add(menuHelp);
 
         menuFile.add(fileSalir);
         menuPaciente.add(mostrarPacientes);
-        menuCita.add(mostrarCitas);        
+        menuCita.add(mostrarCitas);     
+        menuConsultorio.add(mostrarConsultorio);
         
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
@@ -75,13 +76,13 @@ public class MenuView extends JFrame {
         setVisible(true);
 
         //Controller        
-        MenuController controller = new MenuController();
+        MenuController controller = new MenuController(this);
         mostrarPacientes.setActionCommand("clicMostrarPacientes");
         mostrarPacientes.addActionListener(controller);
         mostrarCitas.setActionCommand("clicMostrarCitas");
         mostrarCitas.addActionListener(controller);
-        mostrarCosultorio.setActionCommand("clicMostrarConsultorios");
-        mostrarCosultorio.addActionListener(controller);
+        mostrarConsultorio.setActionCommand("clicMostrarConsultorios");
+        mostrarConsultorio.addActionListener(controller);
         fileSalir.setActionCommand("clicSalir");
         fileSalir.addActionListener(controller);        
         

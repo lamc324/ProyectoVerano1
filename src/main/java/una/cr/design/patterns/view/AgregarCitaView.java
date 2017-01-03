@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
+import una.cr.design.controller.AgregarCitaController;
 
 public class AgregarCitaView extends JFrame {
     
@@ -66,5 +67,12 @@ public class AgregarCitaView extends JFrame {
         this.setMinimumSize(new Dimension(500, 250)); 
         setLocationRelativeTo(null);
         setVisible(true);
+        
+        //Controller        
+        AgregarCitaController controller = new AgregarCitaController(this);
+        atras.setActionCommand("clicAtras");
+        atras.addActionListener(controller);
+        terminar.setActionCommand("clicTerminar");
+        terminar.addActionListener(controller);                
     }
 }

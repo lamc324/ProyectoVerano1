@@ -14,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 import javax.swing.UIManager;
+import una.cr.design.controller.AgregarConsultorioController;
 import una.cr.design.utils.SpringUtilities;
 
 /**
@@ -69,7 +70,14 @@ public class AgregarConsultorioView extends JFrame {
         /*frame.*/
         this.setMinimumSize(new Dimension(300, 200));
         setLocationRelativeTo(null);
-        setVisible(true);
+        setVisible(true);        
+            
+         //Controller        
+        AgregarConsultorioController controller = new AgregarConsultorioController(this);
+        aceptar.setActionCommand("clicAceptar");
+        aceptar.addActionListener(controller);
+        cancelar.setActionCommand("clicCancelar");
+        cancelar.addActionListener(controller);
 
     }
 
@@ -82,4 +90,5 @@ public class AgregarConsultorioView extends JFrame {
             System.out.println(exc.getMessage());
         }
     }
+    
 }

@@ -26,7 +26,7 @@ import una.cr.design.controller.CitasController;
  */
 public class CitasView extends JFrame {
 
-    String[] consultorios = {"Elegir Consultorio de preferencia: ","Hospital CIMA", "Centro Medico del Este"};
+    String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     JButton buscarButton = new JButton("Buscar");
     JButton agregarButton = new JButton("Agregar");
     JButton cerrarButton = new JButton("Cerrar");
@@ -44,7 +44,7 @@ public class CitasView extends JFrame {
         for (int i = 0; i < consultorios.length; i++) {
             consultorioBox.addItem(consultorios[i]);
         }
-        
+
         // Set the view layout
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
@@ -75,16 +75,16 @@ public class CitasView extends JFrame {
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(700, 300));
         setVisible(true);
-        
-         //Controller        
-        CitasController controller = new CitasController();
+
+        //Controller        
+        CitasController controller = new CitasController(this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");
         agregarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
-        
+
     }
 
 }

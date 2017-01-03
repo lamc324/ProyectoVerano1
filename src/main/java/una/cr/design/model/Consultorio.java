@@ -2,7 +2,7 @@ package una.cr.design.model;
 
 import java.util.Calendar;
 
-public abstract class Consultorio {
+public class Consultorio {
 
     protected String nombre;
     protected String[] fechaAtencion;

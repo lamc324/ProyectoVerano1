@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarPacienteView;
+import una.cr.design.patterns.view.PacientesView;
 
 /**
  *
@@ -22,13 +23,15 @@ public class PacientesController implements ActionListener {
     private DefaultTableModel tableModel;
     private Paciente Paciente;
     private Object[][] personas;
+    private PacientesView view; 
 
     public PacientesController() {
        searchTermTextField = new JTextField(26);
     }
 
-    public PacientesController(JTextField searchTermTextField) {
+    public PacientesController(JTextField searchTermTextField, PacientesView view) {
         this.searchTermTextField = searchTermTextField;
+        this.view = view;
     }
 
     @Override
@@ -45,7 +48,7 @@ public class PacientesController implements ActionListener {
                 System.out.println("eliminar");
                 break;    
             case "clicCerrar":
-                System.out.println("cerrar");
+                view.setVisible(false);
                 break;
         }        
     }
