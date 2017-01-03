@@ -58,7 +58,8 @@ public class MenuView extends JFrame {
 
         menuFile.add(fileSalir);
         menuPaciente.add(mostrarPacientes);
-        menuCita.add(mostrarCitas);        
+        menuCita.add(mostrarCitas);      
+        menuConsulturio.add(mostrarCosultorio);
         
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
