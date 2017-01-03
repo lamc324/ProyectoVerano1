@@ -12,5 +12,6 @@ public class Application {
 
     public static void main(String[] args) {
         MenuView v = new MenuView();
+        AgregarPacienteView av = new AgregarPacienteView();
     }
 }
