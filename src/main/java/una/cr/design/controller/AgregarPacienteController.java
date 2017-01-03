@@ -56,6 +56,7 @@ public class AgregarPacienteController implements ActionListener {
                 Paciente p = new Paciente();
                 p.setId(id.getText());
                 p.setNombre(nombre.getText());
+                p.setTelefono(telefono.getText());
                 p.setDireccion(direccion.getText());
                 p.setFechaNacimiento(fechaNac.getText());
                 p.setEnfermedadesAsociadas(enfermedades.getText());

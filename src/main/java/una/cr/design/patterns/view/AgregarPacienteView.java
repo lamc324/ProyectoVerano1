@@ -29,10 +29,10 @@ public class AgregarPacienteView extends JFrame {
 
     JTextField id = new JTextField(15);
     JTextField nombre = new JTextField(15);
-    JTextField telefono = new JPasswordField(15);
-    JTextField direccion = new JPasswordField(15);
-    JTextField fechaNac = new JPasswordField(15);
-    JTextField enfermedades = new JPasswordField(15);
+    JTextField telefono = new JTextField(15);
+    JTextField direccion = new JTextField(15);
+    JTextField fechaNac = new JTextField(15);
+    JTextField enfermedades = new JTextField(15);
     JTextArea observaciones = new JTextArea(4, 15);
     JButton aceptar = new JButton("Aceptar");
     JButton cancelar = new JButton("Cancelar");
@@ -45,14 +45,51 @@ public class AgregarPacienteView extends JFrame {
 
         //Create and populate the panel.
         JPanel stringPane = new JPanel(new SpringLayout());
-        for (int i = 0; i < numPairs; i++) {
-            JLabel l = new JLabel(labels[i], JLabel.TRAILING);
-            stringPane.add(l);
-            JTextField textField = new JTextField(10);
-            l.setLabelFor(textField);
-            stringPane.add(textField);
-        }
+        
+//        for (int i = 0; i < numPairs; i++) {
+//            JLabel l = new JLabel(labels[i], JLabel.TRAILING);
+//            stringPane.add(l);
+//            JTextField textField = new JTextField();
+//            l.setLabelFor(textField);
+//            stringPane.add(textField);
+//        }
 
+/////////////////////////////////////////////////////////////////////
+        JLabel l0 = new JLabel(labels[0], JLabel.TRAILING);
+        stringPane.add(l0);
+        l0.setLabelFor(id);
+        stringPane.add(id);
+        
+        JLabel l1 = new JLabel(labels[1], JLabel.TRAILING);
+        stringPane.add(l1);
+        l1.setLabelFor(nombre);
+        stringPane.add(nombre);
+        
+        JLabel l2 = new JLabel(labels[2], JLabel.TRAILING);
+        stringPane.add(l2);
+        l2.setLabelFor(telefono);
+        stringPane.add(telefono);
+        
+        JLabel l3 = new JLabel(labels[3], JLabel.TRAILING);
+        stringPane.add(l3);
+        l3.setLabelFor(direccion);
+        stringPane.add(direccion);
+        
+        JLabel l4 = new JLabel(labels[4], JLabel.TRAILING);
+        stringPane.add(l4);
+        l4.setLabelFor(fechaNac);
+        stringPane.add(fechaNac);
+        
+        JLabel l5 = new JLabel(labels[5], JLabel.TRAILING);
+        stringPane.add(l5);
+        l5.setLabelFor(enfermedades);
+        stringPane.add(enfermedades);
+        
+        JLabel l6 = new JLabel(labels[6], JLabel.TRAILING);
+        stringPane.add(l6);
+        l6.setLabelFor(observaciones);
+        stringPane.add(observaciones);
+/////////////////////////////////////////////////////////////////////
         JPanel buttonPane = new JPanel();
         buttonPane.add(aceptar);
         buttonPane.add(cancelar);
