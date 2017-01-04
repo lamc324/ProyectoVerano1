@@ -7,6 +7,7 @@ package una.cr.design.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JFrame;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.patterns.view.MenuView;
@@ -41,7 +42,7 @@ public class MenuController implements ActionListener {
                 System.out.println("Consultorio");
                 break;    
             case "clicSalir":
-                view.setVisible(false);
+                view.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 break;
         }
     }
