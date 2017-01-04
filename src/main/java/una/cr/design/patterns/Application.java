@@ -30,6 +30,6 @@ public class Application {
         PacienteDao pacient = new PacienteDao();
    // Paciente p1 = new Paciente("222","kevin","6546","cdsdsd","321312","vcvcdx");
         pacient.FindById("111");
-        System.out.println("paciente" + pacient);
+        System.out.println("paciente---->" + pacient.toString() );
     }
 }

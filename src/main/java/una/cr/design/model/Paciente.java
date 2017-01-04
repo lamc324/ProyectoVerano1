@@ -19,7 +19,7 @@ import una.cr.design.datos.PacienteDao;
     @UniqueConstraint(columnNames = "telefono"),
     @UniqueConstraint(columnNames = "direccion"),
     @UniqueConstraint(columnNames = "fechaNacimiento"),
-    @UniqueConstraint(columnNames = "enfermedades"),
+    @UniqueConstraint(columnNames = "enfermedades")
 //    @UniqueConstraint(columnNames = "observaciones")
 })
 
@@ -32,19 +32,22 @@ import una.cr.design.datos.PacienteDao;
 
 public class Paciente implements Serializable {
 
- 
+    @Id
+    @Column(name = "id")
     private String id;
-    
+    @Column(name = "nombre")
     private String nombre;
-    
+    @Column(name = "telefono")
     private String telefono;
-    
+    @Column(name = "direccion")
     private String direccion;
-
+    
+    @Column(name = "fechaNacimiento")
     private String fechaNacimiento;
     
+    @Column(name = "enfermedades")
     private String enfermedadesAsociadas;
-    private String observaciones;
+  //  private String observaciones;
 
     public Paciente() {
     }
@@ -59,9 +62,9 @@ public class Paciente implements Serializable {
         //    this.observaciones = observaciones;
     }
 
-    @Id
-    @GeneratedValue(strategy = IDENTITY)
-    @Column(name = "id", unique = true, nullable = false)
+//    @Id
+//    @GeneratedValue(strategy = IDENTITY)
+//    @Column(name = "id", unique = true, nullable = false)
     public String getId() {
         return id;
     }
@@ -70,15 +73,15 @@ public class Paciente implements Serializable {
         this.id = id;
     }
     
-    @Column(name = "nombre", unique = true, nullable = false)
+//    @Column(name = "nombre", unique = true, nullable = false)
     public String getNombre() {
         return nombre;
     }
-
+//
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-@Column(name = "telefono", unique = true, nullable = false)
+//@Column(name = "telefono", unique = true, nullable = false)
     public String getTelefono() {
         return telefono;
     }
@@ -86,7 +89,7 @@ public class Paciente implements Serializable {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-@Column(name = "direccion", unique = true, nullable = false)
+//@Column(name = "direccion", unique = true, nullable = false)
     public String getDireccion() {
         return direccion;
     }
@@ -94,7 +97,7 @@ public class Paciente implements Serializable {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-@Column(name = "fechaNacimiento", unique = true, nullable = false)
+//@Column(name = "fechaNacimiento", unique = true, nullable = false)
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -102,7 +105,7 @@ public class Paciente implements Serializable {
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-@Column(name = "enfermedades", unique = true, nullable = false)
+//@Column(name = "enfermedades", unique = true, nullable = false)
     public String getEnfermedadesAsociadas() {
         return enfermedadesAsociadas;
     }
@@ -111,21 +114,17 @@ public class Paciente implements Serializable {
         this.enfermedadesAsociadas = enfermedadesAsociadas;
     }
 
-    public String getObservaciones() {
-        return observaciones;
-    }
+//    public String getObservaciones() {
+//        return observaciones;
+//    }
+//
+//    public void setObservaciones(String observaciones) {
+//        this.observaciones = observaciones;
+//    }
 
-    public void setObservaciones(String observaciones) {
-        this.observaciones = observaciones;
-    }
-
-
-   
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedadesAsociadas + ", observaciones=" + observaciones + '}';
+        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedadesAsociadas + '}';
     }
-
-  
 
 }

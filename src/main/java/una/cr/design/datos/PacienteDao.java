@@ -23,23 +23,19 @@ public PacienteDao(){}
         
 //                Student student = null;
 //List<Paciente> result = (List<Paciente>) session.createQuery("from Paciente").list();
-       Query query = session.createQuery("from Paciente where id =  :id" );
-        query.setParameter("id", id);
-        query.setString("id",id);
+
+
+
+
+       Query query = session.createQuery("FROM Paciente");
+        //query.setParameter("id", id);
+//        query.setString("id",id);
 
 //        if (result.size() > 0) {
 //            paciente = (Paciente) result.get(0);
 //        }
-        
-        
-//        //OPCION 1
-//        Query query = session.createQuery("from Paciente where id = :id");
-//        query.setString("id",id);
-        
-        //OPCION 2
-        //Query query = session.createQuery("from Paciente where id = " + id);
-
-        if (query.list().size() > 0) {
+      
+        if (query.list().size() == 1) {
             paciente = (Paciente) query.list().get(0);
         }
 

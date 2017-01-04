@@ -63,7 +63,7 @@ public class AgregarPacienteController implements ActionListener {
                 p.setDireccion(direccion.getText());
                 p.setFechaNacimiento(fechaNac.getText());
                 p.setEnfermedadesAsociadas(enfermedades.getText());
-                p.setObservaciones(observaciones.getText());
+               // p.setObservaciones(observaciones.getText());
                 JOptionPane.showMessageDialog(view, "Paciente Agregado", "", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
                 System.out.println(p.toString());
