@@ -69,7 +69,6 @@ public class ConsultorioView extends JFrame {
         ctrlPane3.add(ctrlPane2);
 
         // Display it all in a scrolling window and make the window appear
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(ctrlPane3);
         pack();
 

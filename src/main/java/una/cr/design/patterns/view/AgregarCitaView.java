@@ -63,7 +63,6 @@ public class AgregarCitaView extends JFrame {
         ctrlPane3.add(ctrlPane2_1);
         add(ctrlPane3);
 
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setMinimumSize(new Dimension(500, 250)); 
         setLocationRelativeTo(null);
         setVisible(true);
