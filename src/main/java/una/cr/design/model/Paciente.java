@@ -12,7 +12,7 @@ import javax.persistence.UniqueConstraint;
 import static jdk.nashorn.internal.runtime.Debug.id;
 import una.cr.design.datos.PacienteDao;
 
-@Entity
+@Entity(name="Paciente")
 @Table(name = "Paciente", catalog = "Consulturio", uniqueConstraints = {
     @UniqueConstraint(columnNames = "id"),
     @UniqueConstraint(columnNames = "nombre"),
@@ -20,7 +20,7 @@ import una.cr.design.datos.PacienteDao;
     @UniqueConstraint(columnNames = "direccion"),
     @UniqueConstraint(columnNames = "fechaNacimiento"),
     @UniqueConstraint(columnNames = "enfermedades"),
-    @UniqueConstraint(columnNames = "observaciones")
+//    @UniqueConstraint(columnNames = "observaciones")
 })
 
 
