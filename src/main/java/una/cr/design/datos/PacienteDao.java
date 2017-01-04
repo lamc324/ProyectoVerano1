@@ -17,7 +17,13 @@ public PacienteDao(){}
 
   public Paciente FindById(String id) {
         Paciente paciente = null;
+        
+        //OPCION 1
         Query query = session.createQuery("from Paciente where id = :id");
+        query.setString("id",id);
+        
+        //OPCION 2
+        //Query query = session.createQuery("from Paciente where id = " + id);
 
         if (query.list().size() > 0) {
             paciente = (Paciente) query.list().get(0);
