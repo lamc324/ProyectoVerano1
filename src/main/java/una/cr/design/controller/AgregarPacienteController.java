@@ -21,7 +21,7 @@ import una.cr.design.patterns.view.AgregarPacienteView;
  * @author venegas97k
  */
 public class AgregarPacienteController implements ActionListener {
-    
+
     private JTextField id;
     private JTextField nombre;
     private JTextField telefono;
@@ -29,7 +29,7 @@ public class AgregarPacienteController implements ActionListener {
     private JTextField fechaNac;
     private JTextField enfermedades;
     private JTextArea observaciones;
-    private AgregarPacienteView view;   
+    private AgregarPacienteView view;
 
     public AgregarPacienteController(
             JTextField id,
@@ -41,7 +41,7 @@ public class AgregarPacienteController implements ActionListener {
             JTextArea observaciones,
             AgregarPacienteView view) {
         super();
-        
+
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -49,27 +49,27 @@ public class AgregarPacienteController implements ActionListener {
         this.fechaNac = fechaNac;
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
-        this.view=view;
+        this.view = view;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()) {
             case "clicAceptar":
-                Paciente p = new Paciente();                
+                Paciente p = new Paciente();
                 p.setId(id.getText());
                 p.setNombre(nombre.getText());
                 p.setTelefono(telefono.getText());
                 p.setDireccion(direccion.getText());
                 p.setFechaNacimiento(fechaNac.getText());
                 p.setEnfermedadesAsociadas(enfermedades.getText());
-                p.setObservaciones(observaciones.getText()); 
-                JOptionPane.showMessageDialog(view, "Paciente Agregado", "",JOptionPane.INFORMATION_MESSAGE);
+                p.setObservaciones(observaciones.getText());
+                JOptionPane.showMessageDialog(view, "Paciente Agregado", "", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
                 System.out.println(p.toString());
                 break;
             case "clicCancelar":
-                view.setVisible(false);                
+                view.setVisible(false);
                 break;
         }
     }

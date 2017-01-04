@@ -33,7 +33,7 @@ public class AgregarConsultorioView extends JFrame {
     JButton cancelar = new JButton("Cancelar");
 
     public AgregarConsultorioView() {
-        super("Agregar Consultorio");
+        super("Agregar Paciente al Consultorio");
 
         //Create and populate the panel.
         JPanel stringPane = new JPanel();
@@ -62,7 +62,7 @@ public class AgregarConsultorioView extends JFrame {
         /*frame.*/
         pack();
         /*frame.*/
-        this.setMinimumSize(new Dimension(300, 200));
+        this.setMinimumSize(new Dimension(500, 200));
         setLocationRelativeTo(null);
         setVisible(true);
 

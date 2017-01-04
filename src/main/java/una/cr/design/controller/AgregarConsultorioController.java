@@ -7,6 +7,7 @@ package una.cr.design.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import una.cr.design.patterns.view.AgregarConsultorioView;
 
 /**
@@ -25,6 +26,8 @@ public class AgregarConsultorioController implements ActionListener {
     public void actionPerformed(ActionEvent e) {
                 switch (e.getActionCommand()) {
             case "clicAceptar":
+                JOptionPane.showMessageDialog(view, "Paciente Agregado", "", JOptionPane.INFORMATION_MESSAGE);
+                view.setVisible(false);
                 System.out.println("aceptar");
                 break;
             case "clicCancelar":                
