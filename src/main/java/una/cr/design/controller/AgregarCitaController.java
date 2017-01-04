@@ -28,7 +28,8 @@ public class AgregarCitaController implements ActionListener {
                 view.setVisible(false);
                 break;
             case "clicTerminar":
-                System.out.println("terminar");
+                
+                view.setVisible(false);
                 break;
         }
     }

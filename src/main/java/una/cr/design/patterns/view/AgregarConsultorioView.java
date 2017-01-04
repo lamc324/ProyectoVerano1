@@ -22,44 +22,38 @@ import una.cr.design.utils.SpringUtilities;
  * @author venegas97k
  */
 public class AgregarConsultorioView extends JFrame {
-    
+
     JTextField nombre = new JTextField(20);
     JTextField fechaAtencion = new JTextField(20);
     JTextField telefonoContacto = new JTextField(20);
+    JLabel nombreLabel = new JLabel("Nombre: ");
+    JLabel horarioLabel = new JLabel("Horario de Atencion: ");
+    JLabel telefonoLabel = new JLabel("Telefono: ");
     JButton aceptar = new JButton("Aceptar");
     JButton cancelar = new JButton("Cancelar");
-    
+
     public AgregarConsultorioView() {
         super("Agregar Consultorio");
-        String[] labels = {"Nombre: ", "Horario de Atencion: ", "Teléfono: "};
-        int numPairs = labels.length;
 
         //Create and populate the panel.
-        JPanel stringPane = new JPanel(new SpringLayout());
-        for (int i = 0; i < numPairs; i++) {
-            JLabel l = new JLabel(labels[i], JLabel.TRAILING);
-            stringPane.add(l);
-            JTextField textField = new JTextField(10);
-            l.setLabelFor(textField);
-            stringPane.add(textField);
-        }
+        JPanel stringPane = new JPanel();
+        stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
+        
+        stringPane.add(nombreLabel);
+        stringPane.add(nombre);
+        stringPane.add(horarioLabel);
+        stringPane.add(fechaAtencion);
+        stringPane.add(telefonoLabel);
+        stringPane.add(telefonoContacto);
 
         JPanel buttonPane = new JPanel();
         buttonPane.add(aceptar);
         buttonPane.add(cancelar);
 
-        //Lay out the panel.
-        SpringUtilities.makeCompactGrid(stringPane,
-                numPairs, 2, //rows, cols
-                6, 6, //initX, initY
-                6, 6);       //xPad, yPad
-
-        //JFrame frame = new JFrame("Informacion Paciente");
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel controlPane = new JPanel();
         controlPane.add(stringPane);
         controlPane.add(buttonPane);
-        
+
         controlPane.setLayout(new BoxLayout(controlPane, BoxLayout.Y_AXIS));
         stringPane.setOpaque(true);
         /*frame.*/
@@ -70,9 +64,9 @@ public class AgregarConsultorioView extends JFrame {
         /*frame.*/
         this.setMinimumSize(new Dimension(300, 200));
         setLocationRelativeTo(null);
-        setVisible(true);        
-            
-         //Controller        
+        setVisible(true);
+
+        //Controller        
         AgregarConsultorioController controller = new AgregarConsultorioController(this);
         aceptar.setActionCommand("clicAceptar");
         aceptar.addActionListener(controller);
@@ -90,5 +84,5 @@ public class AgregarConsultorioView extends JFrame {
             System.out.println(exc.getMessage());
         }
     }
-    
+
 }
