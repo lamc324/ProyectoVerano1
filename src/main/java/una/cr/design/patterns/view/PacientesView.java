@@ -78,7 +78,7 @@ public class PacientesView extends JFrame {
         setVisible(true);
 
         //Controller        
-        PacientesController controller = new PacientesController(searchTermTextField, this);
+        PacientesController controller = new PacientesController(searchTermTextField, this, tableModel);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");

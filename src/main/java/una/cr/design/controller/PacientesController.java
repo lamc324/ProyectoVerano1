@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import una.cr.design.icons.Constants;
 import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarPacienteView;
 import una.cr.design.patterns.view.PacientesView;
@@ -29,9 +30,10 @@ public class PacientesController implements ActionListener {
        searchTermTextField = new JTextField(26);
     }
 
-    public PacientesController(JTextField searchTermTextField, PacientesView view) {
+    public PacientesController(JTextField searchTermTextField, PacientesView view, DefaultTableModel tableModel) {
         this.searchTermTextField = searchTermTextField;
         this.view = view;
+        tableModel.setDataVector(personas, Constants.TABLE_HEADER);
     }
 
     @Override

@@ -1,28 +1,67 @@
 package una.cr.design.model;
 
-public class Paciente {
+import java.io.Serializable;
+import java.util.Objects;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
+import static jdk.nashorn.internal.runtime.Debug.id;
+import una.cr.design.datos.PacienteDao;
 
+@Entity
+@Table(name = "Paciente", catalog = "Consulturio", uniqueConstraints = {
+    @UniqueConstraint(columnNames = "id"),
+    @UniqueConstraint(columnNames = "nombre"),
+    @UniqueConstraint(columnNames = "telefono"),
+    @UniqueConstraint(columnNames = "direccion"),
+    @UniqueConstraint(columnNames = "fechaNacimiento"),
+    @UniqueConstraint(columnNames = "enfermedades"),
+    @UniqueConstraint(columnNames = "observaciones")
+})
+
+
+//@Table(name = "Paciente", uniqueConstraints = @UniqueConstraint(columNames = 
+//        { "id", "nombre", "telefono", "direccion", "fechaNacimiento", "enfermedades", "observaciones" }))
+
+//    @Table(name = "campaign_content", uniqueConstraints = @UniqueConstraint(columnNames = 
+//            { "campaign_content_id", "campaign_id", "field_tag" }))
+
+public class Paciente implements Serializable {
+
+ 
     private String id;
+    
     private String nombre;
+    
     private String telefono;
+    
     private String direccion;
+
     private String fechaNacimiento;
+    
     private String enfermedadesAsociadas;
     private String observaciones;
 
     public Paciente() {
     }
 
-    public Paciente(String id, String nombre, String telefono, String direccion, String fechaNacimiento, String enfermedadesAsociadas, String observaciones) {
+    public Paciente(String id, String nombre, String telefono, String direccion, String fechaNacimiento, String enfermedadesAsociadas) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
         this.enfermedadesAsociadas = enfermedadesAsociadas;
-        this.observaciones = observaciones;
+        //    this.observaciones = observaciones;
     }
 
+    @Id
+    @GeneratedValue(strategy = IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
     public String getId() {
         return id;
     }
@@ -30,7 +69,8 @@ public class Paciente {
     public void setId(String id) {
         this.id = id;
     }
-
+    
+    @Column(name = "nombre", unique = true, nullable = false)
     public String getNombre() {
         return nombre;
     }
@@ -38,7 +78,7 @@ public class Paciente {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
+@Column(name = "telefono", unique = true, nullable = false)
     public String getTelefono() {
         return telefono;
     }
@@ -46,7 +86,7 @@ public class Paciente {
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
-
+@Column(name = "direccion", unique = true, nullable = false)
     public String getDireccion() {
         return direccion;
     }
@@ -54,7 +94,7 @@ public class Paciente {
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
-
+@Column(name = "fechaNacimiento", unique = true, nullable = false)
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -62,7 +102,7 @@ public class Paciente {
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
-
+@Column(name = "enfermedades", unique = true, nullable = false)
     public String getEnfermedadesAsociadas() {
         return enfermedadesAsociadas;
     }
@@ -79,9 +119,13 @@ public class Paciente {
         this.observaciones = observaciones;
     }
 
+
+   
     @Override
     public String toString() {
         return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedadesAsociadas + ", observaciones=" + observaciones + '}';
     }
+
+  
 
 }
