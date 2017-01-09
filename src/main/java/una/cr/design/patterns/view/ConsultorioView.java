@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -30,10 +31,14 @@ import una.cr.design.controller.ConsultorioController;
  */
 public class ConsultorioView extends JFrame {
 
+    ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
+    ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
+    ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
+
     JTextField searchTermTextField = new JTextField(26);
-    JButton buscarButton = new JButton("Buscar");
-    JButton agregarButton = new JButton("Agregar");
-    JButton eliminarButton = new JButton("Eliminar");
+    JButton buscarButton = new JButton("Buscar", imagenBuscar);
+    JButton agregarButton = new JButton("Agregar", imagenAgregar);
+    JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
     JButton cerrarButton = new JButton("Cerrar");
     JTable table = new JTable();
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
@@ -58,12 +63,12 @@ public class ConsultorioView extends JFrame {
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
-        ctrlPane2.add(eliminarButton);
+        ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePaneStudent");
-        tableScrollPane.setPreferredSize(new Dimension(700, 182));
+        tableScrollPane.setPreferredSize(new Dimension(800, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Consultorios Disponibles",
                 TitledBorder.CENTER, TitledBorder.TOP));
 

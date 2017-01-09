@@ -53,6 +53,7 @@ public class PacientesController implements ActionListener {
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
                 }
+                updateTableSearchTerms(searchTerm);
                 break;
             case "clicAgregar":
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();

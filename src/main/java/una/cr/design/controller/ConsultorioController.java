@@ -52,7 +52,7 @@ public class ConsultorioController implements ActionListener {
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
                 }
-
+                updateTableSearchTerms(searchTerm);
                 break;
             case "clicAgregar":
                 AgregarConsultorioView agregarConsultorio = new AgregarConsultorioView();

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -27,17 +28,20 @@ import una.cr.design.controller.CitasController;
  * @author John
  */
 public class CitasView extends JFrame {
+    
+    ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
+    ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
 
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
-    JButton buscarButton = new JButton("Buscar");
-    JButton agregarButton = new JButton("Agregar");
+    JButton buscarButton = new JButton("Buscar",imagenBuscar);
+    JButton agregarButton = new JButton("Agregar",imagenAgregar);
     JButton cerrarButton = new JButton("Cerrar");
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
 
     public CitasView() throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException{
+            JsonMappingException, IOException, ParseException {
         super("Citas");
 
         // Create table model
@@ -79,7 +83,7 @@ public class CitasView extends JFrame {
         setVisible(true);
 
         //Controller        
-        CitasController controller = new CitasController(consultorioBox, tableModel,this);
+        CitasController controller = new CitasController(consultorioBox, tableModel, this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");

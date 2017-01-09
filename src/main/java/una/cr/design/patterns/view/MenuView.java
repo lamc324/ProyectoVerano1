@@ -28,19 +28,19 @@ import una.cr.design.controller.MenuController;
  * @author luism
  */
 public class MenuView extends JFrame {
-    
+
     ImageIcon imagenPaciente = new ImageIcon("Paciente.png");
     ImageIcon imagenConsultorio = new ImageIcon("Consultorio.png");
     ImageIcon imagenCitas = new ImageIcon("Citas.png");
     ImageIcon imagenSalir = new ImageIcon("Salir.png");
     ImageIcon imagenAyuda = new ImageIcon("Ayuda.png");
-    
-    JMenuBar barraMenu = new JMenuBar();   
-    JMenuItem menuHelp = new JMenuItem("Ayuda",imagenAyuda);
-    JMenuItem fileSalir = new JMenuItem("Salir",imagenSalir);
-    JMenuItem mostrarPacientes = new JMenuItem("Pacientes",imagenPaciente);
-    JMenuItem mostrarCitas = new JMenuItem("Citas",imagenCitas);
-    JMenuItem mostrarConsultorio = new JMenuItem("Consultorio",imagenConsultorio);        
+
+    JMenuBar barraMenu = new JMenuBar();
+    JMenuItem menuHelp = new JMenuItem("Ayuda", imagenAyuda);
+    JMenuItem fileSalir = new JMenuItem("Salir", imagenSalir);
+    JMenuItem mostrarPacientes = new JMenuItem("Pacientes", imagenPaciente);
+    JMenuItem mostrarCitas = new JMenuItem("Citas", imagenCitas);
+    JMenuItem mostrarConsultorio = new JMenuItem("Consultorio", imagenConsultorio);
 
     public MenuView() throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
@@ -48,18 +48,16 @@ public class MenuView extends JFrame {
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        barraMenu.setName("menuBar");        
+        barraMenu.setName("menuBar");
         menuHelp.setName("menuHelp");
-        
-        
-        setJMenuBar(barraMenu);   
+
+        setJMenuBar(barraMenu);
         barraMenu.add(fileSalir);
         barraMenu.add(mostrarPacientes);
-        barraMenu.add(mostrarCitas);        
+        barraMenu.add(mostrarCitas);
         barraMenu.add(mostrarConsultorio);
         barraMenu.add(menuHelp);
 
-        
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(barraMenu);
@@ -83,8 +81,10 @@ public class MenuView extends JFrame {
         mostrarConsultorio.setActionCommand("clicMostrarConsultorios");
         mostrarConsultorio.addActionListener(controller);
         fileSalir.setActionCommand("clicSalir");
-        fileSalir.addActionListener(controller);        
-        
+        fileSalir.addActionListener(controller);
+        menuHelp.setActionCommand("clicAyuda");
+        menuHelp.addActionListener(controller);
+
     }
 
 }

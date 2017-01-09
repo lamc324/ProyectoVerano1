@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.patterns.view.MenuView;
@@ -76,6 +77,11 @@ public class MenuController implements ActionListener {
                 break;    
             case "clicSalir":
                 System.exit(0);
+                break;
+            case "clicAyuda":
+                 JOptionPane.showMessageDialog(null,
+                    "Proximamente Papus", "",
+                    JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
     }
