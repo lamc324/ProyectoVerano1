@@ -5,7 +5,10 @@
  */
 package una.cr.design.patterns.view;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
+import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -34,7 +37,8 @@ public class PacientesView extends JFrame {
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
 
-    public PacientesView() {
+    public PacientesView() throws JsonGenerationException,
+            JsonMappingException, IOException {
 
         super("Pacientes");
 

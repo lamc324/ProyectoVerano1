@@ -7,10 +7,15 @@ package una.cr.design.patterns.view;
 
 import java.awt.Dimension;
 import java.awt.HeadlessException;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JSplitPane;
+import javax.swing.JTable;
 import una.cr.design.controller.MenuController;
 
 /**

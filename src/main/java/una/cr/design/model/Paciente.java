@@ -2,6 +2,7 @@ package una.cr.design.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+import java.util.Arrays;
 
 public class Paciente implements Serializable {
 
@@ -16,7 +17,7 @@ public class Paciente implements Serializable {
     @JsonProperty("fechaNacimiento")
     private String fechaNacimiento;
     @JsonProperty("enfermedades")
-    private String enfermedadesAsociadas;
+    private String[] enfermedades;
     @JsonProperty("observaciones")
     private String observaciones;
 
@@ -24,13 +25,13 @@ public class Paciente implements Serializable {
     }
 
     public Paciente(String id, String nombre, String telefono, String direccion,
-            String fechaNacimiento, String enfermedadesAsociadas, String observaciones) {
+            String fechaNacimiento, String[] enfermedades, String observaciones) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
         this.fechaNacimiento = fechaNacimiento;
-        this.enfermedadesAsociadas = enfermedadesAsociadas;
+        this.enfermedades = enfermedades;
         this.observaciones = observaciones;
     }
 
@@ -74,12 +75,12 @@ public class Paciente implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getEnfermedadesAsociadas() {
-        return enfermedadesAsociadas;
+    public String[] getEnfermedades() {
+        return enfermedades;
     }
 
-    public void setEnfermedadesAsociadas(String enfermedadesAsociadas) {
-        this.enfermedadesAsociadas = enfermedadesAsociadas;
+    public void setEnfermedades(String[] enfermedadesAsociadas) {
+        this.enfermedades = enfermedadesAsociadas;
     }
 
     public String getObservaciones() {
@@ -89,10 +90,19 @@ public class Paciente implements Serializable {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
+    
+    public String getEnfermedad() {
+
+        String enfermedad = "";
+        for (String enf : enfermedades) {
+            enfermedad += enf + ", ";
+        }
+        return enfermedad;
+    }
 
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedadesAsociadas + ", observaciones=" + observaciones + '}';
+        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
     }
 
 }
