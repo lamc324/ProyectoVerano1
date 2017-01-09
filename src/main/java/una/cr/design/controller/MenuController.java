@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import una.cr.design.patterns.view.CitasView;
@@ -44,8 +45,18 @@ public class MenuController implements ActionListener {
                 }
                 break;
             case "clicMostrarCitas":
-                CitasView viewCitas = new CitasView();
-                viewCitas.setVisible(true);
+                CitasView viewCitas;
+                try {
+                    viewCitas = new CitasView();
+                    viewCitas.setVisible(true);
+                } catch (JsonMappingException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
                 break;    
             case "clicMostrarConsultorios":
                 ConsultorioView viewConsultorio = new ConsultorioView();

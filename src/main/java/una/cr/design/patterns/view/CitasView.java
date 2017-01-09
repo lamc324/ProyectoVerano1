@@ -5,7 +5,11 @@
  */
 package una.cr.design.patterns.view;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
+import java.io.IOException;
+import java.text.ParseException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -32,15 +36,16 @@ public class CitasView extends JFrame {
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
 
-    public CitasView() {
+    public CitasView() throws JsonGenerationException,
+            JsonMappingException, IOException, ParseException{
         super("Citas");
 
         // Create table model
         table.setName("mainTable");
         table.setModel(tableModel);
 
-        for (int i = 0; i < consultorios.length; i++) {
-            consultorioBox.addItem(consultorios[i]);
+        for (String consultorio : consultorios) {
+            consultorioBox.addItem(consultorio);
         }
 
         // Set the view layout
@@ -74,7 +79,7 @@ public class CitasView extends JFrame {
         setVisible(true);
 
         //Controller        
-        CitasController controller = new CitasController(this);
+        CitasController controller = new CitasController(consultorioBox, tableModel,this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");

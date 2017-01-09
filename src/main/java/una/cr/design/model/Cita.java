@@ -5,40 +5,40 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Cita {
 
     @JsonProperty("id")
-    Paciente id;
-    
+    private String id;
+
     @JsonProperty("consultorio")
-    Consultorio consultorio;
-    
+    private String consultorio;
+
     @JsonProperty("fecha")
-    String fecha;
-    
+    private String fecha;
+
     @JsonProperty("confirmado")
-    boolean confirmar;
+    private boolean confirmar;
 
     public Cita() {
     }
 
-    public Cita(Paciente paciente, Consultorio consultorio, String fecha, boolean confirmar) {
-        this.id = paciente;
+    public Cita(String id, String consultorio, String fecha, boolean confirmar) {
+        this.id = id;
         this.consultorio = consultorio;
         this.fecha = fecha;
         this.confirmar = confirmar;
     }
 
-    public Paciente getPaciente() {
+    public String getId() {
         return id;
     }
 
-    public void setPaciente(Paciente paciente) {
+    public void setPaciente(String paciente) {
         this.id = paciente;
     }
 
-    public Consultorio getConsultorio() {
+    public String getConsultorio() {
         return consultorio;
     }
 
-    public void setConsultorio(Consultorio consultorio) {
+    public void setConsultorio(String consultorio) {
         this.consultorio = consultorio;
     }
 
@@ -58,10 +58,20 @@ public class Cita {
         this.confirmar = confirmar;
     }
 
+    public String confirmado() {
+        String aux;
+        if (isConfirmar() == true) {
+            aux = "Confirmado";
+        } else {
+            aux = "No Confirmado";
+        }
+
+        return aux;
+    }
+
     @Override
     public String toString() {
         return "Cita{" + "id=" + id + ", consultorio=" + consultorio + ", fecha=" + fecha + ", confirmar=" + confirmar + '}';
     }
-
 
 }
