@@ -5,13 +5,19 @@
  */
 package una.cr.design.controller;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.text.ParseException;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.icons.Constants;
 import una.cr.design.patterns.view.AgregarConsultorioView;
 import una.cr.design.patterns.view.ConsultorioView;
+import una.cr.design.service.ConsultorioService;
 
 /**
  *
@@ -24,17 +30,29 @@ public class ConsultorioController implements ActionListener {
     private Object[][] consultorios;
     private ConsultorioView view;
 
-    public ConsultorioController(JTextField searchTermTextField, ConsultorioView view, DefaultTableModel tableModel) {
+    public ConsultorioController(JTextField searchTermTextField, ConsultorioView view,
+            DefaultTableModel tableModel) throws JsonGenerationException,
+            JsonMappingException, IOException, ParseException {
+
+        super();
+        ConsultorioService consultorioService = new ConsultorioService();
+        consultorios = consultorioService.loadConsultorioObjWrapper();
         this.searchTermTextField = searchTermTextField;
         this.view = view;
+        this.tableModel = tableModel;
         tableModel.setDataVector(consultorios, Constants.CONSULTORIOS_TABLE_HEADER);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "clicBuscar":
-                System.out.println("buscar");
+                String searchTerm = searchTermTextField.getText();
+                if (!"".equals(searchTerm)) {
+                    updateTableSearchTerms(searchTerm);
+                }
+
                 break;
             case "clicAgregar":
                 AgregarConsultorioView agregarConsultorio = new AgregarConsultorioView();
@@ -46,6 +64,28 @@ public class ConsultorioController implements ActionListener {
             case "clicCerrar":
                 view.setVisible(false);
                 break;
+        }
+    }
+
+    private void updateTableSearchTerms(String searchTerm) {
+        if (searchTerm != null && !"".equals(searchTerm)
+                && consultorios != null && consultorios.length >= 1) {
+            Object[][] newData = new Object[consultorios.length][];
+            int idx = 0;
+            for (Object[] obj : consultorios) {
+                String fullText = obj[0].toString() + obj[1].toString()
+                        + obj[2].toString() + obj[3].toString();
+
+                if (fullText.contains(searchTerm.trim())) {
+                    newData[idx++] = obj;
+                }
+            }
+            tableModel.setDataVector(newData, Constants.CONSULTORIOS_TABLE_HEADER);
+        } else {
+            JOptionPane.showMessageDialog(null,
+                    "Search term is empty", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+            tableModel.setDataVector(consultorios, Constants.CONSULTORIOS_TABLE_HEADER);
         }
     }
 
