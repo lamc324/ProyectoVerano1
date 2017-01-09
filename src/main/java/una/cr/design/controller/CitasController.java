@@ -55,7 +55,11 @@ public class CitasController implements ActionListener {
         switch (e.getActionCommand()) {
             case "clicBuscar":
                 String aux = (String) consultorioBox.getSelectedItem();
-                updateTableSearchTerms(aux);
+                if("Elegir Consultorio de preferencia: ".equals(aux)){
+                updateTableSearchTerms(" ");
+                }
+                else
+                    updateTableSearchTerms(aux);
                 break;
             case "clicAgregar":
                 AgregarCitaView viewAgregarCita = new AgregarCitaView();
