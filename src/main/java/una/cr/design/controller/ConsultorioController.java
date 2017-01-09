@@ -25,10 +25,10 @@ import una.cr.design.service.ConsultorioService;
  */
 public class ConsultorioController implements ActionListener {
 
-    private JTextField searchTermTextField;
-    private DefaultTableModel tableModel;
-    private Object[][] consultorios;
-    private ConsultorioView view;
+    JTextField searchTermTextField;
+    DefaultTableModel tableModel;
+    Object[][] consultorios;
+    ConsultorioView view;
 
     public ConsultorioController(JTextField searchTermTextField, ConsultorioView view,
             DefaultTableModel tableModel) throws JsonGenerationException,
