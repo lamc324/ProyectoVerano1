@@ -25,6 +25,7 @@ import una.cr.design.service.ServiceCita;
  * @author Usuario
  */
 public class CitasController implements ActionListener {
+
     private JComboBox consultorioBox = new JComboBox();
     private final DefaultTableModel tableModel;
     private final ServiceCita citaService;
@@ -35,7 +36,7 @@ public class CitasController implements ActionListener {
             DefaultTableModel tableModel, CitasView view) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
         super();
-        this.view=view;
+        this.view = view;
         citaService = new ServiceCita();
         cita = citaService.loadCitaObjWrapper();
 
@@ -47,28 +48,27 @@ public class CitasController implements ActionListener {
         this.tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
 
     }
-   
-    
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String aux=(String) consultorioBox.getSelectedItem();
-        updateTableSearchTerms(aux);
-//                switch (e.getActionCommand()) {
-//            case "clicBuscar":
-//                updateTableSearchTerms(aux);
-//                break;
-//            case "clicAgregar":
-//                AgregarCitaView viewAgregarCita = new AgregarCitaView();
-//                viewAgregarCita.setVisible(true);
-//                break;    
-//            case "clicCerrar":
-//                view.setVisible(false);
-//                break;
-        
+
+        switch (e.getActionCommand()) {
+            case "clicBuscar":
+                String aux = (String) consultorioBox.getSelectedItem();
+                updateTableSearchTerms(aux);
+                break;
+            case "clicAgregar":
+                AgregarCitaView viewAgregarCita = new AgregarCitaView();
+                viewAgregarCita.setVisible(true);
+                break;
+            case "clicCerrar":
+                view.setVisible(false);
+                break;
+        }
+
     }
-    
-        private void updateTableSearchTerms(String searchTerm) {
+
+    private void updateTableSearchTerms(String searchTerm) {
         if (searchTerm != null && !"".equals(searchTerm)
                 && cita != null && cita.length >= 1) {
             Object[][] newData = new Object[cita.length][];
@@ -89,5 +89,5 @@ public class CitasController implements ActionListener {
             tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
         }
     }
-    
+
 }

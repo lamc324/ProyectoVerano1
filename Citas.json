@@ -7,13 +7,13 @@
 	},
 	{
 	"id":"222",
-	"consultorio":"Centro Médico del Este",
+	"consultorio":"Centro Medico del Este",
     "fecha":"2017-05-03",
 	"confirmado":false
 	},
 	{
 	"id":"333",
-	"consultorio":"Centro Médico del Este",
+	"consultorio":"Centro Medico del Este",
     "fecha":"2017-06-04",
 	"confirmado":true
 	}
