@@ -10,7 +10,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.icons.Constants;
-import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarPacienteView;
 import una.cr.design.patterns.view.PacientesView;
 

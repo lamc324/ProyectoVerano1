@@ -1,28 +1,37 @@
 package una.cr.design.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Cita {
 
-    Paciente paciente;
+    @JsonProperty("id")
+    Paciente id;
+    
+    @JsonProperty("consultorio")
     Consultorio consultorio;
+    
+    @JsonProperty("fecha")
     String fecha;
+    
+    @JsonProperty("confirmado")
     boolean confirmar;
 
     public Cita() {
     }
 
     public Cita(Paciente paciente, Consultorio consultorio, String fecha, boolean confirmar) {
-        this.paciente = paciente;
+        this.id = paciente;
         this.consultorio = consultorio;
         this.fecha = fecha;
         this.confirmar = confirmar;
     }
 
     public Paciente getPaciente() {
-        return paciente;
+        return id;
     }
 
     public void setPaciente(Paciente paciente) {
-        this.paciente = paciente;
+        this.id = paciente;
     }
 
     public Consultorio getConsultorio() {
@@ -51,6 +60,8 @@ public class Cita {
 
     @Override
     public String toString() {
-        return paciente.toString() + consultorio.toString() + "\nDia de la consulta: " + fecha;
+        return "Cita{" + "id=" + id + ", consultorio=" + consultorio + ", fecha=" + fecha + ", confirmar=" + confirmar + '}';
     }
+
+
 }
