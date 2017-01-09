@@ -77,7 +77,7 @@ public class ConsultorioView extends JFrame {
         setVisible(true);
 
         //Controller        
-        ConsultorioController controller = new ConsultorioController(this);
+        ConsultorioController controller = new ConsultorioController(searchTermTextField, this, tableModel);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");

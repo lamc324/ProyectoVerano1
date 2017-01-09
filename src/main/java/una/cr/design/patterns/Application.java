@@ -1,7 +1,6 @@
 package una.cr.design.patterns;
 
 import org.hibernate.Hibernate;
-import una.cr.design.datos.PacienteDao;
 import una.cr.design.patterns.view.MenuView;
 
 public class Application {
@@ -27,9 +26,5 @@ public class Application {
 //        when(studentService.findById(1)).thenReturn(student);
 //
 //        assertThat(student.getName(), is("Mike"));
-        PacienteDao pacient = new PacienteDao();
-   // Paciente p1 = new Paciente("222","kevin","6546","cdsdsd","321312","vcvcdx");
-        pacient.FindById("111");
-        System.out.println("paciente---->" + pacient.toString() );
     }
 }

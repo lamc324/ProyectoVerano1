@@ -7,19 +7,27 @@ package una.cr.design.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+import una.cr.design.icons.Constants;
 import una.cr.design.patterns.view.AgregarConsultorioView;
 import una.cr.design.patterns.view.ConsultorioView;
 
 /**
  *
- * @author Usuario
+ * @author venegas97k
  */
 public class ConsultorioController implements ActionListener {
 
+    private JTextField searchTermTextField;
+    private DefaultTableModel tableModel;
+    private Object[][] consultorios;
     private ConsultorioView view;
 
-    public ConsultorioController(ConsultorioView view) {
+    public ConsultorioController(JTextField searchTermTextField, ConsultorioView view, DefaultTableModel tableModel) {
+        this.searchTermTextField = searchTermTextField;
         this.view = view;
+        tableModel.setDataVector(consultorios, Constants.CONSULTORIOS_TABLE_HEADER);
     }
 
     @Override
@@ -29,8 +37,8 @@ public class ConsultorioController implements ActionListener {
                 System.out.println("buscar");
                 break;
             case "clicAgregar":
-                AgregarConsultorioView viewAgregarPaciente = new AgregarConsultorioView();
-                viewAgregarPaciente.setVisible(true);
+                AgregarConsultorioView agregarConsultorio = new AgregarConsultorioView();
+                agregarConsultorio.setVisible(true);
                 break;
             case "clicEliminar":
                 System.out.println("eliminar");

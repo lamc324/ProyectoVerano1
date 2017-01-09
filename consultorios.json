@@ -1,0 +1,11 @@
+[{
+	"nombreConsultorio": "Hospital CIMA",
+	"diasConsulta": "Lunes-Martes",
+	"horarioAtencion": "8am - 3pm",
+	"telefonoConsultorio": "2443-4568"
+}, {
+	"nombreConsultorio": "Centro Medico del Este",
+	"diasConsulta": "Jueves-Viernes",
+	"horarioAtencion": "3pm - 11pm",
+	"telefonoConsultorio": "2566-9987"
+}]

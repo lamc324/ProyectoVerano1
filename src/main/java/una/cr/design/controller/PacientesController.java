@@ -22,7 +22,6 @@ public class PacientesController implements ActionListener {
 
     private JTextField searchTermTextField;
     private DefaultTableModel tableModel;
-    private Paciente Paciente;
     private Object[][] personas;
     private PacientesView view; 
 
@@ -33,7 +32,7 @@ public class PacientesController implements ActionListener {
     public PacientesController(JTextField searchTermTextField, PacientesView view, DefaultTableModel tableModel) {
         this.searchTermTextField = searchTermTextField;
         this.view = view;
-        tableModel.setDataVector(personas, Constants.TABLE_HEADER);
+        tableModel.setDataVector(personas, Constants.PACIENTES_TABLE_HEADER);
     }
 
     @Override

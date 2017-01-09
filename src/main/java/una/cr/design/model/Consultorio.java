@@ -1,22 +1,26 @@
 package una.cr.design.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Consultorio {
 
-    protected String nombre;
-    protected String[] fechaAtencion;
-    protected String telefonoContacto;
+    @JsonProperty("nombreConsultorio")
+    private String nombre;
+    @JsonProperty("diasConsulta")
+    private String diasConsulta;
+    @JsonProperty("horarioAtencion")
+    private String horarioAtencion;
+    @JsonProperty("telefonoConsultorio")
+    private String telefono;
 
     public Consultorio() {
     }
 
-    public Consultorio(String nombre, String[] fechaAtencion, String telefonoContacto) {
+    public Consultorio(String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.nombre = nombre;
-        this.fechaAtencion = fechaAtencion;
-        this.telefonoContacto = telefonoContacto;
-    }
-
-    public String diasConsulta() {
-        return fechaAtencion[0] + " y " + fechaAtencion[1];
+        this.diasConsulta = diasConsulta;
+        this.horarioAtencion = horarioAtencion;
+        this.telefono = telefono;
     }
 
     public String getNombre() {
@@ -27,22 +31,35 @@ public class Consultorio {
         this.nombre = nombre;
     }
 
-    public String[] getFechaAtencion() {
-        return fechaAtencion;
+    public String getDiasConsulta() {
+        return diasConsulta;
     }
 
-    public void setFechaAtencion(String[] fechaAtencion) {
-        this.fechaAtencion = fechaAtencion;
+    public void setDiasConsulta(String diasConsulta) {
+        this.diasConsulta = diasConsulta;
     }
 
-    public String getTelefonoContacto() {
-        return telefonoContacto;
+    public String getHorarioAtencion() {
+        return horarioAtencion;
     }
 
-    public void setTelefonoContacto(String telefonoContacto) {
-        this.telefonoContacto = telefonoContacto;
+    public void setHorarioAtencion(String horarioAtencion) {
+        this.horarioAtencion = horarioAtencion;
     }
 
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    @Override
+    public String toString() {
+        return "Consultorio{" + "nombre=" + nombre + ", diasConsulta=" + diasConsulta + ", horarioAtencion=" + horarioAtencion + ", telefono=" + telefono + '}';
+    }
+    
     // ----- Metodos de prueba para obtener la fecha por medio de Calendar ----- //
     
     /*public String mostrarFecha() {
@@ -60,9 +77,5 @@ public class Consultorio {
         Calendar c = Calendar.getInstance();
         System.out.println(formatoFecha.format(c)); //2016/11/16 12:08:43
     }*/
-    @Override
-    public String toString() {
-        return "\nConsultorio{" + "nombre=" + nombre + ", fechaAtencion=" + diasConsulta() + ", telefonoContacto=" + telefonoContacto + '}';
-    }
-
+   
 }
