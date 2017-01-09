@@ -5,9 +5,13 @@
  */
 package una.cr.design.patterns.view;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Image;
+import java.io.IOException;
+import java.text.ParseException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -38,7 +42,8 @@ public class MenuView extends JFrame {
     JMenuItem mostrarCitas = new JMenuItem("Citas",imagenCitas);
     JMenuItem mostrarConsultorio = new JMenuItem("Consultorio",imagenConsultorio);        
 
-    public MenuView() throws HeadlessException {
+    public MenuView() throws JsonGenerationException,
+            JsonMappingException, IOException, ParseException {
         super("Gestor de Citas");
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
