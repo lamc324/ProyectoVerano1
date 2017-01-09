@@ -7,6 +7,7 @@ package una.cr.design.patterns.view;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.text.ParseException;
@@ -34,12 +35,13 @@ public class ConsultorioView extends JFrame {
     ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
+    ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
-    JButton cerrarButton = new JButton("Cerrar");
+    JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JTable table = new JTable();
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -58,6 +60,11 @@ public class ConsultorioView extends JFrame {
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
 
+        buscarButton.setBackground(Color.WHITE);
+        agregarButton.setBackground(Color.WHITE);
+        eliminarButton.setBackground(Color.WHITE);
+        cerrarButton.setBackground(Color.WHITE);
+        
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(nombreLabel);
         ctrlPane.add(searchTermTextField);

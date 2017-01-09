@@ -7,6 +7,7 @@ package una.cr.design.patterns.view;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 import javax.swing.BorderFactory;
@@ -32,12 +33,13 @@ public class PacientesView extends JFrame {
     ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
+    ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
-    JButton cerrarButton = new JButton("Cerrar");
+    JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JLabel nombreLabel = new JLabel("Nombre:");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -55,6 +57,11 @@ public class PacientesView extends JFrame {
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
+        
+        buscarButton.setBackground(Color.WHITE);
+        agregarButton.setBackground(Color.WHITE);
+        eliminarButton.setBackground(Color.WHITE);
+        cerrarButton.setBackground(Color.WHITE);
 
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(nombreLabel);

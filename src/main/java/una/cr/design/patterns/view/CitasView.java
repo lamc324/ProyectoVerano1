@@ -7,6 +7,7 @@ package una.cr.design.patterns.view;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.text.ParseException;
@@ -31,11 +32,12 @@ public class CitasView extends JFrame {
     
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
+    ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     JButton buscarButton = new JButton("Buscar",imagenBuscar);
     JButton agregarButton = new JButton("Agregar",imagenAgregar);
-    JButton cerrarButton = new JButton("Cerrar");
+    JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -56,7 +58,11 @@ public class CitasView extends JFrame {
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-
+        
+        buscarButton.setBackground(Color.WHITE);
+        agregarButton.setBackground(Color.WHITE);
+        cerrarButton.setBackground(Color.WHITE);
+        
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(consultorioBox);
         ctrlPane.add(buscarButton);
