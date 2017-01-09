@@ -6,8 +6,8 @@ package una.cr.design.icons;
  */
 
 
-public class Constants {
-    public static final String FILENAME = "data.json";
+public class PacienteConstants {
+    public static final String FILENAME = "Pacientes.json";
 
     /**
      *
