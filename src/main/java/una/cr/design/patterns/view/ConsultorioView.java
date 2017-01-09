@@ -5,9 +5,11 @@
  */
 package una.cr.design.patterns.view;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
 import java.io.IOException;
+import java.text.ParseException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -37,7 +39,8 @@ public class ConsultorioView extends JFrame {
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
     DefaultTableModel tableModel = new DefaultTableModel();
 
-    public ConsultorioView() throws JsonMappingException {
+    public ConsultorioView() throws JsonGenerationException,
+            JsonMappingException, IOException, ParseException {
 
         super("Consultorios");
 

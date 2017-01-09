@@ -65,6 +65,28 @@ public class AgregarPacienteController implements ActionListener {
                 
                 p.setEnfermedades(arrayTxt);
                 p.setObservaciones(observaciones.getText());
+                
+                
+                
+//                JSONObject obj = new JSONObject();
+//		obj.put("Name", "crunchify.com");
+//		obj.put("Author", "App Shah");
+// 
+//		JSONArray company = new JSONArray();
+//		company.add("Compnay: eBay");
+//		company.add("Compnay: Paypal");
+//		company.add("Compnay: Google");
+//		obj.put("Company List", company);
+// 
+//		// try-with-resources statement based on post comment below :)
+//		try (FileWriter file = new FileWriter("/Users/<username>/Documents/file1.txt")) {
+//			file.write(obj.toJSONString());
+//			System.out.println("Successfully Copied JSON Object to File...");
+//			System.out.println("\nJSON Object: " + obj);
+//		}
+                
+                
+                
                 JOptionPane.showMessageDialog(view, "Paciente Agregado", "", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
                 System.out.println(p.toString());

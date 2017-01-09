@@ -5,6 +5,7 @@
  */
 package una.cr.design.controller;
 
+import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -25,7 +26,8 @@ public class MenuController implements ActionListener {
     
     private MenuView view;
 
-    public MenuController(MenuView view) {
+    public MenuController(MenuView view) throws JsonGenerationException,
+            JsonMappingException, IOException, ParseException{
         this.view = view;
     }        
 
@@ -59,8 +61,17 @@ public class MenuController implements ActionListener {
                 
                 break;    
             case "clicMostrarConsultorios":
-                ConsultorioView viewConsultorio = new ConsultorioView();
-                viewConsultorio.setVisible(true);
+                ConsultorioView viewConsultorio;
+                try {
+                    viewConsultorio = new ConsultorioView();
+                    viewConsultorio.setVisible(true);
+                } catch (JsonMappingException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }   
                 System.out.println("Consultorio");
                 break;    
             case "clicSalir":
