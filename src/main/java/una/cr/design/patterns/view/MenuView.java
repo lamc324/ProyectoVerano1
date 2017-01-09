@@ -9,6 +9,7 @@ import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -23,43 +24,36 @@ import una.cr.design.controller.MenuController;
  * @author luism
  */
 public class MenuView extends JFrame {
-
-    JMenuBar barraMenu = new JMenuBar();
-    JMenu menuFile = new JMenu("Archivo");
-    JMenu menuPaciente = new JMenu("Paciente");
-    JMenu menuCita = new JMenu("Cita");
-    JMenu menuConsultorio = new JMenu("Consultorio");
-    JMenu menuHelp = new JMenu("Ayuda");
-    JMenuItem fileSalir = new JMenuItem("Salir");
-    JMenuItem mostrarPacientes = new JMenuItem("Mostrar Pacientes");
-    JMenuItem mostrarCitas = new JMenuItem("Mostrar Citas");
-    JMenuItem mostrarConsultorio = new JMenuItem("Mostrar Consultorio");
-    //private JTable table;
+    
+    ImageIcon imagenPaciente = new ImageIcon("Paciente.png");
+    ImageIcon imagenConsultorio = new ImageIcon("Consultorio.png");
+    ImageIcon imagenCitas = new ImageIcon("Citas.png");
+    ImageIcon imagenSalir = new ImageIcon("Salir.png");
+    ImageIcon imagenAyuda = new ImageIcon("Ayuda.png");
+    
+    JMenuBar barraMenu = new JMenuBar();   
+    JMenuItem menuHelp = new JMenuItem("Ayuda",imagenAyuda);
+    JMenuItem fileSalir = new JMenuItem("Salir",imagenSalir);
+    JMenuItem mostrarPacientes = new JMenuItem("Pacientes",imagenPaciente);
+    JMenuItem mostrarCitas = new JMenuItem("Citas",imagenCitas);
+    JMenuItem mostrarConsultorio = new JMenuItem("Consultorio",imagenConsultorio);        
 
     public MenuView() throws HeadlessException {
         super("Gestor de Citas");
         setLayout(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        barraMenu.setName("menuBar");
-        menuFile.setName("menuFile");
-        menuPaciente.setName("menuPaciente");
-        menuCita.setName("menuCita");
+        barraMenu.setName("menuBar");        
         menuHelp.setName("menuHelp");
-        menuConsultorio.setName("Consultorio");
-
-        setJMenuBar(barraMenu);
-
-        barraMenu.add(menuFile);
-        barraMenu.add(menuPaciente);
-        barraMenu.add(menuCita);
-        barraMenu.add(menuConsultorio);
+        
+        
+        setJMenuBar(barraMenu);   
+        barraMenu.add(fileSalir);
+        barraMenu.add(mostrarPacientes);
+        barraMenu.add(mostrarCitas);        
+        barraMenu.add(mostrarConsultorio);
         barraMenu.add(menuHelp);
 
-        menuFile.add(fileSalir);
-        menuPaciente.add(mostrarPacientes);
-        menuCita.add(mostrarCitas);     
-        menuConsultorio.add(mostrarConsultorio);
         
         /*JPanel ctrlPane = new JPanel();
         ctrlPane.setName("ctrlPanel");
@@ -71,7 +65,7 @@ public class MenuView extends JFrame {
         pack();
 //
         setBounds(10, 20, 300, 200);
-        this.setMinimumSize(new Dimension(700, 500));
+        this.setMinimumSize(new Dimension(750, 500));
         setLocationRelativeTo(null);
         setVisible(true);
 

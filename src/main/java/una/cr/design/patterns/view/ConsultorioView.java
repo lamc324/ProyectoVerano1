@@ -5,6 +5,7 @@
  */
 package una.cr.design.patterns.view;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
 import java.io.IOException;
 import javax.swing.BorderFactory;
@@ -36,7 +37,7 @@ public class ConsultorioView extends JFrame {
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
     DefaultTableModel tableModel = new DefaultTableModel();
 
-    public ConsultorioView() {
+    public ConsultorioView() throws JsonMappingException {
 
         super("Consultorios");
 
