@@ -1,6 +1,5 @@
 package una.cr.design.datos;
 
-import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import una.cr.design.model.Paciente;

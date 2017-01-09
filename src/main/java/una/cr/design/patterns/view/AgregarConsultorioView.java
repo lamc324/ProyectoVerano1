@@ -12,10 +12,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
-import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 import una.cr.design.controller.AgregarConsultorioController;
-import una.cr.design.utils.SpringUtilities;
 
 /**
  *

@@ -6,14 +6,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.Spring;
-import javax.swing.SpringLayout;
 import javax.swing.UIManager;
 import una.cr.design.controller.AgregarPacienteController;
-import una.cr.design.utils.SpringUtilities;
 
 /**
  *

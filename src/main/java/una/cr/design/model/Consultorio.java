@@ -1,7 +1,5 @@
 package una.cr.design.model;
 
-import java.util.Calendar;
-
 public class Consultorio {
 
     protected String nombre;
