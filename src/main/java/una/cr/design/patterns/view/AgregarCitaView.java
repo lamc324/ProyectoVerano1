@@ -60,6 +60,16 @@ public class AgregarCitaView extends JFrame {
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane2_1 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
+        
+        atras.setName("atras");
+        terminar.setName("terminar");
+        consultorioBox.setName("box");
+
+        ctrlPane.setName("ctrlPanel1");
+        ctrlPane_1.setName("ctrlPanel1_1");
+        ctrlPane2.setName("ctrlPanel2");
+        ctrlPane2_1.setName("ctrlPanel2_1");
+        ctrlPane3.setName("ctrlPanel3");
 
         ctrlPane.setLayout(new BorderLayout());
         for (int i = 0; i < consultorios.length; i++) {
@@ -70,7 +80,7 @@ public class AgregarCitaView extends JFrame {
         }
 
         JScrollPane tableScrollPane = new JScrollPane(campoDescrip);
-        tableScrollPane.setName("scrollTablePaneStudent");
+        tableScrollPane.setName("scrollTablePane");
         tableScrollPane.setPreferredSize(new Dimension(400, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Descripcion del Consultorio: ",
                 TitledBorder.CENTER, TitledBorder.TOP));
@@ -86,11 +96,11 @@ public class AgregarCitaView extends JFrame {
         ctrlPane3.add(ctrlPane_1);
         ctrlPane3.add(ctrlPane2_1);
         add(ctrlPane3);
-        
+
         this.setMinimumSize(new Dimension(500, 250));
         setLocationRelativeTo(null);
         setVisible(true);
-        
+
         //Controller        
         AgregarCitaController controller = new AgregarCitaController(consultorioBox, campoDescrip, this);
         atras.setActionCommand("clicAtras");

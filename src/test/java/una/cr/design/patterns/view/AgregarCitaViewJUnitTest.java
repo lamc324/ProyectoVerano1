@@ -19,10 +19,10 @@ public class AgregarCitaViewJUnitTest {
 
     private FrameFixture window;
     private JPanelFixture ctrlPanel1;
+    private JPanelFixture ctrlPanel1_1;
     private JPanelFixture ctrlPanel2;
+    private JPanelFixture ctrlPanel2_1;
     private JPanelFixture ctrlPanel3;
-    private JPanelFixture ctrlPanel4;
-    private JPanelFixture ctrlPanel5;
     private JScrollPaneFixture scrollPanel;
 
     @Before
@@ -32,10 +32,10 @@ public class AgregarCitaViewJUnitTest {
         
         window.show();
         ctrlPanel1 = window.panel("ctrlPanel1");
+        ctrlPanel1_1 = window.panel("ctrlPanel1_1");
         ctrlPanel2 = window.panel("ctrlPanel2");
+        ctrlPanel2_1 = window.panel("ctrlPanel2_1");
         ctrlPanel3 = window.panel("ctrlPanel3");
-        ctrlPanel4 = window.panel("ctrlPanel4");
-        ctrlPanel5 = window.panel("ctrlPanel5");
 
         scrollPanel = window.scrollPane("scrollTablePane");
 
@@ -44,8 +44,8 @@ public class AgregarCitaViewJUnitTest {
     @Test
     public void testVisibleComponents() {
         ctrlPanel1.comboBox("box").requireVisible();
-        ctrlPanel1.button("atras").requireVisible();
-        ctrlPanel1.button("terminar").requireVisible();        
+        ctrlPanel2.button("atras").requireVisible();
+        ctrlPanel2.button("terminar").requireVisible();        
         scrollPanel.requireVisible();
 
     }
@@ -53,26 +53,24 @@ public class AgregarCitaViewJUnitTest {
     @Test
     public void testEditPane() {
         ctrlPanel1.comboBox("box").requireVisible();
-        ctrlPanel1.button("atras").requireVisible();
+        ctrlPanel2.button("atras").requireVisible();
         ctrlPanel2.button("terminar").requireVisible();
         scrollPanel.requireVisible();
 
         ctrlPanel1.comboBox("box").selectItem("Hospital CIMA");
-        ctrlPanel1.textBox("descripcion").enterText("Hora de Cita: 12md");
-        ctrlPanel1.button("atras").click();
+        ctrlPanel2.button("atras").click();
 
     }
 
     @Test
     public void testEditPane2() {
         ctrlPanel1.comboBox("box").requireVisible();
-        ctrlPanel1.button("atras").requireVisible();
+        ctrlPanel2.button("atras").requireVisible();
         ctrlPanel2.button("terminar").requireVisible();
         scrollPanel.requireVisible();
 
         ctrlPanel1.comboBox("box").selectItem("Centro Medico del Este");
-        ctrlPanel1.textBox("descripcion").enterText("Hora de Cita: 3pm");
-        ctrlPanel1.button("terminar").click();
+        ctrlPanel2.button("terminar").click();
         
     }
 
