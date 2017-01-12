@@ -79,7 +79,7 @@ public class PacientesController implements ActionListener, KeyListener {
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "clicBuscar":
-                String searchTerm = searchTermTextField.getText();
+                String searchTerm = searchTermTextField.getText().toLowerCase();
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
                 }

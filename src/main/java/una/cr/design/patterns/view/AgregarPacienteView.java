@@ -60,7 +60,7 @@ public class AgregarPacienteView extends JFrame {
     public AgregarPacienteView() {
         super("Agregar Paciente");
 
-        //Create and populate the panel.
+        // Crea y llena el panel
         JPanel stringPane = new JPanel();
         stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
         stringPane.add(idLabel);
@@ -92,16 +92,16 @@ public class AgregarPacienteView extends JFrame {
         /*frame.*/
         setContentPane(controlPane);
 
-        // Create controller
+        // Crea el controller
         AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
         cancelar.setActionCommand("clicCancelar");
         cancelar.addActionListener(controller);
         siguiente.setActionCommand("clicSiguiente");
         siguiente.addActionListener(controller);
 
-        /*frame.*/
+        
         pack();
-        /*frame.*/
+        
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(300, 300));
         
