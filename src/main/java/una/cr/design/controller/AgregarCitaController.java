@@ -38,7 +38,7 @@ public class AgregarCitaController implements ActionListener {
     private JEditorPane campoDescrip;
 
     /**
-     *
+     * Constructor del controller con parametros
      * @param consultorioBox
      * @param campoDescrip
      * @param view
@@ -50,13 +50,12 @@ public class AgregarCitaController implements ActionListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override
     public void actionPerformed(ActionEvent e) {
         String aux = (String) consultorioBox.getSelectedItem();
-
         switch (e.getActionCommand()) {
             case "clicSeleccion":
                 if ("Hospital CIMA".equals(aux)) {

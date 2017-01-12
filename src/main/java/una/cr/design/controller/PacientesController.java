@@ -44,10 +44,10 @@ import una.cr.design.service.PacientesService;
 public class PacientesController implements ActionListener, KeyListener {
 
     private JTextField searchTermTextField = new JTextField(26);
-    private DefaultTableModel tableModel;
-    private Object[][] pacientes;
-    private PacientesView view;
-    private PacientesService pacientesService;
+    private final DefaultTableModel tableModel;
+    private final Object[][] pacientes;
+    private final PacientesView view;
+    private final PacientesService pacientesService;
 
     /**
      * Constructor del controller con parametros
@@ -72,7 +72,7 @@ public class PacientesController implements ActionListener, KeyListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override
@@ -148,7 +148,7 @@ public class PacientesController implements ActionListener, KeyListener {
     }
 
     /**
-     *
+     * Realiza la busqueda luego de presionar una tecla
      * @param e
      */
     @Override

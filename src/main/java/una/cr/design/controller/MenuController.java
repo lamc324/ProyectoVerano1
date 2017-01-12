@@ -39,7 +39,7 @@ import una.cr.design.patterns.view.PacientesView;
  */
 public class MenuController implements ActionListener {
 
-    private MenuView view;
+    private final MenuView view;
 
     /**
      * Constructor del controller con parametro del view
@@ -56,7 +56,7 @@ public class MenuController implements ActionListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override
@@ -81,9 +81,7 @@ public class MenuController implements ActionListener {
                     viewCitas.setVisible(true);
                 } catch (JsonMappingException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ParseException ex) {
+                } catch (IOException | ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 }
 
@@ -95,9 +93,7 @@ public class MenuController implements ActionListener {
                     viewConsultorio.setVisible(true);
                 } catch (JsonMappingException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ParseException ex) {
+                } catch (IOException | ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 System.out.println("Consultorio");

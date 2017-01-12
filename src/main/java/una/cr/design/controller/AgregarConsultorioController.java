@@ -38,7 +38,7 @@ public class AgregarConsultorioController implements ActionListener {
     private AgregarConsultorioView view;
 
     /**
-     *
+     * Constructor del controller con parametros
      * @param nombre
      * @param fechaAtencion
      * @param telefonoContacto
@@ -65,7 +65,7 @@ public class AgregarConsultorioController implements ActionListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override

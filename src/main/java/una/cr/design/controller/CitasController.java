@@ -43,10 +43,10 @@ public class CitasController implements ActionListener {
     private final DefaultTableModel tableModel;
     private final CitaService citaService;
     private final Object[][] cita;
-    private CitasView view;
+    private final CitasView view;
 
     /**
-     *
+     * Constructor del controller con parametros
      * @param consultorioBox
      * @param tableModel
      * @param view
@@ -73,7 +73,7 @@ public class CitasController implements ActionListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override

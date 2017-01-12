@@ -45,7 +45,7 @@ public class AgregarPacienteController implements ActionListener {
     private AgregarPacienteView view;
 
     /**
-     *
+     * Constructor del controller con parametros
      * @param id
      * @param nombre
      * @param telefono
@@ -92,7 +92,6 @@ public class AgregarPacienteController implements ActionListener {
 
     /**
      * Crea un paciente y lo retorna
-     *
      * @return p
      */
     public Paciente asignaPaciente() {
@@ -110,7 +109,7 @@ public class AgregarPacienteController implements ActionListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param ae
      */
     @Override

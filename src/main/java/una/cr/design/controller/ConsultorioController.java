@@ -71,7 +71,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
     }
 
     /**
-     *
+     * Obtiene el actionCommand del evento e implementa una accion especifica
      * @param e
      */
     @Override
