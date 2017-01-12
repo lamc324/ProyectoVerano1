@@ -60,8 +60,19 @@ public class AgregarPacienteView extends JFrame {
     public AgregarPacienteView() {
         super("Agregar Paciente");
 
+        id.setName("id");
+        nombre.setName("nombre");
+        telefono.setName("telefono");
+        direccion.setName("direccion");
+        fechaNac.setName("fechaNac");
+        enfermedades.setName("enfermedades");
+        observaciones.setName("observaciones");
+        siguiente.setName("siguiente");
+        cancelar.setName("cancelar");
+        
         // Crea y llena el panel
         JPanel stringPane = new JPanel();
+        stringPane.setName("stringPane");
         stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
         stringPane.add(idLabel);
         stringPane.add(id);
@@ -79,10 +90,12 @@ public class AgregarPacienteView extends JFrame {
         //stringPane.add(observaciones);
 
         JPanel buttonPane = new JPanel();
+        buttonPane.setName("buttonPane");
         buttonPane.add(cancelar);
         buttonPane.add(siguiente);
 
         JPanel controlPane = new JPanel();
+        controlPane.setName("controlPane");
         controlPane.add(stringPane);
         controlPane.add(observaciones);
         controlPane.add(buttonPane);

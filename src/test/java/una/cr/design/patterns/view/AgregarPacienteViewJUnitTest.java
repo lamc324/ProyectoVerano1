@@ -13,7 +13,7 @@ import una.cr.design.patterns.view.AgregarPacienteView;
 
 /**
  *
- * @author Usuario
+ * @author Grupo Tango
  */
 public class AgregarPacienteViewJUnitTest {
 
@@ -21,82 +21,55 @@ public class AgregarPacienteViewJUnitTest {
     }
 
     private FrameFixture window;
-    private JPanelFixture ctrlPanel1;
-    private JPanelFixture ctrlPanel2;
+    private JPanelFixture stringPane;
+    private JPanelFixture buttonPane;
+    private JPanelFixture controlPane;
 
     @Before
     public void setUp() {
         AgregarPacienteView view = GuiActionRunner.execute(() -> new AgregarPacienteView());
         window = new FrameFixture(view);
         window.show();
-        ctrlPanel1 = window.panel("ctrlPanel1");
-        ctrlPanel1 = window.panel("ctrlPanel2");
+        stringPane = window.panel("stringPane");
+        buttonPane = window.panel("buttonPane");
+        controlPane = window.panel("controlPane");
     }
 
     @Test
     public void testVisibleComponents() {
-        ctrlPanel1.textBox("id").requireVisible();
-        ctrlPanel1.textBox("nombre").requireVisible();
-        ctrlPanel1.textBox("telefono").requireVisible();
-        ctrlPanel1.textBox("direccion").requireVisible();
-        ctrlPanel1.textBox("fechaNac").requireVisible();
-        ctrlPanel1.textBox("enfermedades").requireVisible();
-        ctrlPanel1.textBox("observaciones").requireVisible();
-        ctrlPanel2.button("cancelar").requireVisible();
-        ctrlPanel2.button("siguiente").requireVisible();
+        stringPane.textBox("id").requireVisible();
+        stringPane.textBox("nombre").requireVisible();
+        stringPane.textBox("telefono").requireVisible();
+        stringPane.textBox("direccion").requireVisible();
+        stringPane.textBox("fechaNac").requireVisible();
+        stringPane.textBox("enfermedades").requireVisible();
+        buttonPane.button("cancelar").requireVisible();
+        buttonPane.button("siguiente").requireVisible();
+        controlPane.textBox("observaciones").requireVisible();
 
     }
 
-//    @Test
-//    public void testTextField() {
-//        String contents[][] = null;
-//        ctrlPanel1.comboBox("box").requireVisible();
-//        ctrlPanel1.button("buscar").requireVisible();
-//        ctrlPanel1.button("agregar").requireVisible();
-//        ctrlPanel2.button("cerrar").requireVisible();
-//        scrollPanel.requireVisible();
-//
-//        ctrlPanel1.comboBox("box").selectItem("Hospital CIMA");
-//        ctrlPanel1.button("buscar").click();
-//
-//    }
-//
-//    @Test
-//    public void testTextField2() {
-//        ctrlPanel1.comboBox("box").requireVisible();
-//        ctrlPanel1.button("buscar").requireVisible();
-//        ctrlPanel1.button("agregar").requireVisible();
-//        ctrlPanel2.button("cerrar").requireVisible();
-//        scrollPanel.requireVisible();
-//
-//        ctrlPanel1.comboBox("box").selectItem("Centro Medico del Este");
-//        ctrlPanel1.button("buscar").click();
-//
-//    }
+    @Test
+    public void testInsertText() {
 
-//    @Test
-//    public void testButton() {
-//        ctrlPanel1.comboBox("box").requireVisible();
-//        ctrlPanel1.button("buscar").requireVisible();
-//        ctrlPanel1.button("agregar").requireVisible();
-//        ctrlPanel2.button("cerrar").requireVisible();
-//        scrollPanel.requireVisible();
-//        mainTable.requireVisible();
-//
-//        ctrlPanel1.button("agregar").click();
-//    }
-//
-//    @Test
-//    public void testButton2() {
-//        ctrlPanel1.comboBox("box").requireVisible();
-//        ctrlPanel1.button("buscar").requireVisible();
-//        ctrlPanel1.button("agregar").requireVisible();
-//        ctrlPanel2.button("cerrar").requireVisible();
-//        scrollPanel.requireVisible();
-//        mainTable.requireVisible();
-//
-//        ctrlPanel2.button("cerrar").click();
-//    }
+        stringPane.textBox("id").enterText("666");
+        stringPane.textBox("nombre").enterText("El Brayan");
+        stringPane.textBox("telefono").enterText("87654321");
+        stringPane.textBox("direccion").enterText("León XIII, Tibás");
+        stringPane.textBox("fechaNac").enterText("1997-11-09");
+        stringPane.textBox("enfermedades").enterText("Daltónico");
+        controlPane.textBox("observaciones").enterText("Bajas defensas, alérgico a los lácteos");
+
+        buttonPane.button("siguiente").click();
+
+    }
+
+    @Test
+    public void testButton() {
+
+        buttonPane.button("cancelar").click();
+
+    }
 
     @After
     public void tearDown() {
