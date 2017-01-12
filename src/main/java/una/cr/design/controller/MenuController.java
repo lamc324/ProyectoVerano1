@@ -104,7 +104,12 @@ public class MenuController implements ActionListener {
             case "clicAyuda":
                 JOptionPane.showMessageDialog(null,
                         "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
-                        + "Escuela de Informática \n2017", "",
+                        + "Escuela de Informática 2017"
+                        +  "\nEstudiantes:"
+                        +  "\nJohn Herrera Jimenez"
+                        +  "\nLuis Alonso Morgan Campos"
+                        +  "\nKevin Venegas Loria"
+                        +  "\nCaleb Villata Quesada","",
                         JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
