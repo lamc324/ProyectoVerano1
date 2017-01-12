@@ -9,6 +9,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.text.ParseException;
 import javax.swing.JOptionPane;
@@ -23,7 +25,7 @@ import una.cr.design.service.ConsultorioService;
  *
  * @author venegas97k
  */
-public class ConsultorioController implements ActionListener {
+public class ConsultorioController implements ActionListener, KeyListener {
 
     JTextField searchTermTextField;
     DefaultTableModel tableModel;
@@ -73,8 +75,7 @@ public class ConsultorioController implements ActionListener {
             Object[][] newData = new Object[consultorios.length][];
             int idx = 0;
             for (Object[] obj : consultorios) {
-                String fullText = obj[0].toString() + obj[1].toString()
-                        + obj[2].toString() + obj[3].toString();
+                String fullText = obj[0].toString().toLowerCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;
@@ -83,9 +84,29 @@ public class ConsultorioController implements ActionListener {
             tableModel.setDataVector(newData, Constants.CONSULTORIOS_TABLE_HEADER);
         } else {
             JOptionPane.showMessageDialog(null,
-                    "Search term is empty", "Error",
+                    "El campo de búsqueda esta vacío", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(consultorios, Constants.CONSULTORIOS_TABLE_HEADER);
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        String keyReleased = searchTermTextField.getText().toLowerCase();
+        if (!"".equals(keyReleased)) {
+            updateTableSearchTerms(keyReleased);
+        } else {
+            updateTableSearchTerms(" ");
         }
     }
 

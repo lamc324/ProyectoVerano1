@@ -36,7 +36,7 @@ public class PacientesView extends JFrame {
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     JTextField searchTermTextField = new JTextField(26);
-    JButton buscarButton = new JButton("Buscar", imagenBuscar);
+    JButton buscarButton = new JButton("Búsqueda", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
@@ -100,6 +100,7 @@ public class PacientesView extends JFrame {
         eliminarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
+        searchTermTextField.addKeyListener(controller);
     }
 
 }

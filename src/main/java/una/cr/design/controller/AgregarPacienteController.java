@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import una.cr.design.model.Paciente;
+import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.AgregarPacienteView;
 
 /**
@@ -26,6 +27,7 @@ public class AgregarPacienteController implements ActionListener {
     private JTextField fechaNac;
     private JTextField enfermedades;
     private JTextArea observaciones;
+    private JTextField[] informacion;
     private AgregarPacienteView view;
 
     public AgregarPacienteController(
@@ -47,48 +49,60 @@ public class AgregarPacienteController implements ActionListener {
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
         this.view = view;
+        this.informacion = new JTextField[6];
+    }
+
+    public JTextField[] getInfoPaciente() {
+        informacion[0] = id;
+        informacion[1] = nombre;
+        informacion[2] = telefono;
+        informacion[3] = direccion;
+        informacion[4] = fechaNac;
+        informacion[5] = enfermedades;
+        return informacion;
+    }
+
+    public Paciente asignaPaciente() {
+        Paciente p = new Paciente();
+        p.setId(id.getText());
+        p.setNombre(nombre.getText());
+        p.setTelefono(telefono.getText());
+        p.setDireccion(direccion.getText());
+        p.setFechaNacimiento(fechaNac.getText());
+
+        String txt = enfermedades.getText();
+        String[] arrayTxt = txt.split(",");
+
+        p.setEnfermedades(arrayTxt);
+        p.setObservaciones(observaciones.getText());
+        return p;
     }
 
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()) {
-            case "clicAceptar":
-                Paciente p = new Paciente();
-                p.setId(id.getText());
-                p.setNombre(nombre.getText());
-                p.setTelefono(telefono.getText());
-                p.setDireccion(direccion.getText());
-                p.setFechaNacimiento(fechaNac.getText());
-                
-                String txt = enfermedades.getText();
-                String[] arrayTxt = txt.split(",");
-                
-                p.setEnfermedades(arrayTxt);
-                p.setObservaciones(observaciones.getText());
-                
-                
-                
-//                JSONObject obj = new JSONObject();
-//		obj.put("Name", "crunchify.com");
-//		obj.put("Author", "App Shah");
-// 
-//		JSONArray company = new JSONArray();
-//		company.add("Compnay: eBay");
-//		company.add("Compnay: Paypal");
-//		company.add("Compnay: Google");
-//		obj.put("Company List", company);
-// 
-//		// try-with-resources statement based on post comment below :)
-//		try (FileWriter file = new FileWriter("/Users/<username>/Documents/file1.txt")) {
-//			file.write(obj.toJSONString());
-//			System.out.println("Successfully Copied JSON Object to File...");
-//			System.out.println("\nJSON Object: " + obj);
-//		}
-                
-                
-                
-                JOptionPane.showMessageDialog(view, "Paciente Agregado", "", JOptionPane.INFORMATION_MESSAGE);
+            case "clicSiguiente":
+                informacion = getInfoPaciente();
+                boolean caseNull = false;
+
+                for (JTextField t : informacion) {
+                    if ("".equals(t.getText())) {
+                        JOptionPane.showMessageDialog(view, "Por favor, "
+                                + "rellene todos los campos para continuar", "Error", JOptionPane.ERROR_MESSAGE);
+                        caseNull = true;
+                        break;
+                    }
+                }
+
+                if (caseNull == true) {
+                    break;
+                }
+
+                Paciente p = asignaPaciente();
+
                 view.setVisible(false);
+                AgregarCitaView viewAgregarCita = new AgregarCitaView();
+                viewAgregarCita.setVisible(true);
                 System.out.println(p.toString());
                 break;
             case "clicCancelar":

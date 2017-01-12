@@ -31,7 +31,7 @@ public class AgregarPacienteView extends JFrame {
     JLabel fechaLabel = new JLabel("Fecha Nacimiento: ");
     JLabel EnfermLabel = new JLabel("Enfermedades Asociadas: ");
     JLabel ObvsLabel = new JLabel("Observaciones: ");
-    JButton aceptar = new JButton("Aceptar");
+    JButton siguiente = new JButton("Siguiente");
     JButton cancelar = new JButton("Cancelar");
 
     public AgregarPacienteView() {
@@ -56,8 +56,8 @@ public class AgregarPacienteView extends JFrame {
         stringPane.add(observaciones);
 
         JPanel buttonPane = new JPanel();
-        buttonPane.add(aceptar);
         buttonPane.add(cancelar);
+        buttonPane.add(siguiente);
 
         JPanel controlPane = new JPanel();
         controlPane.add(stringPane);
@@ -70,10 +70,10 @@ public class AgregarPacienteView extends JFrame {
 
         // Create controller
         AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
-        aceptar.setActionCommand("clicAceptar");
-        aceptar.addActionListener(controller);
         cancelar.setActionCommand("clicCancelar");
         cancelar.addActionListener(controller);
+        siguiente.setActionCommand("clicSiguiente");
+        siguiente.addActionListener(controller);
 
         /*frame.*/
         pack();

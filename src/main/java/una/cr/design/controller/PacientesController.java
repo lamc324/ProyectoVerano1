@@ -9,6 +9,8 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -22,7 +24,7 @@ import una.cr.design.service.PacientesService;
  *
  * @author John
  */
-public class PacientesController implements ActionListener {
+public class PacientesController implements ActionListener, KeyListener {
 
     private JTextField searchTermTextField = new JTextField(26);
     private DefaultTableModel tableModel;
@@ -74,9 +76,7 @@ public class PacientesController implements ActionListener {
             Object[][] newData = new Object[pacientes.length][];
             int idx = 0;
             for (Object[] obj : pacientes) {
-                String fullText = obj[0].toString() + obj[1].toString()
-                        + obj[2].toString() + obj[3].toString() + obj[4].toString() + obj[5].toString()
-                        + obj[6].toString();
+                String fullText = obj[1].toString().toLowerCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;
@@ -88,6 +88,27 @@ public class PacientesController implements ActionListener {
                     "El campo de búsqueda esta vacío", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
+        }
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+       
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        String keyReleased = searchTermTextField.getText().toLowerCase();
+        if (!"".equals(keyReleased)) {
+            updateTableSearchTerms(keyReleased);
+        }
+        else{
+            updateTableSearchTerms(" ");
         }
     }
 }

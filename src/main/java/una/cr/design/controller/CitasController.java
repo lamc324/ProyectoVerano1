@@ -10,7 +10,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import una.cr.design.icons.Constants;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.text.ParseException;
 import javax.swing.JComboBox;

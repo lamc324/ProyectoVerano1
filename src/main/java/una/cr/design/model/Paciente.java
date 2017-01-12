@@ -2,7 +2,6 @@ package una.cr.design.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
-import java.util.Arrays;
 
 public class Paciente implements Serializable {
 

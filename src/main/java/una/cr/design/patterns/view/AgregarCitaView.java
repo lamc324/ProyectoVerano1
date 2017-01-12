@@ -6,10 +6,10 @@ import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 import una.cr.design.controller.AgregarCitaController;
 
@@ -23,7 +23,7 @@ public class AgregarCitaView extends JFrame {
         "Centro Medico del Este\nHorario de Atencion:\nJueves y Viernes de 8 am a 6 pm"};
     JComboBox horaBox = new JComboBox();
     JComboBox consultorioBox = new JComboBox();
-    JTextArea campoDescrip = new JTextArea();
+    JEditorPane campoDescrip = new JEditorPane();
     JButton atras = new JButton("Atras");
     JButton terminar = new JButton("Terminar");
 
@@ -57,7 +57,7 @@ public class AgregarCitaView extends JFrame {
         ctrlPane2.add(atras);
         ctrlPane2.add(terminar);
         ctrlPane2_1.add(ctrlPane2);
-        
+
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane_1);
         ctrlPane3.add(ctrlPane2_1);
@@ -68,10 +68,12 @@ public class AgregarCitaView extends JFrame {
         setVisible(true);
         
         //Controller        
-        AgregarCitaController controller = new AgregarCitaController(this);
+        AgregarCitaController controller = new AgregarCitaController(consultorioBox, campoDescrip, this);
         atras.setActionCommand("clicAtras");
         atras.addActionListener(controller);
         terminar.setActionCommand("clicTerminar");
-        terminar.addActionListener(controller);                
+        terminar.addActionListener(controller);
+        consultorioBox.setActionCommand("clicSeleccion");
+        consultorioBox.addActionListener(controller);
     }
 }

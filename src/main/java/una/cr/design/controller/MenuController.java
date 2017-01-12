@@ -80,7 +80,8 @@ public class MenuController implements ActionListener {
                 break;
             case "clicAyuda":
                  JOptionPane.showMessageDialog(null,
-                    "Proximamente Papus", "",
+                    "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
+                            + "Escuela de Informática \n2016", "",
                     JOptionPane.INFORMATION_MESSAGE);
                 break;
         }

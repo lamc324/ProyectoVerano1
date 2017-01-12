@@ -36,7 +36,7 @@ public class AgregarConsultorioView extends JFrame {
         //Create and populate the panel.
         JPanel stringPane = new JPanel();
         stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
-        
+
         stringPane.add(nombreLabel);
         stringPane.add(nombre);
         stringPane.add(horarioLabel);
@@ -45,8 +45,8 @@ public class AgregarConsultorioView extends JFrame {
         stringPane.add(telefonoContacto);
 
         JPanel buttonPane = new JPanel();
-        buttonPane.add(aceptar);
         buttonPane.add(cancelar);
+        buttonPane.add(aceptar);
 
         JPanel controlPane = new JPanel();
         controlPane.add(stringPane);
@@ -65,7 +65,8 @@ public class AgregarConsultorioView extends JFrame {
         setVisible(true);
 
         //Controller        
-        AgregarConsultorioController controller = new AgregarConsultorioController(this);
+        AgregarConsultorioController controller = new AgregarConsultorioController(nombre, fechaAtencion,
+                telefonoContacto, this);
         aceptar.setActionCommand("clicAceptar");
         aceptar.addActionListener(controller);
         cancelar.setActionCommand("clicCancelar");
