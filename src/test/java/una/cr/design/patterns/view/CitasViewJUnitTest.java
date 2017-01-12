@@ -69,15 +69,15 @@ public class CitasViewJUnitTest {
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
-        
+
         ctrlPanel1.comboBox("box").selectItem("Hospital CIMA");
         ctrlPanel1.button("buscar").click();
-        
+
         contents = mainTable.contents();
         assertEquals(contents[0][1], "Hospital CIMA");
-       
+
     }
-    
+
     /**
      *
      */
@@ -90,13 +90,37 @@ public class CitasViewJUnitTest {
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
-        
+
         ctrlPanel1.comboBox("box").selectItem("Centro Medico del Este");
         ctrlPanel1.button("buscar").click();
-        
+
         contents = mainTable.contents();
         assertEquals(contents[0][1], "Centro Medico del Este");
         assertEquals(contents[1][1], "Centro Medico del Este");
+    }
+
+    @Test
+    public void testButton() {
+        ctrlPanel1.comboBox("box").requireVisible();
+        ctrlPanel1.button("buscar").requireVisible();
+        ctrlPanel1.button("agregar").requireVisible();
+        ctrlPanel2.button("cerrar").requireVisible();
+        scrollPanel.requireVisible();
+        mainTable.requireVisible();
+
+        ctrlPanel1.button("agregar").click();
+    }
+
+    @Test
+    public void testButton2() {
+        ctrlPanel1.comboBox("box").requireVisible();
+        ctrlPanel1.button("buscar").requireVisible();
+        ctrlPanel1.button("agregar").requireVisible();
+        ctrlPanel2.button("cerrar").requireVisible();
+        scrollPanel.requireVisible();
+        mainTable.requireVisible();
+
+        ctrlPanel2.button("cerrar").click();
     }
 
     /**
