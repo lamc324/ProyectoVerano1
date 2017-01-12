@@ -109,7 +109,8 @@ public class MenuController implements ActionListener {
                         +  "\nJohn Herrera Jimenez"
                         +  "\nLuis Alonso Morgan Campos"
                         +  "\nKevin Venegas Loria"
-                        +  "\nCaleb Villata Quesada","",
+                        +  "\nCaleb Villata Quesada"
+                        +  "\nJose David Matamoros Trejos","",
                         JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
