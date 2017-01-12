@@ -4,12 +4,9 @@ import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JPanelFixture;
 import org.assertj.swing.fixture.JScrollPaneFixture;
-import org.assertj.swing.fixture.JTableFixture;
 import org.junit.After;
-import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
-import una.cr.design.patterns.view.AgregarCitaView;
 
 /**
  *

@@ -4,18 +4,15 @@ import org.assertj.swing.edt.GuiActionRunner;
 import org.assertj.swing.fixture.FrameFixture;
 import org.assertj.swing.fixture.JPanelFixture;
 import org.assertj.swing.fixture.JScrollPaneFixture;
-import org.assertj.swing.fixture.JSplitPaneFixture;
 import org.assertj.swing.fixture.JTableFixture;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author luism
+ * @author Grupo Tango
  */
 public class PacientesViewJUnitTest {
 

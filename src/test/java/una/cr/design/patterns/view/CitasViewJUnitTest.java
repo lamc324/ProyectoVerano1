@@ -12,7 +12,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author luism
+ * @author Grupo Tango
  */
 public class CitasViewJUnitTest {
 

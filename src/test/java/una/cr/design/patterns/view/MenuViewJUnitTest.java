@@ -9,10 +9,8 @@ import org.junit.Test;
 
 /**
  *
- * @author luism
+ * @author Grupo Tango
  */
-
-
 public class MenuViewJUnitTest {
     
     private FrameFixture window;
