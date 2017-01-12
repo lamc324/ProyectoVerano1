@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -35,7 +35,7 @@ import una.cr.design.service.CitaService;
 
 /**
  *
- * @author Usuario
+ * @author Grupo Tango
  */
 public class CitasController implements ActionListener {
 
@@ -45,6 +45,16 @@ public class CitasController implements ActionListener {
     private final Object[][] cita;
     private CitasView view;
 
+    /**
+     *
+     * @param consultorioBox
+     * @param tableModel
+     * @param view
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
     public CitasController(JComboBox consultorioBox,
             DefaultTableModel tableModel, CitasView view) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
@@ -62,6 +72,10 @@ public class CitasController implements ActionListener {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -85,6 +99,7 @@ public class CitasController implements ActionListener {
 
     }
 
+    //Actualiza la tabla conforme a la busqueda
     private void updateTableSearchTerms(String searchTerm) {
         if (searchTerm != null && !"".equals(searchTerm)
                 && cita != null && cita.length >= 1) {

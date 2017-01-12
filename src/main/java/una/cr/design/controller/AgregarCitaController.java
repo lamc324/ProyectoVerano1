@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -29,7 +29,7 @@ import una.cr.design.patterns.view.AgregarPacienteView;
 
 /**
  *
- * @author VQ-Caleb
+ * @author Grupo Tango
  */
 public class AgregarCitaController implements ActionListener {
 
@@ -37,12 +37,22 @@ public class AgregarCitaController implements ActionListener {
     private JComboBox consultorioBox;
     private JEditorPane campoDescrip;
 
+    /**
+     *
+     * @param consultorioBox
+     * @param campoDescrip
+     * @param view
+     */
     public AgregarCitaController(JComboBox consultorioBox, JEditorPane campoDescrip, AgregarCitaView view) {
         this.consultorioBox = consultorioBox;
         this.campoDescrip = campoDescrip;
         this.view = view;
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         String aux = (String) consultorioBox.getSelectedItem();

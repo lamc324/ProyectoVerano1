@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.service;
 
@@ -30,12 +30,18 @@ import una.cr.design.icons.Constants;
 
 /**
  *
- * @author John
+ * @author Grupo Tango
  */
-
-
 public class ConsultorioService {
-      public Object[][] loadConsultorioObjWrapper() throws JsonGenerationException,
+
+    /**
+     * Carga el .JSON y envia un wrapper de los objetos
+     * @return data
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
+    public Object[][] loadConsultorioObjWrapper() throws JsonGenerationException,
             JsonMappingException, IOException {
         Consultorio[] consultorio = cargarConsultoriosDeArchivo();
         Object[][] data = null;
@@ -51,22 +57,18 @@ public class ConsultorioService {
                 i++;
             }
         }
-
         return data;
     }
 
-private Consultorio[] cargarConsultoriosDeArchivo() throws JsonGenerationException,
-            JsonMappingException, IOException {
-
+    private Consultorio[] cargarConsultoriosDeArchivo() throws JsonGenerationException, JsonMappingException, IOException {
         Consultorio[] consultorios = null;
         ObjectMapper mapper = new ObjectMapper();
-        
         // Ignora los atributos desconocidos que estan en el archivo .JSON
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         consultorios = mapper.readValue(new File(Constants.CONSULTORIOS_FILENAME), Consultorio[].class);
-
         return consultorios;
     }
+
     private String checkIfNull(Object obj) {
         String text;
         if (obj == null) {

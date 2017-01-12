@@ -16,6 +16,9 @@ import static org.junit.Assert.*;
  */
 public class CitasViewJUnitTest {
 
+    /**
+     *
+     */
     public CitasViewJUnitTest() {
     }
 
@@ -26,6 +29,9 @@ public class CitasViewJUnitTest {
     private JScrollPaneFixture scrollPanel;
     private JTableFixture mainTable;
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         CitasView view = GuiActionRunner.execute(() -> new CitasView());
@@ -38,6 +44,9 @@ public class CitasViewJUnitTest {
         mainTable = window.table("mainTable");
     }
 
+    /**
+     *
+     */
     @Test
     public void testVisibleComponents() {
         ctrlPanel1.comboBox("box").requireVisible();
@@ -48,6 +57,9 @@ public class CitasViewJUnitTest {
         mainTable.requireVisible();
     }
 
+    /**
+     *
+     */
     @Test
     public void testTextField() {
         String contents[][] = null;
@@ -66,6 +78,9 @@ public class CitasViewJUnitTest {
        
     }
     
+    /**
+     *
+     */
     @Test
     public void testTextField2() {
         String contents[][] = null;
@@ -84,6 +99,9 @@ public class CitasViewJUnitTest {
         assertEquals(contents[1][1], "Centro Medico del Este");
     }
 
+    /**
+     *
+     */
     @After
     public void tearDown() {
         window.cleanUp();

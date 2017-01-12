@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -32,10 +32,13 @@ import javax.swing.JScrollPane;
 import javax.swing.border.TitledBorder;
 import una.cr.design.controller.AgregarCitaController;
 
+/**
+ *
+ * @author Grupo Tango
+ */
 public class AgregarCitaView extends JFrame {
-    
 
-    String[] consultorios = {"Elegir Consultorio de preferencia: ","Hospital CIMA", "Centro Medico del Este"};
+    String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     String[] horas = {"Elegir hora de atencion: ", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30",
         "11:00", "11:30", "12:00"};
     String[] descripConsultorios = {"Hospital CIMA\nHorario de Atencion:\nLunes y Martes de 8 am a 8 pm",
@@ -46,6 +49,9 @@ public class AgregarCitaView extends JFrame {
     JButton atras = new JButton("Atras");
     JButton terminar = new JButton("Terminar");
 
+    /**
+     * Constructor del view
+     */
     public AgregarCitaView() {
         super("Agregar Cita");
         setSize(500, 360);
@@ -54,8 +60,7 @@ public class AgregarCitaView extends JFrame {
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane2_1 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-        
-        
+
         ctrlPane.setLayout(new BorderLayout());
         for (int i = 0; i < consultorios.length; i++) {
             consultorioBox.addItem(consultorios[i]);
@@ -63,13 +68,13 @@ public class AgregarCitaView extends JFrame {
         for (int i = 0; i < horas.length; i++) {
             horaBox.addItem(horas[i]);
         }
-        
+
         JScrollPane tableScrollPane = new JScrollPane(campoDescrip);
         tableScrollPane.setName("scrollTablePaneStudent");
         tableScrollPane.setPreferredSize(new Dimension(400, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Descripcion del Consultorio: ",
                 TitledBorder.CENTER, TitledBorder.TOP));
-        
+
         ctrlPane.add(BorderLayout.NORTH, consultorioBox);
         ctrlPane.add(BorderLayout.CENTER, tableScrollPane);
         ctrlPane_1.add(ctrlPane);
@@ -81,8 +86,8 @@ public class AgregarCitaView extends JFrame {
         ctrlPane3.add(ctrlPane_1);
         ctrlPane3.add(ctrlPane2_1);
         add(ctrlPane3);
-
-        this.setMinimumSize(new Dimension(500, 250)); 
+        
+        this.setMinimumSize(new Dimension(500, 250));
         setLocationRelativeTo(null);
         setVisible(true);
         

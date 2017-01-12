@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -39,7 +39,7 @@ import una.cr.design.service.PacientesService;
 
 /**
  *
- * @author John
+ * @author Grupo Tango
  */
 public class PacientesController implements ActionListener, KeyListener {
 
@@ -49,6 +49,15 @@ public class PacientesController implements ActionListener, KeyListener {
     private PacientesView view;
     private PacientesService pacientesService;
 
+    /**
+     * Constructor del controller con parametros
+     * @param searchTermTextField
+     * @param view
+     * @param tableModel
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
     public PacientesController(JTextField searchTermTextField, PacientesView view,
             DefaultTableModel tableModel) throws JsonGenerationException,
             JsonMappingException, IOException {
@@ -62,9 +71,12 @@ public class PacientesController implements ActionListener, KeyListener {
         tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-
         switch (e.getActionCommand()) {
             case "clicBuscar":
                 String searchTerm = searchTermTextField.getText();
@@ -93,6 +105,7 @@ public class PacientesController implements ActionListener, KeyListener {
         }
     }
 
+    //Actualiza la tabla conforme a la busqueda
     private void updateTableSearchTerms(String searchTerm) {
         if (searchTerm != null && !"".equals(searchTerm)
                 && pacientes != null && pacientes.length >= 1) {
@@ -116,16 +129,28 @@ public class PacientesController implements ActionListener, KeyListener {
         }
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         String keyReleased = searchTermTextField.getText().toLowerCase();

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -27,7 +27,7 @@ import una.cr.design.patterns.view.AgregarConsultorioView;
 
 /**
  *
- * @author VQ-Caleb
+ * @author Grupo Tango
  */
 public class AgregarConsultorioController implements ActionListener {
 
@@ -37,6 +37,13 @@ public class AgregarConsultorioController implements ActionListener {
     private JTextField[] informacion;
     private AgregarConsultorioView view;
 
+    /**
+     *
+     * @param nombre
+     * @param fechaAtencion
+     * @param telefonoContacto
+     * @param view
+     */
     public AgregarConsultorioController(JTextField nombre, JTextField fechaAtencion,
             JTextField telefonoContacto, AgregarConsultorioView view) {
         this.nombre = nombre;
@@ -46,6 +53,10 @@ public class AgregarConsultorioController implements ActionListener {
         this.informacion = new JTextField[3];
     }
 
+    /**
+     * Retorna la informacion del consultorio
+     * @return informacion
+     */
     public JTextField[] getInfoConsultorio() {
         informacion[0] = nombre;
         informacion[1] = fechaAtencion;
@@ -53,13 +64,16 @@ public class AgregarConsultorioController implements ActionListener {
         return informacion;
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
             case "clicAceptar":
                 informacion = getInfoConsultorio();
                 boolean caseNull = false;
-
                 for (JTextField t : informacion) {
                     if ("".equals(t.getText())) {
                         JOptionPane.showMessageDialog(view, "Por favor, "
@@ -68,7 +82,6 @@ public class AgregarConsultorioController implements ActionListener {
                         break;
                     }
                 }
-
                 if (caseNull == true) {
                     break;
                 }

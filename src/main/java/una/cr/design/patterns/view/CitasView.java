@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -40,14 +40,14 @@ import una.cr.design.controller.CitasController;
 
 /**
  *
- * @author John
+ * @author Grupo Tango
  */
 public class CitasView extends JFrame {
-    
+
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
-    
+
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
@@ -55,7 +55,15 @@ public class CitasView extends JFrame {
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
-    
+
+    /**
+     * Constructor del view
+     *
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
     public CitasView() throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
         super("Citas");
@@ -67,7 +75,7 @@ public class CitasView extends JFrame {
         agregarButton.setName("agregar");
         cerrarButton.setName("cerrar");
         consultorioBox.setName("box");
-        
+
         for (String consultorio : consultorios) {
             consultorioBox.addItem(consultorio);
         }
@@ -76,11 +84,11 @@ public class CitasView extends JFrame {
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-        
+
         buscarButton.setBackground(Color.WHITE);
         agregarButton.setBackground(Color.WHITE);
         cerrarButton.setBackground(Color.WHITE);
-        
+
         ctrlPane.setName("ctrlPanel1");
         ctrlPane2.setName("ctrlPanel2");
         ctrlPane3.setName("ctrlPanel3");
@@ -88,13 +96,13 @@ public class CitasView extends JFrame {
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
         ctrlPane2.add(cerrarButton);
-        
+
         JScrollPane tableScrollPane = new JScrollPane(table);
         tableScrollPane.setName("scrollTablePane");
         tableScrollPane.setPreferredSize(new Dimension(700, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
-        
+
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane);
         ctrlPane3.add(tableScrollPane);
@@ -103,7 +111,7 @@ public class CitasView extends JFrame {
         // Display it all in a scrolling window and make the window appear
         add(ctrlPane3);
         pack();
-        
+
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(700, 300));
         setVisible(true);
@@ -116,7 +124,5 @@ public class CitasView extends JFrame {
         agregarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
-        
     }
-    
 }

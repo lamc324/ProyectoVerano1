@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -41,7 +41,7 @@ import una.cr.design.controller.ConsultorioController;
 
 /**
  *
- * @author John
+ * @author Grupo Tango
  */
 public class ConsultorioView extends JFrame {
 
@@ -59,8 +59,14 @@ public class ConsultorioView extends JFrame {
     JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
     DefaultTableModel tableModel = new DefaultTableModel();
 
-    public ConsultorioView() throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException {
+    /**
+     * Constructor del view
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
+    public ConsultorioView() throws JsonGenerationException, JsonMappingException, IOException, ParseException {
 
         super("Consultorios");
 
@@ -77,7 +83,7 @@ public class ConsultorioView extends JFrame {
         agregarButton.setBackground(Color.WHITE);
         eliminarButton.setBackground(Color.WHITE);
         cerrarButton.setBackground(Color.WHITE);
-        
+
         ctrlPane.setName("ctrlPanel");
         ctrlPane.add(nombreLabel);
         ctrlPane.add(searchTermTextField);

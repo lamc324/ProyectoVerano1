@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -33,20 +33,23 @@ import una.cr.design.controller.EliminarPacienteController;
 
 /**
  *
- * @author luism
+ * @author Grupo Tango
  */
+public class EliminarPacienteView extends JFrame {
 
-
-public class EliminarPacienteView extends JFrame{
-    
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Búsqueda");
     JButton cerrarButton = new JButton("Cerrar");
     JLabel nombreLabel = new JLabel("Busqueda por ID o Nombre Completo:");
-    
-    public EliminarPacienteView() throws JsonGenerationException,
-            JsonMappingException, IOException {
-        
+
+    /**
+     * Constructor del view
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
+    public EliminarPacienteView() throws JsonGenerationException, JsonMappingException, IOException {
+
         super("Eliminar Paciente");
 
         // Create table model
@@ -54,12 +57,12 @@ public class EliminarPacienteView extends JFrame{
         buscarButton.setName("buscar");
         cerrarButton.setName("cerrar");
         nombreLabel.setName("label");
-    
+
         // Set the view layout
         JPanel ctrlPane = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-        
+
         ctrlPane.setName("ctrlPanel1");
         ctrlPane2.setName("ctrlPanel2");
         ctrlPane3.setName("ctrlPanel3");

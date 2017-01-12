@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -30,7 +30,7 @@ import una.cr.design.patterns.view.AgregarPacienteView;
 
 /**
  *
- * @author venegas97k
+ * @author Grupo Tango
  */
 public class AgregarPacienteController implements ActionListener {
 
@@ -44,6 +44,17 @@ public class AgregarPacienteController implements ActionListener {
     private JTextField[] informacion;
     private AgregarPacienteView view;
 
+    /**
+     *
+     * @param id
+     * @param nombre
+     * @param telefono
+     * @param direccion
+     * @param fechaNac
+     * @param enfermedades
+     * @param observaciones
+     * @param view
+     */
     public AgregarPacienteController(
             JTextField id,
             JTextField nombre,
@@ -66,6 +77,10 @@ public class AgregarPacienteController implements ActionListener {
         this.informacion = new JTextField[5];
     }
 
+    /**
+     *
+     * @return informacion
+     */
     public JTextField[] getInfoPaciente() {
         informacion[0] = id;
         informacion[1] = nombre;
@@ -75,6 +90,11 @@ public class AgregarPacienteController implements ActionListener {
         return informacion;
     }
 
+    /**
+     * Crea un paciente y lo retorna
+     *
+     * @return p
+     */
     public Paciente asignaPaciente() {
         Paciente p = new Paciente();
         p.setId(id.getText());
@@ -82,22 +102,23 @@ public class AgregarPacienteController implements ActionListener {
         p.setTelefono(telefono.getText());
         p.setDireccion(direccion.getText());
         p.setFechaNacimiento(fechaNac.getText());
-
         String txt = enfermedades.getText();
         String[] arrayTxt = txt.split(",");
-
         p.setEnfermedades(arrayTxt);
         p.setObservaciones(observaciones.getText());
         return p;
     }
 
+    /**
+     *
+     * @param ae
+     */
     @Override
     public void actionPerformed(ActionEvent ae) {
         switch (ae.getActionCommand()) {
             case "clicSiguiente":
                 informacion = getInfoPaciente();
                 boolean caseNull = false;
-
                 for (JTextField t : informacion) {
                     if ("".equals(t.getText())) {
                         JOptionPane.showMessageDialog(view, "Por favor, "
@@ -106,13 +127,10 @@ public class AgregarPacienteController implements ActionListener {
                         break;
                     }
                 }
-
                 if (caseNull == true) {
                     break;
                 }
-
                 Paciente p = asignaPaciente();
-
                 view.setVisible(false);
                 AgregarCitaView viewAgregarCita = new AgregarCitaView();
                 viewAgregarCita.setVisible(true);

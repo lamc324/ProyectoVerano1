@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.service;
 
@@ -28,30 +28,29 @@ import java.io.IOException;
 import una.cr.design.icons.Constants;
 import una.cr.design.model.Paciente;
 
-
+/**
+ *
+ * @author venegas97k
+ */
 public class PacientesService {
 
     /**
      * Constructor sin parametros.
-     * 
+     *
      */
     public PacientesService() {
     }
 
     /**
-     * Wrapper que recupera del archivo
-     * la lista de personas.
-     *
-     * @return
+     * Carga el .JSON y envia un wrapper de los objetos
+     * @return data
      * @throws JsonGenerationException
      * @throws JsonMappingException
      * @throws IOException
      */
-    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException,
-            JsonMappingException, IOException {
+    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException, JsonMappingException, IOException {
         Paciente[] pacientes = cargarPacientesDeArchivo();
         Object[][] data = null;
-
         if (pacientes != null && pacientes.length > 0) {
             data = new Object[pacientes.length][7]; // Filas y Columnas
             int i = 0;
@@ -66,20 +65,15 @@ public class PacientesService {
                 i++;
             }
         }
-
         return data;
     }
 
-    private Paciente[] cargarPacientesDeArchivo() throws JsonGenerationException,
-            JsonMappingException, IOException {
-
+    private Paciente[] cargarPacientesDeArchivo() throws JsonGenerationException, JsonMappingException, IOException {
         Paciente[] pacientes = null;
         ObjectMapper mapper = new ObjectMapper();
-        
         // Ignora los atributos desconocidos que estan en el archivo .JSON
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         pacientes = mapper.readValue(new File(Constants.PACIENTES_FILENAME), Paciente[].class);
-
         return pacientes;
     }
 

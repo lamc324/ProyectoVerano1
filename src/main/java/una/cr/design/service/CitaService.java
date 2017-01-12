@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.service;
 
@@ -30,25 +30,20 @@ import una.cr.design.model.Cita;
 
 /**
  *
- * @author John
+ * @author Grupo Tango
  */
-
-
 public class CitaService {
-    
+
     /**
      * Carga el .JSON y envia un wrapper de los objetos
-     *
-     * @return 
+     * @return data
      * @throws JsonGenerationException
      * @throws JsonMappingException
      * @throws IOException
      */
-    public Object[][] loadCitaObjWrapper() throws JsonGenerationException,
-            JsonMappingException, IOException {
+    public Object[][] loadCitaObjWrapper() throws JsonGenerationException, JsonMappingException, IOException {
         Cita[] cita = cargarCitasDeArchivo();
         Object[][] data = null;
-
         if (cita != null && cita.length > 0) {
             data = new Object[cita.length][4]; // filas y columnas
             int i = 0;
@@ -60,20 +55,15 @@ public class CitaService {
                 i++;
             }
         }
-
         return data;
     }
 
-private Cita[] cargarCitasDeArchivo() throws JsonGenerationException,
-            JsonMappingException, IOException {
-
+    private Cita[] cargarCitasDeArchivo() throws JsonGenerationException, JsonMappingException, IOException {
         Cita[] citas = null;
         ObjectMapper mapper = new ObjectMapper();
-        
         // Ignora los atributos desconocidos que estan en el archivo .JSON
         mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
         citas = mapper.readValue(new File(Constants.CITAS), Cita[].class);
-
         return citas;
     }
 
@@ -87,5 +77,3 @@ private Cita[] cargarCitasDeArchivo() throws JsonGenerationException,
         return text;
     }
 }
-
-

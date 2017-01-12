@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns;
 
@@ -25,11 +25,19 @@ import java.io.IOException;
 import java.text.ParseException;
 import una.cr.design.patterns.view.MenuView;
 
+/**
+ *
+ * @author Grupo Tango
+ */
 public class Application {
 
     /**
-     *
+     * MainClass
      * @param args
+     * @throws com.fasterxml.jackson.core.JsonGenerationException
+     * @throws com.fasterxml.jackson.databind.JsonMappingException
+     * @throws java.io.IOException
+     * @throws java.text.ParseException
      */
     public static void main(String[] args) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException{

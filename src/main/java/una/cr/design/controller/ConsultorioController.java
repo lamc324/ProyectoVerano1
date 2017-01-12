@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -37,7 +37,7 @@ import una.cr.design.service.ConsultorioService;
 
 /**
  *
- * @author venegas97k
+ * @author Grupo Tango
  */
 public class ConsultorioController implements ActionListener, KeyListener {
 
@@ -46,6 +46,16 @@ public class ConsultorioController implements ActionListener, KeyListener {
     Object[][] consultorios;
     ConsultorioView view;
 
+    /**
+     * Constructor del controller con parametros
+     * @param searchTermTextField
+     * @param view
+     * @param tableModel
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
     public ConsultorioController(JTextField searchTermTextField, ConsultorioView view,
             DefaultTableModel tableModel) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
@@ -60,6 +70,10 @@ public class ConsultorioController implements ActionListener, KeyListener {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         switch (e.getActionCommand()) {
@@ -83,6 +97,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
         }
     }
 
+    //Actualiza la tabla conforme a la busqueda
     private void updateTableSearchTerms(String searchTerm) {
         if (searchTerm != null && !"".equals(searchTerm)
                 && consultorios != null && consultorios.length >= 1) {
@@ -105,16 +120,28 @@ public class ConsultorioController implements ActionListener, KeyListener {
         }
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyTyped(KeyEvent e) {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyPressed(KeyEvent e) {
 
     }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void keyReleased(KeyEvent e) {
         String keyReleased = searchTermTextField.getText().toLowerCase();

@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -33,7 +33,7 @@ import una.cr.design.controller.MenuController;
 
 /**
  *
- * @author luism
+ * @author Grupo Tango
  */
 public class MenuView extends JFrame {
 
@@ -50,6 +50,13 @@ public class MenuView extends JFrame {
     JMenuItem mostrarCitas = new JMenuItem("Citas", imagenCitas);
     JMenuItem mostrarConsultorio = new JMenuItem("Consultorio", imagenConsultorio);
 
+    /**
+     * Constructor del view
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
     public MenuView() throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
         super("Gestor de Citas");
@@ -71,7 +78,6 @@ public class MenuView extends JFrame {
         barraMenu.add(menuHelp);
 
         pack();
-//
         setBounds(10, 20, 300, 200);
         this.setMinimumSize(new Dimension(750, 500));
         setLocationRelativeTo(null);

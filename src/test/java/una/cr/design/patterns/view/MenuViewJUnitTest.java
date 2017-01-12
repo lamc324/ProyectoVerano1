@@ -16,9 +16,16 @@ import org.junit.Test;
 public class MenuViewJUnitTest {
     
     private FrameFixture window;
+
+    /**
+     *
+     */
     public MenuViewJUnitTest() {
     }
     
+    /**
+     *
+     */
     @Before
     public void setUp() {    
         MenuView view = GuiActionRunner.execute(() -> new MenuView());
@@ -27,6 +34,9 @@ public class MenuViewJUnitTest {
 
     }
     
+    /**
+     *
+     */
     @Test
     public void testVisibleComponents() {
         window.menuItem("itemSalir").requireVisible(); 
@@ -36,6 +46,9 @@ public class MenuViewJUnitTest {
         window.menuItem("itemConsultorios").requireVisible(); 
     }
     
+    /**
+     *
+     */
     @After
     public void tearDown() {
         window.cleanUp();

@@ -26,10 +26,16 @@ public class PacientesViewJUnitTest {
     private JScrollPaneFixture scrollPanel;
     private JTableFixture mainTable;
 
+    /**
+     *
+     */
     public PacientesViewJUnitTest() {
 
     }
 
+    /**
+     *
+     */
     @Before
     public void setUp() {
         PacientesView view = GuiActionRunner.execute(() -> new PacientesView());
@@ -42,6 +48,9 @@ public class PacientesViewJUnitTest {
         mainTable = window.table("mainTable");
     }
 
+    /**
+     *
+     */
     @Test
     public void testVisibleComponents() {
         String contents[][] = null;
@@ -58,6 +67,9 @@ public class PacientesViewJUnitTest {
         assertEquals(contents[0][1], "Enrique Vergara Melendez");
     }
     
+    /**
+     *
+     */
     @Test
     public void testTextField() {
         String contents[][] = null;
@@ -74,6 +86,9 @@ public class PacientesViewJUnitTest {
         assertEquals(contents[0][1], "Steve Johnson");
     }
 
+    /**
+     *
+     */
     @After
     public void tearDown() {
         window.cleanUp();

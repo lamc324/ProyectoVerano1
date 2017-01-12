@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.patterns.view;
 
@@ -27,11 +27,12 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import una.cr.design.controller.AgregarConsultorioController;
 
 /**
  *
- * @author venegas97k
+ * @author Grupo Tango
  */
 public class AgregarConsultorioView extends JFrame {
 
@@ -44,6 +45,9 @@ public class AgregarConsultorioView extends JFrame {
     JButton aceptar = new JButton("Aceptar");
     JButton cancelar = new JButton("Cancelar");
 
+    /**
+     * Constructor del view
+     */
     public AgregarConsultorioView() {
         super("Agregar Consultorio");
 
@@ -93,7 +97,7 @@ public class AgregarConsultorioView extends JFrame {
             UIManager.setLookAndFeel(
                     "com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel"
             );
-        } catch (Exception exc) {
+        } catch (ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException exc) {
             System.out.println(exc.getMessage());
         }
     }

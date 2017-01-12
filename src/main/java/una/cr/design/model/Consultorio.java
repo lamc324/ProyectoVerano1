@@ -15,12 +15,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+/**
+ *
+ * @author Grupo Tango
+ */
 public class Consultorio {
 
     @JsonProperty("nombreConsultorio")
@@ -32,9 +36,19 @@ public class Consultorio {
     @JsonProperty("telefonoConsultorio")
     private String telefono;
 
+    /**
+     * Constructor sin parametros
+     */
     public Consultorio() {
     }
 
+    /**
+     * Constructor con parametros
+     * @param nombre
+     * @param diasConsulta
+     * @param horarioAtencion
+     * @param telefono
+     */
     public Consultorio(String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.nombre = nombre;
         this.diasConsulta = diasConsulta;
@@ -42,59 +56,76 @@ public class Consultorio {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return diaConsulta
+     */
     public String getDiasConsulta() {
         return diasConsulta;
     }
 
+    /**
+     *
+     * @param diasConsulta
+     */
     public void setDiasConsulta(String diasConsulta) {
         this.diasConsulta = diasConsulta;
     }
 
+    /**
+     *
+     * @return horarioAtencion
+     */
     public String getHorarioAtencion() {
         return horarioAtencion;
     }
 
+    /**
+     *
+     * @param horarioAtencion
+     */
     public void setHorarioAtencion(String horarioAtencion) {
         this.horarioAtencion = horarioAtencion;
     }
 
+    /**
+     *
+     * @return telefono
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /**
+     *
+     * @param telefono
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Consultorio{" + "nombre=" + nombre + ", diasConsulta=" + diasConsulta + ", horarioAtencion=" + horarioAtencion + ", telefono=" + telefono + '}';
-    }
-    
-    // ----- Metodos de prueba para obtener la fecha por medio de Calendar ----- //
-    
-    /*public String mostrarFecha() {
-        Calendar c = Calendar.getInstance();
-        int dia = c.get(Calendar.DAY_OF_MONTH);
-        int mes = c.get(Calendar.MONTH);
-        int ano = c.get(Calendar.YEAR);
-
-        return Integer.toString(dia) + "/" + Integer.toString(mes) + "/" + Integer.toString(ano);
-    }*/
-
- /*
-    public void mostrarFecha() {
-        DateFormat formatoFecha = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-        Calendar c = Calendar.getInstance();
-        System.out.println(formatoFecha.format(c)); //2016/11/16 12:08:43
-    }*/
-   
+    }  
 }

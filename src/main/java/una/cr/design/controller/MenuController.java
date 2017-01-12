@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.controller;
 
@@ -35,23 +35,36 @@ import una.cr.design.patterns.view.PacientesView;
 
 /**
  *
- * @author Usuario
+ * @author Grupo Tango
  */
 public class MenuController implements ActionListener {
-    
+
     private MenuView view;
 
+    /**
+     * Constructor del controller con parametro del view
+     *
+     * @param view
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     * @throws ParseException
+     */
     public MenuController(MenuView view) throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException{
+            JsonMappingException, IOException, ParseException {
         this.view = view;
-    }        
+    }
 
+    /**
+     *
+     * @param e
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
-                switch (e.getActionCommand()) {
+        switch (e.getActionCommand()) {
             case "clicMostrarPacientes":
-                PacientesView viewAgregarPaciente ;
-                
+                PacientesView viewAgregarPaciente;
+
                 try {
                     viewAgregarPaciente = new PacientesView();
                     viewAgregarPaciente.setVisible(true);
@@ -73,8 +86,8 @@ public class MenuController implements ActionListener {
                 } catch (ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                
-                break;    
+
+                break;
             case "clicMostrarConsultorios":
                 ConsultorioView viewConsultorio;
                 try {
@@ -86,19 +99,19 @@ public class MenuController implements ActionListener {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                }   
+                }
                 System.out.println("Consultorio");
-                break;    
+                break;
             case "clicSalir":
                 System.exit(0);
                 break;
             case "clicAyuda":
-                 JOptionPane.showMessageDialog(null,
-                    "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
-                            + "Escuela de Informática \n2016", "",
-                    JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,
+                        "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
+                        + "Escuela de Informática \n2017", "",
+                        JOptionPane.INFORMATION_MESSAGE);
                 break;
         }
     }
-    
+
 }

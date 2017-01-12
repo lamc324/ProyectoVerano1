@@ -15,13 +15,17 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
+/**
+ *
+ * @author Grupo Tango
+ */
 public class Paciente implements Serializable {
 
     @JsonProperty("id")
@@ -39,9 +43,22 @@ public class Paciente implements Serializable {
     @JsonProperty("observaciones")
     private String observaciones;
 
+    /**
+     * Constructor sin parametros
+     */
     public Paciente() {
     }
 
+    /**
+     * Constructor con parametros
+     * @param id
+     * @param nombre
+     * @param telefono
+     * @param direccion
+     * @param fechaNacimiento
+     * @param enfermedades
+     * @param observaciones
+     */
     public Paciente(String id, String nombre, String telefono, String direccion,
             String fechaNacimiento, String[] enfermedades, String observaciones) {
         this.id = id;
@@ -53,64 +70,123 @@ public class Paciente implements Serializable {
         this.observaciones = observaciones;
     }
 
+    /**
+     *
+     * @return id
+     */
     public String getId() {
         return id;
     }
 
+    /**
+     *
+     * @param id
+     */
     public void setId(String id) {
         this.id = id;
     }
 
+    /**
+     *
+     * @return nombre
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return telefono
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /**
+     *
+     * @param telefono
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @return direccion
+     */
     public String getDireccion() {
         return direccion;
     }
 
+    /**
+     *
+     * @param direccion
+     */
     public void setDireccion(String direccion) {
         this.direccion = direccion;
     }
 
+    /**
+     *
+     * @return fechaNacimiento
+     */
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
+    /**
+     *
+     * @param fechaNacimiento
+     */
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    /**
+     *
+     * @return getEnfermedades
+     */
     public String[] getEnfermedades() {
         return enfermedades;
     }
 
+    /**
+     *
+     * @param enfermedadesAsociadas
+     */
     public void setEnfermedades(String[] enfermedadesAsociadas) {
         this.enfermedades = enfermedadesAsociadas;
     }
 
+    /**
+     *
+     * @return observaciones
+     */
     public String getObservaciones() {
         return observaciones;
     }
 
+    /**
+     *
+     * @param observaciones
+     */
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
     
+    /**
+     * Retorna solo un elemento del array de enfermedades
+     * @return enfermedad
+     */
     public String getEnfermedad() {
-
         String enfermedad = "";
         for (String enf : enfermedades) {
             enfermedad += enf + ", ";
@@ -118,6 +194,10 @@ public class Paciente implements Serializable {
         return enfermedad;
     }
 
+    /**
+     *
+     * @return toString
+     */
     @Override
     public String toString() {
         return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';

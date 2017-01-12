@@ -15,25 +15,44 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  * 
  * Universidad Nacional de Costa Rica, Estudiantes: Luis Alonso Morgan Campos,
- * John Herrera Jimenez, Kevin Venegas, Caleb Villalta, Josue David Matamorros.
+ * John Herrera Jimenez, Kevin Venegas Loria, Caleb Villalta Quesada, Josue David Matamorros.
  */
 package una.cr.design.icons;
 
 /**
  *
- * @author venegas97k
+ * @author Grupo Tango
  */
-
-
 public class Constants {
    
+    /**
+     * Pacientes.json
+     */
     public static final String PACIENTES_FILENAME = "Pacientes.json";
+
+    /**
+     * Pacientes Table Header
+     */
     public static final Object[] PACIENTES_TABLE_HEADER = {"Identificación", "Nombre", "Teléfono", "Dirección", "Fecha de Nacimiento", "Enfermedades", "Observaciones"};
     
+    /**
+     * Consultorios.json
+     */
     public static final String CONSULTORIOS_FILENAME = "consultorios.json";
+
+    /**
+     * Consultorios Table Header
+     */
     public static final Object[] CONSULTORIOS_TABLE_HEADER = {"Centro Médico", "Dias de Atención", "Horario", "Teléfono"};
     
-     public static final String CITAS = "Citas.json";
+    /**
+     * Citas.json
+     */
+    public static final String CITAS = "Citas.json";
+
+    /**
+     * Citas Table Header
+     */
     public static final Object[] CITAS_TABLE_HEADER = {"Id", "Consultorio", "Fecha", "Confirmado"};
 
 }
