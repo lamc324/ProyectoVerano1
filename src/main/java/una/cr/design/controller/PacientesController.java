@@ -76,7 +76,8 @@ public class PacientesController implements ActionListener, KeyListener {
             Object[][] newData = new Object[pacientes.length][];
             int idx = 0;
             for (Object[] obj : pacientes) {
-                String fullText = obj[1].toString().toLowerCase();
+                String fullText = obj[1].toString().toLowerCase() + 
+                        obj[1].toString().toUpperCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;

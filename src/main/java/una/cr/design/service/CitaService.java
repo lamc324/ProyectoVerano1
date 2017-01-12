@@ -15,7 +15,7 @@ import una.cr.design.model.Cita;
  */
 
 
-public class ServiceCita {
+public class CitaService {
     
       public Object[][] loadCitaObjWrapper() throws JsonGenerationException,
             JsonMappingException, IOException {

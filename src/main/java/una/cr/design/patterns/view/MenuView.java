@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import una.cr.design.controller.MenuController;
 
 /**
@@ -42,7 +43,11 @@ public class MenuView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         barraMenu.setName("menuBar");
-        menuHelp.setName("menuHelp");
+        menuHelp.setName("itemHelp");
+        fileSalir.setName("itemSalir");
+        mostrarPacientes.setName("itemPacientes");
+        mostrarCitas.setName("itemCitas");
+        mostrarConsultorio.setName("itemConsultorios");
 
         setJMenuBar(barraMenu);
         barraMenu.add(fileSalir);
@@ -51,13 +56,6 @@ public class MenuView extends JFrame {
         barraMenu.add(mostrarConsultorio);
         barraMenu.add(menuHelp);
 
-        /*JPanel ctrlPane = new JPanel();
-        ctrlPane.setName("ctrlPanel");
-        ctrlPane.add(barraMenu);
-        ctrlPane.setPreferredSize(new Dimension(700, 182));
-        ctrlPane.setBounds(30, 30, 200, 200);
-        
-        add(ctrlPane);*/
         pack();
 //
         setBounds(10, 20, 300, 200);

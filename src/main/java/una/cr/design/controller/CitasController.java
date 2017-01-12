@@ -17,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.CitasView;
-import una.cr.design.service.ServiceCita;
+import una.cr.design.service.CitaService;
 
 /**
  *
@@ -27,7 +27,7 @@ public class CitasController implements ActionListener {
 
     private JComboBox consultorioBox = new JComboBox();
     private final DefaultTableModel tableModel;
-    private final ServiceCita citaService;
+    private final CitaService citaService;
     private final Object[][] cita;
     private CitasView view;
 
@@ -36,7 +36,7 @@ public class CitasController implements ActionListener {
             JsonMappingException, IOException, ParseException {
         super();
         this.view = view;
-        citaService = new ServiceCita();
+        citaService = new CitaService();
         cita = citaService.loadCitaObjWrapper();
 
         this.consultorioBox = consultorioBox;

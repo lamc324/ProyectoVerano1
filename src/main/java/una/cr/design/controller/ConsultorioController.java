@@ -75,7 +75,8 @@ public class ConsultorioController implements ActionListener, KeyListener {
             Object[][] newData = new Object[consultorios.length][];
             int idx = 0;
             for (Object[] obj : consultorios) {
-                String fullText = obj[0].toString().toLowerCase();
+                String fullText = obj[0].toString().toLowerCase() + 
+                        obj[0].toString().toUpperCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;

@@ -29,12 +29,12 @@ import una.cr.design.controller.PacientesController;
  * @author John
  */
 public class PacientesView extends JFrame {
-
+    
     ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
-
+    
     JTextField searchTermTextField = new JTextField(26);
     JButton buscarButton = new JButton("Búsqueda", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
@@ -43,15 +43,21 @@ public class PacientesView extends JFrame {
     JLabel nombreLabel = new JLabel("Nombre:");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
-
+    
     public PacientesView() throws JsonGenerationException,
             JsonMappingException, IOException {
-
+        
         super("Pacientes");
 
         // Create table model
         table.setName("mainTable");
         table.setModel(tableModel);
+        searchTermTextField.setName("texto");
+        buscarButton.setName("buscar");
+        agregarButton.setName("agregar");
+        eliminarButton.setName("eliminar");
+        cerrarButton.setName("cerrar");
+        nombreLabel.setName("label");
 
         // Set the view layout
         JPanel ctrlPane = new JPanel();
@@ -62,21 +68,23 @@ public class PacientesView extends JFrame {
         agregarButton.setBackground(Color.WHITE);
         eliminarButton.setBackground(Color.WHITE);
         cerrarButton.setBackground(Color.WHITE);
-
-        ctrlPane.setName("ctrlPanel");
+        
+        ctrlPane.setName("ctrlPanel1");
+        ctrlPane2.setName("ctrlPanel2");
+        ctrlPane3.setName("ctrlPanel3");
         ctrlPane.add(nombreLabel);
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
         ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
-
+        
         JScrollPane tableScrollPane = new JScrollPane(table);
-        tableScrollPane.setName("scrollTablePaneStudent");
+        tableScrollPane.setName("scrollTablePane");
         tableScrollPane.setPreferredSize(new Dimension(800, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
-
+        
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane);
         ctrlPane3.add(tableScrollPane);
@@ -85,7 +93,7 @@ public class PacientesView extends JFrame {
         // Display it all in a scrolling window and make the window appear
         add(ctrlPane3);
         pack();
-
+        
         this.setMinimumSize(new Dimension(700, 300));
         setLocationRelativeTo(null);
         setVisible(true);
@@ -102,5 +110,5 @@ public class PacientesView extends JFrame {
         cerrarButton.addActionListener(controller);
         searchTermTextField.addKeyListener(controller);
     }
-
+    
 }

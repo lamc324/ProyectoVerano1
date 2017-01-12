@@ -33,15 +33,15 @@ public class CitasView extends JFrame {
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
-
+    
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
-    JButton buscarButton = new JButton("Buscar",imagenBuscar);
-    JButton agregarButton = new JButton("Agregar",imagenAgregar);
+    JButton buscarButton = new JButton("Buscar", imagenBuscar);
+    JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
-
+    
     public CitasView() throws JsonGenerationException,
             JsonMappingException, IOException, ParseException {
         super("Citas");
@@ -49,7 +49,11 @@ public class CitasView extends JFrame {
         // Create table model
         table.setName("mainTable");
         table.setModel(tableModel);
-
+        buscarButton.setName("buscar");
+        agregarButton.setName("agregar");
+        cerrarButton.setName("cerrar");
+        consultorioBox.setName("box");
+        
         for (String consultorio : consultorios) {
             consultorioBox.addItem(consultorio);
         }
@@ -63,18 +67,20 @@ public class CitasView extends JFrame {
         agregarButton.setBackground(Color.WHITE);
         cerrarButton.setBackground(Color.WHITE);
         
-        ctrlPane.setName("ctrlPanel");
+        ctrlPane.setName("ctrlPanel1");
+        ctrlPane2.setName("ctrlPanel2");
+        ctrlPane3.setName("ctrlPanel3");
         ctrlPane.add(consultorioBox);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
         ctrlPane2.add(cerrarButton);
-
+        
         JScrollPane tableScrollPane = new JScrollPane(table);
-        tableScrollPane.setName("scrollTablePaneStudent");
+        tableScrollPane.setName("scrollTablePane");
         tableScrollPane.setPreferredSize(new Dimension(700, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Pacientes",
                 TitledBorder.CENTER, TitledBorder.TOP));
-
+        
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane);
         ctrlPane3.add(tableScrollPane);
@@ -83,7 +89,7 @@ public class CitasView extends JFrame {
         // Display it all in a scrolling window and make the window appear
         add(ctrlPane3);
         pack();
-
+        
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(700, 300));
         setVisible(true);
@@ -96,7 +102,7 @@ public class CitasView extends JFrame {
         agregarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
-
+        
     }
-
+    
 }
