@@ -63,7 +63,7 @@ public class AgregarPacienteController implements ActionListener {
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
         this.view = view;
-        this.informacion = new JTextField[6];
+        this.informacion = new JTextField[5];
     }
 
     public JTextField[] getInfoPaciente() {
@@ -72,7 +72,6 @@ public class AgregarPacienteController implements ActionListener {
         informacion[2] = telefono;
         informacion[3] = direccion;
         informacion[4] = fechaNac;
-        informacion[5] = enfermedades;
         return informacion;
     }
 

@@ -44,7 +44,7 @@ public class MenuView extends JFrame {
     ImageIcon imagenAyuda = new ImageIcon("Ayuda.png");
 
     JMenuBar barraMenu = new JMenuBar();
-    JMenuItem menuHelp = new JMenuItem("Ayuda", imagenAyuda);
+    JMenuItem menuHelp = new JMenuItem("Acerca De", imagenAyuda);
     JMenuItem fileSalir = new JMenuItem("Salir", imagenSalir);
     JMenuItem mostrarPacientes = new JMenuItem("Pacientes", imagenPaciente);
     JMenuItem mostrarCitas = new JMenuItem("Citas", imagenCitas);

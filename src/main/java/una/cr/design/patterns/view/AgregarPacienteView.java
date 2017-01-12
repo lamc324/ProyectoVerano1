@@ -72,7 +72,7 @@ public class AgregarPacienteView extends JFrame {
         stringPane.add(EnfermLabel);
         stringPane.add(enfermedades);
         stringPane.add(ObvsLabel);
-        stringPane.add(observaciones);
+        //stringPane.add(observaciones);
 
         JPanel buttonPane = new JPanel();
         buttonPane.add(cancelar);
@@ -80,6 +80,7 @@ public class AgregarPacienteView extends JFrame {
 
         JPanel controlPane = new JPanel();
         controlPane.add(stringPane);
+        controlPane.add(observaciones);
         controlPane.add(buttonPane);
 
         controlPane.setLayout(new BoxLayout(controlPane, BoxLayout.Y_AXIS));

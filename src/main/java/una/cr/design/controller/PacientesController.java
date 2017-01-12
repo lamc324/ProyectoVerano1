@@ -26,11 +26,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.icons.Constants;
 import una.cr.design.patterns.view.AgregarPacienteView;
+import una.cr.design.patterns.view.EliminarPacienteView;
 import una.cr.design.patterns.view.PacientesView;
 import una.cr.design.service.PacientesService;
 
@@ -46,11 +49,10 @@ public class PacientesController implements ActionListener, KeyListener {
     private PacientesView view;
     private PacientesService pacientesService;
 
-
     public PacientesController(JTextField searchTermTextField, PacientesView view,
             DefaultTableModel tableModel) throws JsonGenerationException,
             JsonMappingException, IOException {
-        
+
         super();
         pacientesService = new PacientesService();
         pacientes = pacientesService.cargarPersonasObjWrapper();
@@ -75,9 +77,16 @@ public class PacientesController implements ActionListener, KeyListener {
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
                 viewAgregarPaciente.setVisible(true);
                 break;
-            case "clicEliminar":
-                System.out.println("eliminar");
-                break;
+            case "clicEliminar": {
+                try {
+                    EliminarPacienteView viewEliminarPaciente = new EliminarPacienteView();
+                } catch (JsonMappingException ex) {
+                    Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            break;
             case "clicCerrar":
                 view.setVisible(false);
                 break;
@@ -90,8 +99,9 @@ public class PacientesController implements ActionListener, KeyListener {
             Object[][] newData = new Object[pacientes.length][];
             int idx = 0;
             for (Object[] obj : pacientes) {
-                String fullText = obj[1].toString().toLowerCase() + 
-                        obj[1].toString().toUpperCase();
+                String fullText = obj[0].toString()
+                        + obj[1].toString().toLowerCase()
+                        + obj[1].toString().toUpperCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;
@@ -108,12 +118,12 @@ public class PacientesController implements ActionListener, KeyListener {
 
     @Override
     public void keyTyped(KeyEvent e) {
-        
+
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-       
+
     }
 
     @Override
@@ -121,8 +131,7 @@ public class PacientesController implements ActionListener, KeyListener {
         String keyReleased = searchTermTextField.getText().toLowerCase();
         if (!"".equals(keyReleased)) {
             updateTableSearchTerms(keyReleased);
-        }
-        else{
+        } else {
             updateTableSearchTerms(" ");
         }
     }

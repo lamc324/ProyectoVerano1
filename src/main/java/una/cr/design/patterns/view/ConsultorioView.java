@@ -83,7 +83,7 @@ public class ConsultorioView extends JFrame {
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
-        ctrlPane.add(eliminarButton);
+        //ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -111,8 +111,8 @@ public class ConsultorioView extends JFrame {
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");
         agregarButton.addActionListener(controller);
-        eliminarButton.setActionCommand("clicEliminar");
-        eliminarButton.addActionListener(controller);
+//        eliminarButton.setActionCommand("clicEliminar");
+//        eliminarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
         searchTermTextField.addKeyListener(controller);

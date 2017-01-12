@@ -54,7 +54,7 @@ public class PacientesView extends JFrame {
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
-    JLabel nombreLabel = new JLabel("Nombre:");
+    JLabel nombreLabel = new JLabel("Nombre o ID:");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
     
