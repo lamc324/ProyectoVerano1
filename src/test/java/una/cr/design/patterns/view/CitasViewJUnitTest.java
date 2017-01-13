@@ -51,7 +51,6 @@ public class CitasViewJUnitTest {
     public void testVisibleComponents() {
         ctrlPanel1.comboBox("box").requireVisible();
         ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
@@ -65,7 +64,6 @@ public class CitasViewJUnitTest {
         String contents[][] = null;
         ctrlPanel1.comboBox("box").requireVisible();
         ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
@@ -86,7 +84,6 @@ public class CitasViewJUnitTest {
         String contents[][] = null;
         ctrlPanel1.comboBox("box").requireVisible();
         ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
@@ -103,19 +100,16 @@ public class CitasViewJUnitTest {
     public void testButton() {
         ctrlPanel1.comboBox("box").requireVisible();
         ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
 
-        ctrlPanel1.button("agregar").click();
     }
 
     @Test
     public void testButton2() {
         ctrlPanel1.comboBox("box").requireVisible();
         ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
         ctrlPanel2.button("cerrar").requireVisible();
         scrollPanel.requireVisible();
         mainTable.requireVisible();
