@@ -88,10 +88,7 @@ public class CitasController implements ActionListener {
                 else
                     updateTableSearchTerms(aux);
                 break;
-            case "clicAgregar":
-                AgregarCitaView viewAgregarCita = new AgregarCitaView();
-                viewAgregarCita.setVisible(true);
-                break;
+
             case "clicCerrar":
                 view.setVisible(false);
                 break;
