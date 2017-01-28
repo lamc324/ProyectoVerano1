@@ -66,7 +66,8 @@ public class ConsultorioView extends JFrame {
      * @throws IOException
      * @throws ParseException
      */
-    public ConsultorioView() throws JsonGenerationException, JsonMappingException, IOException, ParseException {
+    public ConsultorioView() throws JsonGenerationException, JsonMappingException, 
+            IOException, ParseException, Exception {
 
         super("Consultorios");
 

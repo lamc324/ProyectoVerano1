@@ -58,7 +58,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
      */
     public ConsultorioController(JTextField searchTermTextField, ConsultorioView view,
             DefaultTableModel tableModel) throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException {
+            JsonMappingException, IOException, ParseException, Exception {
 
         super();
         ConsultorioService consultorioService = new ConsultorioService();

@@ -28,13 +28,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Consultorio {
 
     @JsonProperty("id_consultorio")
-    private int idConsultorio;
+    private int id_consultorio;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("dias")
-    private String diasConsulta;
+    private String dias;
     @JsonProperty("horario")
-    private String horarioAtencion;
+    private String horario;
     @JsonProperty("telefono")
     private String telefono;
 
@@ -45,26 +45,26 @@ public class Consultorio {
     }
 
     public Consultorio(int idConsultorio, String nombre, String diasConsulta, String horarioAtencion, String telefono) {
-        this.idConsultorio = idConsultorio;
+        this.id_consultorio = idConsultorio;
         this.nombre = nombre;
-        this.diasConsulta = diasConsulta;
-        this.horarioAtencion = horarioAtencion;
+        this.dias = diasConsulta;
+        this.horario = horarioAtencion;
         this.telefono = telefono;
     }
 
     public Consultorio(String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.nombre = nombre;
-        this.diasConsulta = diasConsulta;
-        this.horarioAtencion = horarioAtencion;
+        this.dias = diasConsulta;
+        this.horario = horarioAtencion;
         this.telefono = telefono;
     }
 
     public int getIdConsultorio() {
-        return idConsultorio;
+        return id_consultorio;
     }
 
     public void setIdConsultorio(int idConsultorio) {
-        this.idConsultorio = idConsultorio;
+        this.id_consultorio = idConsultorio;
     }
 
     public String getNombre() {
@@ -76,19 +76,19 @@ public class Consultorio {
     }
 
     public String getDiasConsulta() {
-        return diasConsulta;
+        return dias;
     }
 
     public void setDiasConsulta(String diasConsulta) {
-        this.diasConsulta = diasConsulta;
+        this.dias = diasConsulta;
     }
 
     public String getHorarioAtencion() {
-        return horarioAtencion;
+        return horario;
     }
 
     public void setHorarioAtencion(String horarioAtencion) {
-        this.horarioAtencion = horarioAtencion;
+        this.horario = horarioAtencion;
     }
 
     public String getTelefono() {
@@ -101,8 +101,9 @@ public class Consultorio {
 
     @Override
     public String toString() {
-        return "Consultorio{" + "idConsultorio=" + idConsultorio + ", nombre=" + nombre + ", diasConsulta=" + diasConsulta + ", horarioAtencion=" + horarioAtencion + ", telefono=" + telefono + '}';
+        return "Consultorio{" + "id_consultorio=" + id_consultorio + ", nombre=" + nombre + ", dias=" + dias + ", horario=" + horario + ", telefono=" + telefono + '}';
     }
 
+    
     
 }
