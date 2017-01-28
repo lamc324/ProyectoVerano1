@@ -40,7 +40,7 @@ public class AgregarConsultorioController implements ActionListener {
 
     private JTextField nombre;
     private JTextField dias;
-    private JTextField fechaAtencion;
+    private JTextField horario;
     private JTextField telefonoContacto;
     private JTextField[] informacion;
     private AgregarConsultorioView view;
@@ -50,18 +50,19 @@ public class AgregarConsultorioController implements ActionListener {
      * Constructor del controller con parametros
      *
      * @param nombre
+     * @param dias
      * @param fechaAtencion
      * @param telefonoContacto
      * @param view
      */
-    public AgregarConsultorioController(JTextField nombre,JTextField dias, JTextField fechaAtencion,
+    public AgregarConsultorioController(JTextField nombre,JTextField dias, JTextField horario,
             JTextField telefonoContacto, AgregarConsultorioView view) {
         this.nombre = nombre;
         this.dias = dias;
-        this.fechaAtencion = fechaAtencion;
+        this.horario = horario;
         this.telefonoContacto = telefonoContacto;
         this.view = view;
-        this.informacion = new JTextField[3];
+        this.informacion = new JTextField[4];
         consultorioService = new ConsultorioService();
     }
 
@@ -73,7 +74,7 @@ public class AgregarConsultorioController implements ActionListener {
     public JTextField[] getInfoConsultorio() {
         informacion[0] = nombre;
         informacion[1] = dias;
-        informacion[2] = fechaAtencion;
+        informacion[2] = horario;
         informacion[3] = telefonoContacto;
         return informacion;
     }
@@ -82,7 +83,7 @@ public class AgregarConsultorioController implements ActionListener {
         Consultorio c = new Consultorio();
         c.setNombre(nombre.getText());
         c.setDiasConsulta(dias.getText());
-        c.setHorarioAtencion(fechaAtencion.getText());
+        c.setHorarioAtencion(horario.getText());
         c.setTelefono(telefonoContacto.getText());
         return c;
     }
