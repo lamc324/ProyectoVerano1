@@ -88,6 +88,7 @@ public class PacientesController implements ActionListener, KeyListener {
             case "clicAgregar":
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
                 viewAgregarPaciente.setVisible(true);
+                updateTableSearchTerms("");
                 break;
             case "clicEliminar": {
                 try {

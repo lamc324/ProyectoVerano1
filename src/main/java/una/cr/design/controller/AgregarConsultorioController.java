@@ -19,11 +19,18 @@
  */
 package una.cr.design.controller;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import una.cr.design.model.Consultorio;
 import una.cr.design.patterns.view.AgregarConsultorioView;
+import una.cr.design.service.ConsultorioService;
 
 /**
  *
@@ -36,9 +43,11 @@ public class AgregarConsultorioController implements ActionListener {
     private JTextField telefonoContacto;
     private JTextField[] informacion;
     private AgregarConsultorioView view;
+    private ConsultorioService consultorioService;
 
     /**
      * Constructor del controller con parametros
+     *
      * @param nombre
      * @param fechaAtencion
      * @param telefonoContacto
@@ -51,10 +60,12 @@ public class AgregarConsultorioController implements ActionListener {
         this.telefonoContacto = telefonoContacto;
         this.view = view;
         this.informacion = new JTextField[3];
+        consultorioService = new ConsultorioService();
     }
 
     /**
      * Retorna la informacion del consultorio
+     *
      * @return informacion
      */
     public JTextField[] getInfoConsultorio() {
@@ -64,8 +75,18 @@ public class AgregarConsultorioController implements ActionListener {
         return informacion;
     }
 
+    public Consultorio asignaConsultorio() {
+        Consultorio c = new Consultorio();
+        c.setNombre(nombre.getText());
+        c.setDiasConsulta("Martes");
+        c.setHorarioAtencion(fechaAtencion.getText());
+        c.setTelefono(telefonoContacto.getText());
+        return c;
+    }
+
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param e
      */
     @Override
@@ -84,6 +105,16 @@ public class AgregarConsultorioController implements ActionListener {
                 }
                 if (caseNull == true) {
                     break;
+                } else {
+
+                    try {
+                        Consultorio c = asignaConsultorio();
+                        consultorioService.createConsultorio(c);
+                    } catch (JsonMappingException ex) {
+                        Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
                 JOptionPane.showMessageDialog(view, "Consultorio Agregado", "", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);

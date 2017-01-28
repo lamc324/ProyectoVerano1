@@ -122,7 +122,7 @@ public class ConsultorioService {
      * @throws JsonMappingException
      * @throws IOException
      */
-    public boolean createPaciente(Consultorio consultorio) throws JsonGenerationException,
+    public boolean createConsultorio(Consultorio consultorio) throws JsonGenerationException,
             JsonMappingException, IOException {
 
         boolean isCreated = true;
@@ -148,7 +148,7 @@ public class ConsultorioService {
         return isCreated;
     }
 
-    public boolean deletePaciente(int id) {
+    public boolean deleteConsultorio(int id) {
         boolean isDeleted = false;
 
         Client client = Client.create();

@@ -27,6 +27,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
@@ -44,10 +46,12 @@ public class ConsultorioController implements ActionListener, KeyListener {
     JTextField searchTermTextField;
     DefaultTableModel tableModel;
     Object[][] consultorios;
+    ConsultorioService consultorioService;
     ConsultorioView view;
 
     /**
      * Constructor del controller con parametros
+     *
      * @param searchTermTextField
      * @param view
      * @param tableModel
@@ -61,7 +65,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
             JsonMappingException, IOException, ParseException, Exception {
 
         super();
-        ConsultorioService consultorioService = new ConsultorioService();
+        consultorioService = new ConsultorioService();
         consultorios = consultorioService.loadConsultorioObjWrapper();
         this.searchTermTextField = searchTermTextField;
         this.view = view;
@@ -72,6 +76,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param e
      */
     @Override
@@ -87,6 +92,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
             case "clicAgregar":
                 AgregarConsultorioView agregarConsultorio = new AgregarConsultorioView();
                 agregarConsultorio.setVisible(true);
+
                 break;
             case "clicEliminar":
                 System.out.println("eliminar");
@@ -94,6 +100,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
             case "clicCerrar":
                 view.setVisible(false);
                 break;
+
         }
     }
 
@@ -104,8 +111,8 @@ public class ConsultorioController implements ActionListener, KeyListener {
             Object[][] newData = new Object[consultorios.length][];
             int idx = 0;
             for (Object[] obj : consultorios) {
-                String fullText = obj[0].toString().toLowerCase() + 
-                        obj[0].toString().toUpperCase();
+                String fullText = obj[0].toString().toLowerCase()
+                        + obj[0].toString().toUpperCase();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;
