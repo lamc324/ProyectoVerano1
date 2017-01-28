@@ -30,6 +30,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import una.cr.design.model.Consultorio;
 import una.cr.design.patterns.view.AgregarConsultorioView;
+import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.service.ConsultorioService;
 
 /**
@@ -55,7 +56,7 @@ public class AgregarConsultorioController implements ActionListener {
      * @param telefonoContacto
      * @param view
      */
-    public AgregarConsultorioController(JTextField nombre,JTextField dias, JTextField horario,
+    public AgregarConsultorioController(JTextField nombre, JTextField dias, JTextField horario,
             JTextField telefonoContacto, AgregarConsultorioView view) {
         this.nombre = nombre;
         this.dias = dias;
@@ -118,8 +119,11 @@ public class AgregarConsultorioController implements ActionListener {
                         Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (IOException ex) {
                         Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
+
                 JOptionPane.showMessageDialog(view, "Consultorio Agregado", "", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
                 System.out.println("aceptar");

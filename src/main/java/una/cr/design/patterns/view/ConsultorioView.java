@@ -51,7 +51,7 @@ public class ConsultorioView extends JFrame {
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     JTextField searchTermTextField = new JTextField(26);
-    JButton buscarButton = new JButton("Búsqueda", imagenBuscar);
+    JButton buscarButton = new JButton("Actualizar Tabla", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);

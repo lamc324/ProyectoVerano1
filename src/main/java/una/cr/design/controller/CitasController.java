@@ -26,12 +26,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.Arrays;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.service.CitaService;
+import una.cr.design.service.ConsultorioService;
 
 /**
  *
@@ -42,11 +44,14 @@ public class CitasController implements ActionListener {
     private JComboBox consultorioBox = new JComboBox();
     private final DefaultTableModel tableModel;
     private final CitaService citaService;
+    private final ConsultorioService consultorioService;
     private final Object[][] cita;
+    private final Object[][] consultorio;
     private final CitasView view;
 
     /**
      * Constructor del controller con parametros
+     *
      * @param consultorioBox
      * @param tableModel
      * @param view
@@ -57,11 +62,13 @@ public class CitasController implements ActionListener {
      */
     public CitasController(JComboBox consultorioBox,
             DefaultTableModel tableModel, CitasView view) throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException {
+            JsonMappingException, IOException, ParseException, Exception {
         super();
         this.view = view;
         citaService = new CitaService();
+        consultorioService = new ConsultorioService();
         cita = citaService.loadCitaObjWrapper();
+        consultorio = consultorioService.loadConsultorioObjWrapper();
 
         this.consultorioBox = consultorioBox;
 //        this.consultorioBox.addKeyListener(this);
@@ -69,11 +76,13 @@ public class CitasController implements ActionListener {
 
         // Load the table with the list of students
         this.tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
+        updateComboBox();
 
     }
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param e
      */
     @Override
@@ -82,11 +91,11 @@ public class CitasController implements ActionListener {
         switch (e.getActionCommand()) {
             case "clicBuscar":
                 String aux = (String) consultorioBox.getSelectedItem();
-                if("Elegir Consultorio de preferencia: ".equals(aux)){
-                updateTableSearchTerms(" ");
-                }
-                else
+                if ("Elegir Consultorio de preferencia: ".equals(aux)) {
+                    updateTableSearchTerms(" ");
+                } else {
                     updateTableSearchTerms(aux);
+                }
                 break;
 
             case "clicCerrar":
@@ -116,6 +125,13 @@ public class CitasController implements ActionListener {
                     "Search term is empty", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
+        }
+    }
+
+    private void updateComboBox() {
+        for (Object[] obj : consultorio) {
+            String fullText = obj[0].toString();
+            consultorioBox.addItem(fullText);
         }
     }
 
