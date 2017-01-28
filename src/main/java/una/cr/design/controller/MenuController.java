@@ -85,7 +85,9 @@ public class MenuController implements ActionListener {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException | ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (Exception ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
                 break;
             case "clicMostrarConsultorios":
