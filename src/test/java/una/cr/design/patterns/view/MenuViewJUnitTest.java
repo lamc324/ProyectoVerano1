@@ -24,31 +24,31 @@ public class MenuViewJUnitTest {
     /**
      *
      */
-    @Before
-    public void setUp() {    
-        MenuView view = GuiActionRunner.execute(() -> new MenuView());
-        window = new FrameFixture(view);
-        window.show();
-
-    }
-    
-    /**
-     *
-     */
-    @Test
-    public void testVisibleComponents() {
-        window.menuItem("itemSalir").requireVisible(); 
-        window.menuItem("itemPacientes").requireVisible(); 
-        window.menuItem("itemHelp").requireVisible(); 
-        window.menuItem("itemCitas").requireVisible(); 
-        window.menuItem("itemConsultorios").requireVisible(); 
-    }
-    
-    /**
-     *
-     */
-    @After
-    public void tearDown() {
-        window.cleanUp();
-    }
+//    @Before
+//    public void setUp() {    
+//        MenuView view = GuiActionRunner.execute(() -> new MenuView());
+//        window = new FrameFixture(view);
+//        window.show();
+//
+//    }
+//    
+//    /**
+//     *
+//     */
+//    @Test
+//    public void testVisibleComponents() {
+//        window.menuItem("itemSalir").requireVisible(); 
+//        window.menuItem("itemPacientes").requireVisible(); 
+//        window.menuItem("itemHelp").requireVisible(); 
+//        window.menuItem("itemCitas").requireVisible(); 
+//        window.menuItem("itemConsultorios").requireVisible(); 
+//    }
+//    
+//    /**
+//     *
+//     */
+//    @After
+//    public void tearDown() {
+//        window.cleanUp();
+//    }
 }

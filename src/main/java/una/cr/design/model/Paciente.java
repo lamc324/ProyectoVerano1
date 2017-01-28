@@ -28,18 +28,18 @@ import java.io.Serializable;
  */
 public class Paciente implements Serializable {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("id_paciente")
+    private String id_paciente;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("telefono")
     private String telefono;
     @JsonProperty("direccion")
     private String direccion;
-    @JsonProperty("fechaNacimiento")
-    private String fechaNacimiento;
+    @JsonProperty("fecha_nacimiento")
+    private String fecha_nacimiento;
     @JsonProperty("enfermedades")
-    private String[] enfermedades;
+    private String enfermedades;
     @JsonProperty("observaciones")
     private String observaciones;
 
@@ -51,7 +51,7 @@ public class Paciente implements Serializable {
 
     /**
      * Constructor con parametros
-     * @param id
+     * @param idPaciente
      * @param nombre
      * @param telefono
      * @param direccion
@@ -59,13 +59,13 @@ public class Paciente implements Serializable {
      * @param enfermedades
      * @param observaciones
      */
-    public Paciente(String id, String nombre, String telefono, String direccion,
-            String fechaNacimiento, String[] enfermedades, String observaciones) {
-        this.id = id;
+    public Paciente(String idPaciente, String nombre, String telefono, String direccion,
+            String fechaNacimiento, String enfermedades, String observaciones) {
+        this.id_paciente = idPaciente;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha_nacimiento = fechaNacimiento;
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
     }
@@ -74,16 +74,16 @@ public class Paciente implements Serializable {
      *
      * @return id
      */
-    public String getId() {
-        return id;
+    public String getIdPaciente() {
+        return id_paciente;
     }
 
     /**
      *
-     * @param id
+     * @param idPaciente
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setIdPaciente(String idPaciente) {
+        this.id_paciente = idPaciente;
     }
 
     /**
@@ -139,7 +139,7 @@ public class Paciente implements Serializable {
      * @return fechaNacimiento
      */
     public String getFechaNacimiento() {
-        return fechaNacimiento;
+        return fecha_nacimiento;
     }
 
     /**
@@ -147,14 +147,14 @@ public class Paciente implements Serializable {
      * @param fechaNacimiento
      */
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.fechaNacimiento = fechaNacimiento;
+        this.fecha_nacimiento = fechaNacimiento;
     }
 
     /**
      *
      * @return getEnfermedades
      */
-    public String[] getEnfermedades() {
+    public String getEnfermedades() {
         return enfermedades;
     }
 
@@ -162,7 +162,7 @@ public class Paciente implements Serializable {
      *
      * @param enfermedadesAsociadas
      */
-    public void setEnfermedades(String[] enfermedadesAsociadas) {
+    public void setEnfermedades(String enfermedadesAsociadas) {
         this.enfermedades = enfermedadesAsociadas;
     }
 
@@ -186,13 +186,13 @@ public class Paciente implements Serializable {
      * Retorna solo un elemento del array de enfermedades
      * @return enfermedad
      */
-    public String getEnfermedad() {
-        String enfermedad = "";
-        for (String enf : enfermedades) {
-            enfermedad += enf + ", ";
-        }
-        return enfermedad;
-    }
+//    public String getEnfermedad() {
+//        String enfermedad = "";
+//        for (String enf : enfermedades) {
+//            enfermedad += enf + ", ";
+//        }
+//        return enfermedad;
+//    }
 
     /**
      *
@@ -200,7 +200,7 @@ public class Paciente implements Serializable {
      */
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
+        return "Paciente{" + "id=" + id_paciente + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fecha_nacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
     }
 
 }

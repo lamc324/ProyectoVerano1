@@ -23,8 +23,12 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sun.jersey.api.client.Client;
+import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.WebResource;
 import java.io.File;
 import java.io.IOException;
+import javax.ws.rs.core.MediaType;
 import una.cr.design.icons.Constants;
 import una.cr.design.model.Paciente;
 
@@ -48,19 +52,23 @@ public class PacientesService {
      * @throws JsonMappingException
      * @throws IOException
      */
-    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException, JsonMappingException, IOException {
-        Paciente[] pacientes = cargarPacientesDeArchivo();
+    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException, 
+            JsonMappingException, IOException, Exception {
+        
+        //Paciente[] pacientes = cargarPacientesDeArchivo();
+        Paciente[] pacientes = loadJsonFromWebService();
+        
         Object[][] data = null;
         if (pacientes != null && pacientes.length > 0) {
             data = new Object[pacientes.length][7]; // Filas y Columnas
             int i = 0;
             for (Paciente paciente : pacientes) {
-                data[i][0] = checkIfNull(paciente.getId());
+                data[i][0] = checkIfNull(paciente.getIdPaciente());
                 data[i][1] = checkIfNull(paciente.getNombre());
                 data[i][2] = checkIfNull(paciente.getTelefono());
                 data[i][3] = checkIfNull(paciente.getDireccion());
                 data[i][4] = checkIfNull(paciente.getFechaNacimiento());
-                data[i][5] = checkIfNull(paciente.getEnfermedad());
+                data[i][5] = checkIfNull(paciente.getEnfermedades());
                 data[i][6] = checkIfNull(paciente.getObservaciones());
                 i++;
             }
@@ -85,5 +93,87 @@ public class PacientesService {
             text = obj.toString();
         }
         return text;
+    }
+    
+    private Paciente[] loadJsonFromWebService() throws Exception {
+        Paciente[] paciente;
+        String jSonFile;
+        ObjectMapper mapper = new ObjectMapper();
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_PACIENTES);
+
+        ClientResponse response = webResource.accept(MediaType.APPLICATION_JSON_TYPE)
+                .get(ClientResponse.class);
+
+        if (response.getStatus() != 200) {
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        jSonFile = response.getEntity(String.class);
+
+        // Fix en linea 119
+        mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+        paciente = mapper.readValue(jSonFile, Paciente[].class);
+
+        return paciente;
+    }
+
+    /**
+     * Create student
+     *
+     * @param paciente
+     * @return
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
+    public boolean createPaciente(Paciente paciente) throws JsonGenerationException,
+            JsonMappingException, IOException {
+
+        boolean isCreated = true;
+        ObjectMapper mapper = new ObjectMapper();
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_PACIENTES);
+
+        String jsonInString = mapper.writeValueAsString(paciente);
+
+        //POST del JSON
+        ClientResponse response = webResource.type(MediaType.APPLICATION_JSON_TYPE)
+                .post(ClientResponse.class, jsonInString);
+
+        if (response.getStatus() != 200) {
+            isCreated = false;
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return isCreated;
+    }
+
+    public boolean deletePaciente(int id) {
+        boolean isDeleted = false;
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_PACIENTES.concat("/").concat(String.valueOf(id)));
+
+        //POST del JSON
+        ClientResponse response = webResource.delete(ClientResponse.class);
+
+        if (response.getStatus() != 200) {
+            isDeleted = false;
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return isDeleted;
     }
 }

@@ -96,14 +96,14 @@ public class AgregarPacienteController implements ActionListener {
      */
     public Paciente asignaPaciente() {
         Paciente p = new Paciente();
-        p.setId(id.getText());
+        p.setIdPaciente(id.getText());
         p.setNombre(nombre.getText());
         p.setTelefono(telefono.getText());
         p.setDireccion(direccion.getText());
-        p.setFechaNacimiento(fechaNac.getText());
-        String txt = enfermedades.getText();
-        String[] arrayTxt = txt.split(",");
-        p.setEnfermedades(arrayTxt);
+//        p.setFechaNacimiento(fechaNac.getText());
+//        String txt = enfermedades.getText();
+//        String[] arrayTxt = txt.split(",");
+//        p.setEnfermedades(arrayTxt);
         p.setObservaciones(observaciones.getText());
         return p;
     }

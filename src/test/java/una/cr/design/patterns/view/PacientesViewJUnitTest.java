@@ -30,65 +30,65 @@ public class PacientesViewJUnitTest {
 
     }
 
-    /**
-     *
-     */
-    @Before
-    public void setUp() {
-        PacientesView view = GuiActionRunner.execute(() -> new PacientesView());
-        window = new FrameFixture(view);
-        window.show();
-        ctrlPanel1 = window.panel("ctrlPanel1");
-        ctrlPanel2 = window.panel("ctrlPanel2");
-        ctrlPanel3 = window.panel("ctrlPanel3");
-        scrollPanel = window.scrollPane("scrollTablePane");
-        mainTable = window.table("mainTable");
-    }
-
-    /**
-     *
-     */
-    @Test
-    public void testVisibleComponents() {
-        String contents[][] = null;
-        ctrlPanel1.textBox("texto").requireVisible();
-        ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
-        ctrlPanel1.button("eliminar").requireVisible();
-        scrollPanel.requireVisible();
-        mainTable.requireVisible();
-        ctrlPanel1.textBox("texto").enterText("enrique");
-        ctrlPanel1.button("buscar").click();
-
-        contents = mainTable.contents();
-        assertEquals(contents[0][1], "Enrique Vergara Melendez");
-    }
-    
-    /**
-     *
-     */
-    @Test
-    public void testTextField() {
-        String contents[][] = null;
-        ctrlPanel1.textBox("texto").requireVisible();
-        ctrlPanel1.button("buscar").requireVisible();
-        ctrlPanel1.button("agregar").requireVisible();
-        ctrlPanel1.button("eliminar").requireVisible();
-        scrollPanel.requireVisible();
-        mainTable.requireVisible();
-        ctrlPanel1.textBox("texto").enterText("STEVE");
-        ctrlPanel1.button("buscar").click();
-
-        contents = mainTable.contents();
-        assertEquals(contents[0][1], "Steve Johnson");
-    }
-
-    /**
-     *
-     */
-    @After
-    public void tearDown() {
-        window.cleanUp();
-    }
+//    /**
+//     *
+//     */
+//    @Before
+//    public void setUp() {
+//        PacientesView view = GuiActionRunner.execute(() -> new PacientesView());
+//        window = new FrameFixture(view);
+//        window.show();
+//        ctrlPanel1 = window.panel("ctrlPanel1");
+//        ctrlPanel2 = window.panel("ctrlPanel2");
+//        ctrlPanel3 = window.panel("ctrlPanel3");
+//        scrollPanel = window.scrollPane("scrollTablePane");
+//        mainTable = window.table("mainTable");
+//    }
+//
+//    /**
+//     *
+//     */
+//    @Test
+//    public void testVisibleComponents() {
+//        String contents[][] = null;
+//        ctrlPanel1.textBox("texto").requireVisible();
+//        ctrlPanel1.button("buscar").requireVisible();
+//        ctrlPanel1.button("agregar").requireVisible();
+//        ctrlPanel1.button("eliminar").requireVisible();
+//        scrollPanel.requireVisible();
+//        mainTable.requireVisible();
+//        ctrlPanel1.textBox("texto").enterText("enrique");
+//        ctrlPanel1.button("buscar").click();
+//
+//        contents = mainTable.contents();
+//        assertEquals(contents[0][1], "Enrique Vergara Melendez");
+//    }
+//    
+//    /**
+//     *
+//     */
+//    @Test
+//    public void testTextField() {
+//        String contents[][] = null;
+//        ctrlPanel1.textBox("texto").requireVisible();
+//        ctrlPanel1.button("buscar").requireVisible();
+//        ctrlPanel1.button("agregar").requireVisible();
+//        ctrlPanel1.button("eliminar").requireVisible();
+//        scrollPanel.requireVisible();
+//        mainTable.requireVisible();
+//        ctrlPanel1.textBox("texto").enterText("STEVE");
+//        ctrlPanel1.button("buscar").click();
+//
+//        contents = mainTable.contents();
+//        assertEquals(contents[0][1], "Steve Johnson");
+//    }
+//
+//    /**
+//     *
+//     */
+//    @After
+//    public void tearDown() {
+//        window.cleanUp();
+//    }
 
 }

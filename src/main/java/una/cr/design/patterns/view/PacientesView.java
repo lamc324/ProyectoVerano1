@@ -65,7 +65,7 @@ public class PacientesView extends JFrame {
      * @throws JsonMappingException
      * @throws IOException
      */
-    public PacientesView() throws JsonGenerationException, JsonMappingException, IOException {
+    public PacientesView() throws JsonGenerationException, JsonMappingException, IOException, Exception {
 
         super("Pacientes");
 

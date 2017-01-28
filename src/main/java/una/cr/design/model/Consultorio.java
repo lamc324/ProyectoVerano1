@@ -27,13 +27,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Consultorio {
 
-    @JsonProperty("nombreConsultorio")
+    @JsonProperty("id_consultorio")
+    private int idConsultorio;
+    @JsonProperty("nombre")
     private String nombre;
-    @JsonProperty("diasConsulta")
+    @JsonProperty("dias")
     private String diasConsulta;
-    @JsonProperty("horarioAtencion")
+    @JsonProperty("horario")
     private String horarioAtencion;
-    @JsonProperty("telefonoConsultorio")
+    @JsonProperty("telefono")
     private String telefono;
 
     /**
@@ -42,13 +44,14 @@ public class Consultorio {
     public Consultorio() {
     }
 
-    /**
-     * Constructor con parametros
-     * @param nombre
-     * @param diasConsulta
-     * @param horarioAtencion
-     * @param telefono
-     */
+    public Consultorio(int idConsultorio, String nombre, String diasConsulta, String horarioAtencion, String telefono) {
+        this.idConsultorio = idConsultorio;
+        this.nombre = nombre;
+        this.diasConsulta = diasConsulta;
+        this.horarioAtencion = horarioAtencion;
+        this.telefono = telefono;
+    }
+
     public Consultorio(String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.nombre = nombre;
         this.diasConsulta = diasConsulta;
@@ -56,76 +59,50 @@ public class Consultorio {
         this.telefono = telefono;
     }
 
-    /**
-     *
-     * @return nombre
-     */
+    public int getIdConsultorio() {
+        return idConsultorio;
+    }
+
+    public void setIdConsultorio(int idConsultorio) {
+        this.idConsultorio = idConsultorio;
+    }
+
     public String getNombre() {
         return nombre;
     }
 
-    /**
-     *
-     * @param nombre
-     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    /**
-     *
-     * @return diaConsulta
-     */
     public String getDiasConsulta() {
         return diasConsulta;
     }
 
-    /**
-     *
-     * @param diasConsulta
-     */
     public void setDiasConsulta(String diasConsulta) {
         this.diasConsulta = diasConsulta;
     }
 
-    /**
-     *
-     * @return horarioAtencion
-     */
     public String getHorarioAtencion() {
         return horarioAtencion;
     }
 
-    /**
-     *
-     * @param horarioAtencion
-     */
     public void setHorarioAtencion(String horarioAtencion) {
         this.horarioAtencion = horarioAtencion;
     }
 
-    /**
-     *
-     * @return telefono
-     */
     public String getTelefono() {
         return telefono;
     }
 
-    /**
-     *
-     * @param telefono
-     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    /**
-     *
-     * @return
-     */
     @Override
     public String toString() {
-        return "Consultorio{" + "nombre=" + nombre + ", diasConsulta=" + diasConsulta + ", horarioAtencion=" + horarioAtencion + ", telefono=" + telefono + '}';
-    }  
+        return "Consultorio{" + "idConsultorio=" + idConsultorio + ", nombre=" + nombre + ", diasConsulta=" + diasConsulta + ", horarioAtencion=" + horarioAtencion + ", telefono=" + telefono + '}';
+    }
+
+    
 }

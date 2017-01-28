@@ -40,7 +40,7 @@ public class Application {
      * @throws java.text.ParseException
      */
     public static void main(String[] args) throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException{
+            JsonMappingException, IOException, ParseException, Exception{
         MenuView p = new MenuView(); 
 
 

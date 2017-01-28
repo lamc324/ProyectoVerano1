@@ -59,8 +59,8 @@ public class PacientesController implements ActionListener, KeyListener {
      * @throws IOException
      */
     public PacientesController(JTextField searchTermTextField, PacientesView view,
-            DefaultTableModel tableModel) throws JsonGenerationException,
-            JsonMappingException, IOException {
+            DefaultTableModel tableModel) throws JsonGenerationException, 
+            JsonMappingException, IOException, Exception {
 
         super();
         pacientesService = new PacientesService();

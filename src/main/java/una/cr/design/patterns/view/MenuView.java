@@ -65,7 +65,7 @@ public class MenuView extends JFrame {
      * @throws ParseException
      */
     public MenuView() throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException {
+            JsonMappingException, IOException, ParseException, Exception {
         super("Gestor de Citas");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 

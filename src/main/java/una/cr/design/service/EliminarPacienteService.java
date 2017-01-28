@@ -56,12 +56,12 @@ public class EliminarPacienteService {
             data = new Object[pacientes.length][7]; // Filas y Columnas
             int i = 0;
             for (Paciente paciente : pacientes) {
-                data[i][0] = checkIfNull(paciente.getId());
+                data[i][0] = checkIfNull(paciente.getIdPaciente());
                 data[i][1] = checkIfNull(paciente.getNombre());
                 data[i][2] = checkIfNull(paciente.getTelefono());
                 data[i][3] = checkIfNull(paciente.getDireccion());
                 data[i][4] = checkIfNull(paciente.getFechaNacimiento());
-                data[i][5] = checkIfNull(paciente.getEnfermedad());
+                data[i][5] = checkIfNull(paciente.getEnfermedades());
                 data[i][6] = checkIfNull(paciente.getObservaciones());
                 i++;
             }
