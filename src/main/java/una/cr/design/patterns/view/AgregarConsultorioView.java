@@ -37,9 +37,11 @@ import una.cr.design.controller.AgregarConsultorioController;
 public class AgregarConsultorioView extends JFrame {
 
     JTextField nombre = new JTextField(20);
+    JTextField dias = new JTextField(20);
     JTextField fechaAtencion = new JTextField(20);
     JTextField telefonoContacto = new JTextField(20);
     JLabel nombreLabel = new JLabel("Nombre: ");
+    JLabel diasLabel = new JLabel("Dias: ");
     JLabel horarioLabel = new JLabel("Horario de Atencion: ");
     JLabel telefonoLabel = new JLabel("Telefono: ");
     JButton aceptar = new JButton("Aceptar");
@@ -58,6 +60,8 @@ public class AgregarConsultorioView extends JFrame {
         stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
         stringPane.add(nombreLabel);
         stringPane.add(nombre);
+        stringPane.add(diasLabel);
+        stringPane.add(dias);
         stringPane.add(horarioLabel);
         stringPane.add(fechaAtencion);
         stringPane.add(telefonoLabel);
@@ -84,7 +88,7 @@ public class AgregarConsultorioView extends JFrame {
         setVisible(true);
 
         //Controller        
-        AgregarConsultorioController controller = new AgregarConsultorioController(nombre, fechaAtencion,
+        AgregarConsultorioController controller = new AgregarConsultorioController(nombre, dias, fechaAtencion,
                 telefonoContacto, this);
         aceptar.setActionCommand("clicAceptar");
         aceptar.addActionListener(controller);
@@ -93,6 +97,7 @@ public class AgregarConsultorioView extends JFrame {
         
         //Setting name of each element
         nombre.setName("nombreTxt");
+        dias.setName("diasTxt");
         fechaAtencion.setName("fechaAtencionTxt");
         telefonoContacto.setName("telefonoContactoTxt");
         cancelar.setName("cancelarButton");

@@ -39,6 +39,7 @@ import una.cr.design.service.ConsultorioService;
 public class AgregarConsultorioController implements ActionListener {
 
     private JTextField nombre;
+    private JTextField dias;
     private JTextField fechaAtencion;
     private JTextField telefonoContacto;
     private JTextField[] informacion;
@@ -53,9 +54,10 @@ public class AgregarConsultorioController implements ActionListener {
      * @param telefonoContacto
      * @param view
      */
-    public AgregarConsultorioController(JTextField nombre, JTextField fechaAtencion,
+    public AgregarConsultorioController(JTextField nombre,JTextField dias, JTextField fechaAtencion,
             JTextField telefonoContacto, AgregarConsultorioView view) {
         this.nombre = nombre;
+        this.dias = dias;
         this.fechaAtencion = fechaAtencion;
         this.telefonoContacto = telefonoContacto;
         this.view = view;
@@ -70,15 +72,16 @@ public class AgregarConsultorioController implements ActionListener {
      */
     public JTextField[] getInfoConsultorio() {
         informacion[0] = nombre;
-        informacion[1] = fechaAtencion;
-        informacion[2] = telefonoContacto;
+        informacion[1] = dias;
+        informacion[2] = fechaAtencion;
+        informacion[3] = telefonoContacto;
         return informacion;
     }
 
     public Consultorio asignaConsultorio() {
         Consultorio c = new Consultorio();
         c.setNombre(nombre.getText());
-        c.setDiasConsulta("Martes");
+        c.setDiasConsulta(dias.getText());
         c.setHorarioAtencion(fechaAtencion.getText());
         c.setTelefono(telefonoContacto.getText());
         return c;
