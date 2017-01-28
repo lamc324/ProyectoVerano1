@@ -64,7 +64,7 @@ public class CitasView extends JFrame {
      * @throws ParseException
      */
     public CitasView() throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException {
+            JsonMappingException, IOException, ParseException, Exception {
         super("Citas");
 
         // Create table model
