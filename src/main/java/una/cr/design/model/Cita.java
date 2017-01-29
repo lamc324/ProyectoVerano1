@@ -28,13 +28,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Cita {
 
     @JsonProperty("id_cita")
-    private String id_cita;
+    private int id_cita;
     
     @JsonProperty("id_paciente")
-    private String id_paciente;
+    private int id_paciente;
 
     @JsonProperty("id_consultorio")
-    private String id_consultorio;
+    private int id_consultorio;
 
     @JsonProperty("fecha")
     private String fecha;
@@ -48,7 +48,7 @@ public class Cita {
     public Cita() {
     }
 
-    public Cita(String id_cita, String id_paciente, String id_consultorio, String fecha, boolean confirmar) {
+    public Cita(int id_cita, int id_paciente, int id_consultorio, String fecha, boolean confirmar) {
         this.id_cita = id_cita;
         this.id_paciente = id_paciente;
         this.id_consultorio = id_consultorio;
@@ -56,27 +56,27 @@ public class Cita {
         this.confirmado = confirmar;
     }
 
-    public String getIdCita() {
+    public int getId_cita() {
         return id_cita;
     }
 
-    public void setIdCita(String id_cita) {
+    public void setId_cita(int id_cita) {
         this.id_cita = id_cita;
     }
 
-    public String getIdPaciente() {
+    public int getId_paciente() {
         return id_paciente;
     }
 
-    public void setIdPaciente(String id_paciente) {
+    public void setId_paciente(int id_paciente) {
         this.id_paciente = id_paciente;
     }
 
-    public String getIdConsultorio() {
+    public int getId_consultorio() {
         return id_consultorio;
     }
 
-    public void setIdConsultorio(String id_consultorio) {
+    public void setId_consultorio(int id_consultorio) {
         this.id_consultorio = id_consultorio;
     }
 
@@ -92,10 +92,10 @@ public class Cita {
         return confirmado;
     }
 
-    public void setConfirmado(boolean confirmar) {
-        this.confirmado = confirmar;
-    }
-
+    public void setConfirmado(boolean confirmado) {
+        this.confirmado = confirmado;
+    }    
+    
     /**
      * Verifica el estado de confirmacion de la cita
      * @return aux
@@ -107,7 +107,6 @@ public class Cita {
         } else {
             aux = "No Confirmado";
         }
-
         return aux;
     }
 
@@ -115,7 +114,5 @@ public class Cita {
     public String toString() {
         return "Cita{" + "id_cita=" + id_cita + ", id_paciente=" + id_paciente + ", id_consultorio=" + id_consultorio + ", fecha=" + fecha + ", confirmado=" + confirmado + '}';
     }
-
-
 
 }

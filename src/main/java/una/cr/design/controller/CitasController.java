@@ -111,7 +111,7 @@ public class CitasController implements ActionListener {
             int idx = 0;
             for (Object[] obj : cita) {
                 String fullText = obj[0].toString() + obj[1].toString()
-                        + obj[2].toString() + obj[3].toString();
+                        + obj[2].toString() + obj[3].toString() + obj[4].toString() ;
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;

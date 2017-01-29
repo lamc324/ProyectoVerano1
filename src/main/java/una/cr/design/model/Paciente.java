@@ -28,8 +28,8 @@ import java.io.Serializable;
  */
 public class Paciente implements Serializable {
 
-    @JsonProperty("idPaciente")
-    private int idPaciente;
+    @JsonProperty("id_paciente")
+    private int id_paciente;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("telefono")
@@ -61,7 +61,7 @@ public class Paciente implements Serializable {
      */
     public Paciente(int idPaciente, String nombre, String telefono, String direccion,
             String fechaNacimiento, String enfermedades, String observaciones) {
-        this.idPaciente = idPaciente;
+        this.id_paciente = idPaciente;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -85,7 +85,7 @@ public class Paciente implements Serializable {
      * @return id
      */
     public int getIdPaciente() {
-        return idPaciente;
+        return id_paciente;
     }
 
     /**
@@ -93,7 +93,7 @@ public class Paciente implements Serializable {
      * @param idPaciente
      */
     public void setIdPaciente(int id_Paciente) {
-        this.idPaciente = id_Paciente;
+        this.id_paciente = id_Paciente;
     }
 
     /**
@@ -210,7 +210,7 @@ public class Paciente implements Serializable {
      */
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + idPaciente + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
+        return "Paciente{" + "id=" + id_paciente + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
     }
 
 }
