@@ -25,13 +25,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.icons.Constants;
+import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarPacienteView;
 import una.cr.design.patterns.view.EliminarPacienteView;
 import una.cr.design.patterns.view.PacientesView;
@@ -41,10 +45,11 @@ import una.cr.design.service.PacientesService;
  *
  * @author Grupo Tango
  */
-public class PacientesController implements ActionListener, KeyListener {
+public class PacientesController implements ActionListener, KeyListener, MouseListener {
 
     private JTextField searchTermTextField = new JTextField(26);
     private final DefaultTableModel tableModel;
+    private final JTable table;
     private final Object[][] pacientes;
     private final PacientesView view;
     private final PacientesService pacientesService;
@@ -54,12 +59,13 @@ public class PacientesController implements ActionListener, KeyListener {
      * @param searchTermTextField
      * @param view
      * @param tableModel
+     * @param table
      * @throws JsonGenerationException
      * @throws JsonMappingException
      * @throws IOException
      */
     public PacientesController(JTextField searchTermTextField, PacientesView view,
-            DefaultTableModel tableModel) throws JsonGenerationException, 
+            DefaultTableModel tableModel, JTable table) throws JsonGenerationException, 
             JsonMappingException, IOException, Exception {
 
         super();
@@ -67,9 +73,12 @@ public class PacientesController implements ActionListener, KeyListener {
         pacientes = pacientesService.cargarPersonasObjWrapper();
         this.searchTermTextField = searchTermTextField;
         this.tableModel = tableModel;
+        this.table = table;
         this.view = view;
         tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
     }
+    
+    
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
@@ -88,7 +97,6 @@ public class PacientesController implements ActionListener, KeyListener {
             case "clicAgregar":
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
                 viewAgregarPaciente.setVisible(true);
-                updateTableSearchTerms("");
                 break;
             case "clicEliminar": {
                 try {
@@ -97,7 +105,9 @@ public class PacientesController implements ActionListener, KeyListener {
                     Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (IOException ex) {
                     Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                } catch (Exception ex) {
+                Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             break;
             case "clicCerrar":
@@ -129,6 +139,11 @@ public class PacientesController implements ActionListener, KeyListener {
             tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
         }
     }
+    
+//    public void editar(int row) throws Exception{
+//        Paciente paciente = pacientesService.getListaPacientes(row);
+//        
+//    }
 
     /**
      *
@@ -160,5 +175,38 @@ public class PacientesController implements ActionListener, KeyListener {
         } else {
             updateTableSearchTerms(" ");
         }
+    }
+
+    @Override
+    public void mouseClicked(MouseEvent e) {
+//       if(e.getClickCount() == 2){
+//           int row = this.table.getSelectedRow();
+//           AgregarCitaView agregarCita = new AgregarCitaView();
+//           try {
+//               this.editar(row);
+//           } catch (Exception ex) {
+//               Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
+//           }
+//       }
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+        
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+         
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
+        
     }
 }

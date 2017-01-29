@@ -176,4 +176,10 @@ public class PacientesService {
 
         return isDeleted;
     }
+    
+//    public Paciente getListaPacientes(int row) throws Exception {
+//        Paciente[] p = loadJsonFromWebService();
+//        List<Paciente> pList = Arrays.asList(p);
+//        return pList.get(row);
+//    }
 }

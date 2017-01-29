@@ -24,13 +24,10 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
-import una.cr.design.patterns.view.AgregarPacienteView;
 import una.cr.design.patterns.view.EliminarPacienteView;
-import una.cr.design.service.EliminarPacienteService;
+import una.cr.design.service.PacientesService;
 
 /**
  *
@@ -41,7 +38,7 @@ public class EliminarPacienteController implements ActionListener {
     private JTextField searchTermTextField = new JTextField(26);
     private Object[][] pacientes;
     private EliminarPacienteView view;
-    private EliminarPacienteService pacientesService;
+    private PacientesService pacientesService;
 
     /**
      * Constructor del controller con parametros
@@ -53,10 +50,10 @@ public class EliminarPacienteController implements ActionListener {
      */
     public EliminarPacienteController(JTextField searchTermTextField,
             EliminarPacienteView view) throws JsonGenerationException,
-            JsonMappingException, IOException {
+            JsonMappingException, IOException, Exception {
 
         super();
-        pacientesService = new EliminarPacienteService();
+        pacientesService = new PacientesService();
         pacientes = pacientesService.cargarPersonasObjWrapper();
         this.searchTermTextField = searchTermTextField;
         this.view = view;

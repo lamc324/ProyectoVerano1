@@ -37,14 +37,12 @@ import una.cr.design.controller.AgregarPacienteController;
  */
 public class AgregarPacienteView extends JFrame {
 
-    JTextField id = new JTextField(15);
     JTextField nombre = new JTextField(15);
     JTextField telefono = new JTextField(15);
     JTextField direccion = new JTextField(15);
     JTextField fechaNac = new JTextField(15);
     JTextField enfermedades = new JTextField(15);
     JTextArea observaciones = new JTextArea(4, 15);
-    JLabel idLabel = new JLabel("Identificacion: ");
     JLabel nombreLabel = new JLabel("Nombre: ");
     JLabel telefLabel = new JLabel("Telefono: ");
     JLabel dirLabel = new JLabel("Direccion: ");
@@ -60,7 +58,6 @@ public class AgregarPacienteView extends JFrame {
     public AgregarPacienteView() {
         super("Agregar Paciente");
 
-        id.setName("id");
         nombre.setName("nombre");
         telefono.setName("telefono");
         direccion.setName("direccion");
@@ -74,8 +71,6 @@ public class AgregarPacienteView extends JFrame {
         JPanel stringPane = new JPanel();
         stringPane.setName("stringPane");
         stringPane.setLayout(new BoxLayout(stringPane, BoxLayout.Y_AXIS));
-        stringPane.add(idLabel);
-        stringPane.add(id);
         stringPane.add(nombreLabel);
         stringPane.add(nombre);
         stringPane.add(telefLabel);
@@ -106,7 +101,7 @@ public class AgregarPacienteView extends JFrame {
         setContentPane(controlPane);
 
         // Crea el controller
-        AgregarPacienteController controller = new AgregarPacienteController(id, nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
+        AgregarPacienteController controller = new AgregarPacienteController(nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
         cancelar.setActionCommand("clicCancelar");
         cancelar.addActionListener(controller);
         siguiente.setActionCommand("clicSiguiente");
@@ -131,6 +126,5 @@ public class AgregarPacienteView extends JFrame {
             System.out.println(exc.getMessage());
         }
     }
-
 }
 

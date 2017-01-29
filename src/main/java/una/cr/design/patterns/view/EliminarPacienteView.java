@@ -48,7 +48,7 @@ public class EliminarPacienteView extends JFrame {
      * @throws JsonMappingException
      * @throws IOException
      */
-    public EliminarPacienteView() throws JsonGenerationException, JsonMappingException, IOException {
+    public EliminarPacienteView() throws JsonGenerationException, JsonMappingException, IOException, Exception {
 
         super("Eliminar Paciente");
 

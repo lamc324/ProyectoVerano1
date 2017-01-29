@@ -19,14 +19,19 @@
  */
 package una.cr.design.controller;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.AgregarPacienteView;
+import una.cr.design.service.PacientesService;
 
 /**
  *
@@ -34,7 +39,6 @@ import una.cr.design.patterns.view.AgregarPacienteView;
  */
 public class AgregarPacienteController implements ActionListener {
 
-    private JTextField id;
     private JTextField nombre;
     private JTextField telefono;
     private JTextField direccion;
@@ -43,10 +47,11 @@ public class AgregarPacienteController implements ActionListener {
     private JTextArea observaciones;
     private JTextField[] informacion;
     private AgregarPacienteView view;
+    private PacientesService pacienteService;
 
     /**
      * Constructor del controller con parametros
-     * @param id
+     *
      * @param nombre
      * @param telefono
      * @param direccion
@@ -56,7 +61,6 @@ public class AgregarPacienteController implements ActionListener {
      * @param view
      */
     public AgregarPacienteController(
-            JTextField id,
             JTextField nombre,
             JTextField telefono,
             JTextField direccion,
@@ -66,7 +70,6 @@ public class AgregarPacienteController implements ActionListener {
             AgregarPacienteView view) {
         super();
 
-        this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
@@ -74,7 +77,8 @@ public class AgregarPacienteController implements ActionListener {
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
         this.view = view;
-        this.informacion = new JTextField[5];
+        this.informacion = new JTextField[4];
+        pacienteService = new PacientesService();
     }
 
     /**
@@ -82,34 +86,32 @@ public class AgregarPacienteController implements ActionListener {
      * @return informacion
      */
     public JTextField[] getInfoPaciente() {
-        informacion[0] = id;
-        informacion[1] = nombre;
-        informacion[2] = telefono;
-        informacion[3] = direccion;
-        informacion[4] = fechaNac;
+        informacion[0] = nombre;
+        informacion[1] = telefono;
+        informacion[2] = direccion;
+        informacion[3] = fechaNac;
         return informacion;
     }
 
     /**
      * Crea un paciente y lo retorna
+     *
      * @return p
      */
     public Paciente asignaPaciente() {
         Paciente p = new Paciente();
-        p.setIdPaciente(id.getText());
         p.setNombre(nombre.getText());
         p.setTelefono(telefono.getText());
         p.setDireccion(direccion.getText());
-//        p.setFechaNacimiento(fechaNac.getText());
-//        String txt = enfermedades.getText();
-//        String[] arrayTxt = txt.split(",");
-//        p.setEnfermedades(arrayTxt);
+        p.setFechaNacimiento(fechaNac.getText());
+        p.setEnfermedades(enfermedades.getText());
         p.setObservaciones(observaciones.getText());
         return p;
     }
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param ae
      */
     @Override
@@ -128,12 +130,26 @@ public class AgregarPacienteController implements ActionListener {
                 }
                 if (caseNull == true) {
                     break;
+                } else {
+
+                    try {
+                        Paciente p = asignaPaciente();
+                        System.out.println(p.toString());
+                        pacienteService.createPaciente(p);
+
+                    } catch (JsonMappingException ex) {
+                        Logger.getLogger(AgregarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (IOException ex) {
+                        Logger.getLogger(AgregarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                    } catch (Exception ex) {
+                        Logger.getLogger(AgregarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+
                 }
-                Paciente p = asignaPaciente();
                 view.setVisible(false);
                 AgregarCitaView viewAgregarCita = new AgregarCitaView();
                 viewAgregarCita.setVisible(true);
-                System.out.println(p.toString());
+
                 break;
             case "clicCancelar":
                 view.setVisible(false);

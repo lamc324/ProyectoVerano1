@@ -115,6 +115,7 @@ public class AgregarConsultorioController implements ActionListener {
                     try {
                         Consultorio c = asignaConsultorio();
                         consultorioService.createConsultorio(c);
+                        System.out.println(c.toString());
                     } catch (JsonMappingException ex) {
                         Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (IOException ex) {

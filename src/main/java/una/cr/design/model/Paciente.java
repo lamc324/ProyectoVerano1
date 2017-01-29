@@ -29,15 +29,15 @@ import java.io.Serializable;
 public class Paciente implements Serializable {
 
     @JsonProperty("id_paciente")
-    private String id_paciente;
+    private String idPaciente;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("telefono")
     private String telefono;
     @JsonProperty("direccion")
     private String direccion;
-    @JsonProperty("fecha_nacimiento")
-    private String fecha_nacimiento;
+    @JsonProperty("fechaNacimiento")
+    private String fechaNacimiento;
     @JsonProperty("enfermedades")
     private String enfermedades;
     @JsonProperty("observaciones")
@@ -61,11 +61,21 @@ public class Paciente implements Serializable {
      */
     public Paciente(String idPaciente, String nombre, String telefono, String direccion,
             String fechaNacimiento, String enfermedades, String observaciones) {
-        this.id_paciente = idPaciente;
+        this.idPaciente = idPaciente;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
-        this.fecha_nacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
+        this.enfermedades = enfermedades;
+        this.observaciones = observaciones;
+    }
+
+    public Paciente(String nombre, String telefono, String direccion, String fechaNacimiento,
+            String enfermedades, String observaciones) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.fechaNacimiento = fechaNacimiento;
         this.enfermedades = enfermedades;
         this.observaciones = observaciones;
     }
@@ -75,7 +85,7 @@ public class Paciente implements Serializable {
      * @return id
      */
     public String getIdPaciente() {
-        return id_paciente;
+        return idPaciente;
     }
 
     /**
@@ -83,7 +93,7 @@ public class Paciente implements Serializable {
      * @param idPaciente
      */
     public void setIdPaciente(String idPaciente) {
-        this.id_paciente = idPaciente;
+        this.idPaciente = idPaciente;
     }
 
     /**
@@ -139,7 +149,7 @@ public class Paciente implements Serializable {
      * @return fechaNacimiento
      */
     public String getFechaNacimiento() {
-        return fecha_nacimiento;
+        return fechaNacimiento;
     }
 
     /**
@@ -147,7 +157,7 @@ public class Paciente implements Serializable {
      * @param fechaNacimiento
      */
     public void setFechaNacimiento(String fechaNacimiento) {
-        this.fecha_nacimiento = fechaNacimiento;
+        this.fechaNacimiento = fechaNacimiento;
     }
 
     /**
@@ -200,7 +210,7 @@ public class Paciente implements Serializable {
      */
     @Override
     public String toString() {
-        return "Paciente{" + "id=" + id_paciente + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fecha_nacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
+        return "Paciente{" + "id=" + idPaciente + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", fechaNacimiento=" + fechaNacimiento + ", enfermedadesAsociadas=" + enfermedades + ", observaciones=" + observaciones + '}';
     }
 
 }

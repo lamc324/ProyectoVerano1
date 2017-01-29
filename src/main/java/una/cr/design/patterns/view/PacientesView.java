@@ -23,6 +23,7 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -119,7 +120,7 @@ public class PacientesView extends JFrame {
         setVisible(true);
 
         //Controller        
-        PacientesController controller = new PacientesController(searchTermTextField, this, tableModel);
+        PacientesController controller = new PacientesController(searchTermTextField, this, tableModel, table);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");
@@ -129,6 +130,7 @@ public class PacientesView extends JFrame {
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
         searchTermTextField.addKeyListener(controller);
+        table.addMouseListener(controller);
     }
 
 }
