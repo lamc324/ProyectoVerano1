@@ -28,8 +28,8 @@ import java.io.Serializable;
  */
 public class Paciente implements Serializable {
 
-    @JsonProperty("id_paciente")
-    private String idPaciente;
+    @JsonProperty("idPaciente")
+    private int idPaciente;
     @JsonProperty("nombre")
     private String nombre;
     @JsonProperty("telefono")
@@ -59,7 +59,7 @@ public class Paciente implements Serializable {
      * @param enfermedades
      * @param observaciones
      */
-    public Paciente(String idPaciente, String nombre, String telefono, String direccion,
+    public Paciente(int idPaciente, String nombre, String telefono, String direccion,
             String fechaNacimiento, String enfermedades, String observaciones) {
         this.idPaciente = idPaciente;
         this.nombre = nombre;
@@ -84,7 +84,7 @@ public class Paciente implements Serializable {
      *
      * @return id
      */
-    public String getIdPaciente() {
+    public int getIdPaciente() {
         return idPaciente;
     }
 
@@ -92,8 +92,8 @@ public class Paciente implements Serializable {
      *
      * @param idPaciente
      */
-    public void setIdPaciente(String idPaciente) {
-        this.idPaciente = idPaciente;
+    public void setIdPaciente(int id_Paciente) {
+        this.idPaciente = id_Paciente;
     }
 
     /**
