@@ -31,7 +31,6 @@ import java.io.IOException;
 import javax.ws.rs.core.MediaType;
 import una.cr.design.icons.Constants;
 import una.cr.design.model.Cita;
-import una.cr.design.model.Paciente;
 
 /**
  *
@@ -54,8 +53,8 @@ public class CitaService {
             int i = 0;
             for (Cita citas : cita) {
                 data[i][0] = checkIfNull(citas.getId_cita());
-                data[i][1] = checkIfNull(citas.getId_paciente());
-                data[i][2] = checkIfNull(citas.getId_consultorio());
+                data[i][1] = checkIfNull(citas.getPaciente().getNombre());
+                data[i][2] = checkIfNull(citas.getConsultorio().getNombre());
                 data[i][3] = checkIfNull(citas.getFecha());
                 data[i][4] = checkIfNull(citas.confirmado());
                 i++;
