@@ -37,7 +37,6 @@ import javax.swing.table.DefaultTableModel;
 import una.cr.design.icons.Constants;
 import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.AgregarPacienteView;
-import una.cr.design.patterns.view.EliminarPacienteView;
 import una.cr.design.patterns.view.PacientesView;
 import una.cr.design.service.PacientesService;
 
@@ -56,6 +55,7 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
 
     /**
      * Constructor del controller con parametros
+     *
      * @param searchTermTextField
      * @param view
      * @param tableModel
@@ -65,7 +65,7 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
      * @throws IOException
      */
     public PacientesController(JTextField searchTermTextField, PacientesView view,
-            DefaultTableModel tableModel, JTable table) throws JsonGenerationException, 
+            DefaultTableModel tableModel, JTable table) throws JsonGenerationException,
             JsonMappingException, IOException, Exception {
 
         super();
@@ -77,11 +77,10 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
         this.view = view;
         tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
     }
-    
-    
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param e
      */
     @Override
@@ -98,18 +97,13 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
                 viewAgregarPaciente.setVisible(true);
                 break;
-            case "clicEliminar": {
-                try {
-                    EliminarPacienteView viewEliminarPaciente = new EliminarPacienteView();
-                } catch (JsonMappingException ex) {
-                    Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (Exception ex) {
-                Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
-            break;
+            case "clicEliminar":
+                String deleteTerm = searchTermTextField.getText().toLowerCase();
+                if (!"".equals(deleteTerm)) {
+                    deleteTableSearchTerms(deleteTerm);
+                }
+                updateTableSearchTerms(deleteTerm);
+                break;
             case "clicCerrar":
                 view.setVisible(false);
                 break;
@@ -139,11 +133,21 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
             tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
         }
     }
-    
-//    public void editar(int row) throws Exception{
-//        Paciente paciente = pacientesService.getListaPacientes(row);
-//        
-//    }
+
+    private void deleteTableSearchTerms(String deleteTerm) {
+        try {
+            if (deleteTerm != null && !"".equals(deleteTerm)
+                    && pacientes != null && pacientes.length >= 1) {
+                int borrar = Integer.parseInt(deleteTerm);
+                pacientesService.deletePaciente(borrar);
+                JOptionPane.showMessageDialog(view, "Paciente Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "No se encontró el paciente", "Error",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }
 
     /**
      *
@@ -165,6 +169,7 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
 
     /**
      * Realiza la busqueda luego de presionar una tecla
+     *
      * @param e
      */
     @Override
@@ -192,21 +197,21 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
 
     @Override
     public void mousePressed(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
     }
 
     @Override
     public void mouseEntered(MouseEvent e) {
-         
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
-        
+
     }
 }

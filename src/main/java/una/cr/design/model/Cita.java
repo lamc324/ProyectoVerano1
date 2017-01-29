@@ -27,17 +27,20 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Cita {
 
-    @JsonProperty("id")
-    private String id;
+    @JsonProperty("id_cita")
+    private String id_cita;
+    
+    @JsonProperty("id_paciente")
+    private String id_paciente;
 
-    @JsonProperty("consultorio")
-    private String consultorio;
+    @JsonProperty("id_consultorio")
+    private String id_consultorio;
 
     @JsonProperty("fecha")
     private String fecha;
 
     @JsonProperty("confirmado")
-    private boolean confirmar;
+    private boolean confirmado;
 
     /**
      * Constructor sin parametro
@@ -45,82 +48,52 @@ public class Cita {
     public Cita() {
     }
 
-    /**
-     * Constructor con parametro
-     * @param id
-     * @param consultorio
-     * @param fecha
-     * @param confirmar
-     */
-    public Cita(String id, String consultorio, String fecha, boolean confirmar) {
-        this.id = id;
-        this.consultorio = consultorio;
+    public Cita(String id_cita, String id_paciente, String id_consultorio, String fecha, boolean confirmar) {
+        this.id_cita = id_cita;
+        this.id_paciente = id_paciente;
+        this.id_consultorio = id_consultorio;
         this.fecha = fecha;
-        this.confirmar = confirmar;
+        this.confirmado = confirmar;
     }
 
-    /**
-     *
-     * @return id
-     */
-    public String getId() {
-        return id;
+    public String getIdCita() {
+        return id_cita;
     }
 
-    /**
-     *
-     * @param paciente
-     */
-    public void setPaciente(String paciente) {
-        this.id = paciente;
+    public void setIdCita(String id_cita) {
+        this.id_cita = id_cita;
     }
 
-    /**
-     *
-     * @return consultorio
-     */
-    public String getConsultorio() {
-        return consultorio;
+    public String getIdPaciente() {
+        return id_paciente;
     }
 
-    /**
-     *
-     * @param consultorio
-     */
-    public void setConsultorio(String consultorio) {
-        this.consultorio = consultorio;
+    public void setIdPaciente(String id_paciente) {
+        this.id_paciente = id_paciente;
     }
 
-    /**
-     *
-     * @return fecha
-     */
+    public String getIdConsultorio() {
+        return id_consultorio;
+    }
+
+    public void setIdConsultorio(String id_consultorio) {
+        this.id_consultorio = id_consultorio;
+    }
+
     public String getFecha() {
         return fecha;
     }
 
-    /**
-     *
-     * @param fecha
-     */
     public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
-    /**
-     *
-     * @return confirmar
-     */
-    public boolean isConfirmar() {
-        return confirmar;
+    public boolean isConfirmado() {
+        return confirmado;
     }
 
-    /**
-     *
-     * @param confirmar
-     */
-    public void setConfirmar(boolean confirmar) {
-        this.confirmar = confirmar;
+    public void setConfirmado(boolean confirmar) {
+        this.confirmado = confirmar;
     }
 
     /**
@@ -129,7 +102,7 @@ public class Cita {
      */
     public String confirmado() {
         String aux;
-        if (isConfirmar() == true) {
+        if (isConfirmado() == true) {
             aux = "Confirmado";
         } else {
             aux = "No Confirmado";
@@ -138,13 +111,11 @@ public class Cita {
         return aux;
     }
 
-    /**
-     *
-     * @return toString
-     */
     @Override
     public String toString() {
-        return "Cita{" + "id=" + id + ", consultorio=" + consultorio + ", fecha=" + fecha + ", confirmar=" + confirmar + '}';
+        return "Cita{" + "id_cita=" + id_cita + ", id_paciente=" + id_paciente + ", id_consultorio=" + id_consultorio + ", fecha=" + fecha + ", confirmado=" + confirmado + '}';
     }
+
+
 
 }

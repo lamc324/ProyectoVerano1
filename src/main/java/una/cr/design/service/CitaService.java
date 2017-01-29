@@ -45,13 +45,14 @@ public class CitaService {
         Cita[] cita = cargarCitasDeArchivo();
         Object[][] data = null;
         if (cita != null && cita.length > 0) {
-            data = new Object[cita.length][4]; // filas y columnas
+            data = new Object[cita.length][5]; // filas y columnas
             int i = 0;
             for (Cita citas : cita) {
-                data[i][0] = checkIfNull(citas.getId());
-                data[i][1] = checkIfNull(citas.getConsultorio());
-                data[i][2] = checkIfNull(citas.getFecha());
-                data[i][3] = checkIfNull(citas.confirmado());
+                data[i][0] = checkIfNull(citas.getIdCita());
+                data[i][1] = checkIfNull(citas.getIdPaciente());
+                data[i][2] = checkIfNull(citas.getIdConsultorio());
+                data[i][3] = checkIfNull(citas.getFecha());
+                data[i][4] = checkIfNull(citas.confirmado());
                 i++;
             }
         }
