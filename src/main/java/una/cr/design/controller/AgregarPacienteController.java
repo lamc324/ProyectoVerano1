@@ -146,13 +146,13 @@ public class AgregarPacienteController implements ActionListener {
                     }
 
                 }
+                JOptionPane.showMessageDialog(view, "Paciente agregado!", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
-                AgregarCitaView viewAgregarCita = new AgregarCitaView();
-                viewAgregarCita.setVisible(true);
 
                 break;
             case "clicCancelar":
                 view.setVisible(false);
+
                 break;
         }
     }

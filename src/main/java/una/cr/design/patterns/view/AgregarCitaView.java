@@ -27,8 +27,10 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import una.cr.design.controller.AgregarCitaController;
 
@@ -48,11 +50,14 @@ public class AgregarCitaView extends JFrame {
     JEditorPane campoDescrip = new JEditorPane();
     JButton atras = new JButton("Atras");
     JButton terminar = new JButton("Terminar");
+    JTextField agregarId = new JTextField(15);
+    JLabel idPacientfLabel = new JLabel("Id Paciente");
+
 
     /**
      * Constructor del view
      */
-    public AgregarCitaView() {
+    public AgregarCitaView() throws Exception {
         super("Agregar Cita");
         setSize(500, 360);
         JPanel ctrlPane = new JPanel();
@@ -84,9 +89,11 @@ public class AgregarCitaView extends JFrame {
         tableScrollPane.setPreferredSize(new Dimension(400, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Descripcion del Consultorio: ",
                 TitledBorder.CENTER, TitledBorder.TOP));
-
+        
         ctrlPane.add(BorderLayout.NORTH, consultorioBox);
         ctrlPane.add(BorderLayout.CENTER, tableScrollPane);
+        ctrlPane_1.add(idPacientfLabel);
+        ctrlPane_1.add(agregarId);
         ctrlPane_1.add(ctrlPane);
         ctrlPane2.add(atras);
         ctrlPane2.add(terminar);
@@ -95,6 +102,7 @@ public class AgregarCitaView extends JFrame {
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane_1);
         ctrlPane3.add(ctrlPane2_1);
+        
         add(ctrlPane3);
 
         this.setMinimumSize(new Dimension(500, 250));
@@ -102,7 +110,7 @@ public class AgregarCitaView extends JFrame {
         setVisible(true);
 
         //Controller        
-        AgregarCitaController controller = new AgregarCitaController(consultorioBox, campoDescrip, this);
+        AgregarCitaController controller = new AgregarCitaController(agregarId, consultorioBox, campoDescrip, this);
         atras.setActionCommand("clicAtras");
         atras.addActionListener(controller);
         terminar.setActionCommand("clicTerminar");

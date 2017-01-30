@@ -26,9 +26,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.service.CitaService;
 import una.cr.design.service.ConsultorioService;
@@ -99,8 +102,17 @@ public class CitasController implements ActionListener {
             case "clicCerrar":
                 view.setVisible(false);
                 break;
-        }
 
+            case "clicAgregar":
+                AgregarCitaView cita;
+                try {
+                    cita = new AgregarCitaView();
+                    view.setVisible(false);
+                    cita.setVisible(true);
+                } catch (Exception ex) {
+                    Logger.getLogger(CitasController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }
     }
 
     //Actualiza la tabla conforme a la busqueda
@@ -111,7 +123,7 @@ public class CitasController implements ActionListener {
             int idx = 0;
             for (Object[] obj : cita) {
                 String fullText = obj[0].toString() + obj[1].toString()
-                        + obj[2].toString() + obj[3].toString() + obj[4].toString() ;
+                        + obj[2].toString() + obj[3].toString() + obj[4].toString();
 
                 if (fullText.contains(searchTerm.trim())) {
                     newData[idx++] = obj;

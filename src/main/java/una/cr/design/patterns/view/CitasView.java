@@ -50,6 +50,7 @@ public class CitasView extends JFrame {
 
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
+    JButton agregarCitaButton = new JButton("Nueva Cita");
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
@@ -73,6 +74,7 @@ public class CitasView extends JFrame {
         buscarButton.setName("buscar");
         cerrarButton.setName("cerrar");
         consultorioBox.setName("box");
+        agregarCitaButton.setName("Agregar Cita");
 
         for (String consultorio : consultorios) {
             consultorioBox.addItem(consultorio);
@@ -91,6 +93,7 @@ public class CitasView extends JFrame {
         ctrlPane3.setName("ctrlPanel3");
         ctrlPane.add(consultorioBox);
         ctrlPane.add(buscarButton);
+        ctrlPane.add(agregarCitaButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -118,5 +121,7 @@ public class CitasView extends JFrame {
         buscarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
+        agregarCitaButton.setActionCommand("clicAgregar");
+        agregarCitaButton.addActionListener(controller);
     }
 }

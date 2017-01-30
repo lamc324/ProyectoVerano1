@@ -142,9 +142,6 @@ public class MenuController implements ActionListener {
             }
             }
 
-            /**
-             * ********************************************************
-             */
             JOptionPane.showMessageDialog(null,
                     "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
                     + "Escuela de Informática 2017"

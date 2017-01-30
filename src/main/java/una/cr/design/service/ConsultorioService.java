@@ -40,6 +40,7 @@ public class ConsultorioService {
 
     /**
      * Carga el .JSON y envia un wrapper de los objetos
+     *
      * @return data
      * @throws JsonGenerationException
      * @throws JsonMappingException
@@ -47,10 +48,10 @@ public class ConsultorioService {
      */
     public Object[][] loadConsultorioObjWrapper() throws JsonGenerationException,
             JsonMappingException, IOException, Exception {
-        
+
 //        Consultorio[] consultorio = cargarConsultoriosDeArchivo();
         Consultorio[] consultorio = loadJsonFromWebService();
-                
+
         Object[][] data = null;
 
         if (consultorio != null && consultorio.length > 0) {
@@ -85,7 +86,7 @@ public class ConsultorioService {
         }
         return text;
     }
-    
+
     private Consultorio[] loadJsonFromWebService() throws Exception {
         Consultorio[] consultorio;
         String jSonFile;
@@ -167,12 +168,23 @@ public class ConsultorioService {
 
         return isDeleted;
     }
-    
+
     public Consultorio getConsultorio(int id) throws Exception {
         Consultorio[] p = loadJsonFromWebService();
         Consultorio nuevo = new Consultorio();
-        for(Consultorio consultorio : p){
-            if(consultorio.getIdConsultorio()== id){
+        for (Consultorio consultorio : p) {
+            if (consultorio.getIdConsultorio() == id) {
+                nuevo = consultorio;
+            }
+        }
+        return nuevo;
+    }
+
+    public Consultorio getConsultorioNombre(String nombre) throws Exception {
+        Consultorio[] p = loadJsonFromWebService();
+        Consultorio nuevo = new Consultorio();
+        for (Consultorio consultorio : p) {
+            if (consultorio.getNombre().equals(nombre)) {
                 nuevo = consultorio;
             }
         }
