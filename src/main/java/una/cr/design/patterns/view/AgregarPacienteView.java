@@ -20,8 +20,13 @@
 package una.cr.design.patterns.view;
 
 import java.awt.Dimension;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,6 +34,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.text.MaskFormatter;
 import una.cr.design.controller.AgregarPacienteController;
 
 /**
@@ -38,9 +44,9 @@ import una.cr.design.controller.AgregarPacienteController;
 public class AgregarPacienteView extends JFrame {
 
     JTextField nombre = new JTextField(15);
-    JTextField telefono = new JTextField(15);
+    JFormattedTextField telefono;
     JTextField direccion = new JTextField(15);
-    JTextField fechaNac = new JTextField(15);
+    JFormattedTextField fechaNac;
     JTextField enfermedades = new JTextField(15);
     JTextArea observaciones = new JTextArea(4, 15);
     JLabel nombreLabel = new JLabel("Nombre: ");
@@ -58,6 +64,15 @@ public class AgregarPacienteView extends JFrame {
     public AgregarPacienteView() {
         super("Agregar Paciente");
 
+        MaskFormatter phoneFormatter = null;
+        try {
+            phoneFormatter = new MaskFormatter("(506) ####-####");
+        } catch (ParseException ex) {
+            Logger.getLogger(AgregarPacienteView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        phoneFormatter.setPlaceholderCharacter(' ');
+        telefono = new JFormattedTextField(phoneFormatter);
+        
         nombre.setName("nombre");
         telefono.setName("telefono");
         direccion.setName("direccion");
@@ -66,7 +81,7 @@ public class AgregarPacienteView extends JFrame {
         observaciones.setName("observaciones");
         siguiente.setName("siguiente");
         cancelar.setName("cancelar");
-        
+
         // Crea y llena el panel
         JPanel stringPane = new JPanel();
         stringPane.setName("stringPane");
@@ -101,18 +116,17 @@ public class AgregarPacienteView extends JFrame {
         setContentPane(controlPane);
 
         // Crea el controller
-        AgregarPacienteController controller = new AgregarPacienteController(nombre, telefono, direccion, fechaNac, enfermedades, observaciones,this);
+        AgregarPacienteController controller = new AgregarPacienteController(nombre, telefono, direccion, fechaNac, enfermedades, observaciones, this);
         cancelar.setActionCommand("clicCancelar");
         cancelar.addActionListener(controller);
         siguiente.setActionCommand("clicSiguiente");
         siguiente.addActionListener(controller);
 
-        
         pack();
-        
+
         setLocationRelativeTo(null);
         this.setMinimumSize(new Dimension(300, 300));
-        
+
         setVisible(true);
 
     }
@@ -127,4 +141,3 @@ public class AgregarPacienteView extends JFrame {
         }
     }
 }
-

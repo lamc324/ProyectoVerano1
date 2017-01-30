@@ -23,14 +23,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import una.cr.design.model.Consultorio;
 import una.cr.design.patterns.view.AgregarConsultorioView;
-import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.service.ConsultorioService;
 
 /**

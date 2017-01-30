@@ -24,14 +24,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.Dimension;
 import java.io.IOException;
 import java.text.ParseException;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import una.cr.design.controller.MenuController;
 
 /**
