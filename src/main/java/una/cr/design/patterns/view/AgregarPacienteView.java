@@ -46,7 +46,7 @@ public class AgregarPacienteView extends JFrame {
     JTextField nombre = new JTextField(15);
     JFormattedTextField telefono;
     JTextField direccion = new JTextField(15);
-    JFormattedTextField fechaNac;
+    JTextField fechaNac = new JTextField(15);
     JTextField enfermedades = new JTextField(15);
     JTextArea observaciones = new JTextArea(4, 15);
     JLabel nombreLabel = new JLabel("Nombre: ");
