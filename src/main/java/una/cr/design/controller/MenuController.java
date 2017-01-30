@@ -77,7 +77,6 @@ public class MenuController implements ActionListener {
         switch (e.getActionCommand()) {
             case "clicMostrarPacientes":
                 PacientesView viewAgregarPaciente;
-
                 try {
                     viewAgregarPaciente = new PacientesView();
                     viewAgregarPaciente.setVisible(true);

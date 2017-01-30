@@ -32,6 +32,9 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import net.sourceforge.jdatepicker.impl.JDatePanelImpl;
+import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
+import net.sourceforge.jdatepicker.impl.UtilDateModel;
 import una.cr.design.controller.AgregarCitaController;
 
 /**
@@ -52,7 +55,10 @@ public class AgregarCitaView extends JFrame {
     JButton terminar = new JButton("Terminar");
     JTextField agregarId = new JTextField(15);
     JLabel idPacientfLabel = new JLabel("Id Paciente");
-
+    UtilDateModel model;
+    JDatePanelImpl datePanel;
+    JDatePickerImpl datePicker;
+    JLabel fechaCita = new JLabel("Fecha de la cita");
 
     /**
      * Constructor del view
@@ -65,7 +71,8 @@ public class AgregarCitaView extends JFrame {
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane2_1 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
-        
+        JPanel fckngPane = new JPanel();
+
         atras.setName("atras");
         terminar.setName("terminar");
         consultorioBox.setName("box");
@@ -77,11 +84,11 @@ public class AgregarCitaView extends JFrame {
         ctrlPane3.setName("ctrlPanel3");
 
         ctrlPane.setLayout(new BorderLayout());
-        for (int i = 0; i < consultorios.length; i++) {
-            consultorioBox.addItem(consultorios[i]);
+        for (String consultorio : consultorios) {
+            consultorioBox.addItem(consultorio);
         }
-        for (int i = 0; i < horas.length; i++) {
-            horaBox.addItem(horas[i]);
+        for (String hora : horas) {
+            horaBox.addItem(hora);
         }
 
         JScrollPane tableScrollPane = new JScrollPane(campoDescrip);
@@ -89,28 +96,38 @@ public class AgregarCitaView extends JFrame {
         tableScrollPane.setPreferredSize(new Dimension(400, 182));
         tableScrollPane.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Descripcion del Consultorio: ",
                 TitledBorder.CENTER, TitledBorder.TOP));
-        
+
         ctrlPane.add(BorderLayout.NORTH, consultorioBox);
         ctrlPane.add(BorderLayout.CENTER, tableScrollPane);
         ctrlPane_1.add(idPacientfLabel);
         ctrlPane_1.add(agregarId);
         ctrlPane_1.add(ctrlPane);
+
+        /////////////////////////////////
+        model = new UtilDateModel();
+        datePanel = new JDatePanelImpl(model);
+        datePicker = new JDatePickerImpl(datePanel);
+        fckngPane.add(fechaCita);
+        fckngPane.add(datePicker);
+        /////////////////////////////////
+
         ctrlPane2.add(atras);
         ctrlPane2.add(terminar);
         ctrlPane2_1.add(ctrlPane2);
 
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane_1);
+        ctrlPane3.add(fckngPane);
         ctrlPane3.add(ctrlPane2_1);
-        
+
         add(ctrlPane3);
 
-        this.setMinimumSize(new Dimension(500, 250));
+        this.setMinimumSize(new Dimension(500, 400));
         setLocationRelativeTo(null);
         setVisible(true);
 
         //Controller        
-        AgregarCitaController controller = new AgregarCitaController(agregarId, consultorioBox, campoDescrip, this);
+        AgregarCitaController controller = new AgregarCitaController(agregarId, consultorioBox, campoDescrip, this, datePicker);
         atras.setActionCommand("clicAtras");
         atras.addActionListener(controller);
         terminar.setActionCommand("clicTerminar");

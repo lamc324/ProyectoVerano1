@@ -38,6 +38,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.controller.ConsultorioController;
+//import net.sourceforge.jdatepicker
 
 /**
  *

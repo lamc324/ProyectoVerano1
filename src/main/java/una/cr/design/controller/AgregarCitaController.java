@@ -23,12 +23,15 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
-import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import net.sourceforge.jdatepicker.impl.JDatePickerImpl;
 import una.cr.design.model.Cita;
 import una.cr.design.model.Consultorio;
 import una.cr.design.model.Paciente;
@@ -48,6 +51,7 @@ public class AgregarCitaController implements ActionListener {
     private JComboBox consultorioBox;
     private JEditorPane campoDescrip;
     private JTextField agregarId;
+    private JDatePickerImpl datePicker;
     private final Object[][] consultorio;
     PacientesService pacienteService;
     ConsultorioService consultorioService;
@@ -60,12 +64,14 @@ public class AgregarCitaController implements ActionListener {
      * @param consultorioBox
      * @param campoDescrip
      * @param view
+     * @param datePicker
      */
-    public AgregarCitaController(JTextField agregarId, JComboBox consultorioBox, JEditorPane campoDescrip, AgregarCitaView view) throws IOException, JsonMappingException, Exception {
+    public AgregarCitaController(JTextField agregarId, JComboBox consultorioBox, JEditorPane campoDescrip, AgregarCitaView view, JDatePickerImpl datePicker) throws IOException, JsonMappingException, Exception {
         this.agregarId = agregarId;
         this.consultorioBox = consultorioBox;
         this.campoDescrip = campoDescrip;
         this.view = view;
+        this.datePicker = datePicker;
         pacienteService = new PacientesService();
         consultorioService = new ConsultorioService();
         citaService = new CitaService();
@@ -95,30 +101,24 @@ public class AgregarCitaController implements ActionListener {
                 ap.setVisible(false);
                 break;
             case "clicTerminar":
-//
-//                if ("Hospital CIMA".equals(aux) || "Centro Medico del Este".equals(aux)) {
-//                    JOptionPane.showMessageDialog(view, "Cita Agregada", "", JOptionPane.INFORMATION_MESSAGE);
-//                    view.setVisible(false);
-//                } else {
-//                    JOptionPane.showMessageDialog(view, "Por favor, seleccione un consultorio para continuar", "Error", JOptionPane.ERROR_MESSAGE);
-//                }
-//
-//                break;
                 String idPaciente;
                 idPaciente = this.agregarId.getText();
 
-                Paciente p;
+                Paciente paciente;
+                Cita cita;
+                Consultorio cons;
                 try {
-                    p = pacienteService.getPaciente(Integer.parseInt(idPaciente));
-                    Consultorio c = consultorioService.getConsultorioNombre(aux);
-                    System.out.println(c.toString());
-
-                    Cita cp = new Cita(p, c, "6667", true);
-                    citaService.createCita(cp);
+                    paciente = pacienteService.getPaciente(Integer.parseInt(idPaciente));
+                    cons = consultorioService.getConsultorioNombre(aux);
+                    Date selectedDate = (Date) datePicker.getModel().getValue();
+                    Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    String fecha = formatter.format(selectedDate);
+                    cita = new Cita(paciente, cons, fecha, true);
+                    System.out.println(cita.toString());
+                    citaService.createCita(cita);
                 } catch (Exception ex) {
                     Logger.getLogger(AgregarCitaController.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
         }
     }
 
