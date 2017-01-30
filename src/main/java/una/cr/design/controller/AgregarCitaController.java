@@ -111,7 +111,7 @@ public class AgregarCitaController implements ActionListener {
                     paciente = pacienteService.getPaciente(Integer.parseInt(idPaciente));
                     cons = consultorioService.getConsultorioNombre(aux);
                     Date selectedDate = (Date) datePicker.getModel().getValue();
-                    Format formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    Format formatter = new SimpleDateFormat("dd-MM-yyyy");
                     String fecha = formatter.format(selectedDate);
                     cita = new Cita(paciente, cons, fecha, true);
                     System.out.println(cita.toString());
