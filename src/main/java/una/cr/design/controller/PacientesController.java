@@ -109,9 +109,7 @@ public class PacientesController implements ActionListener, KeyListener {
                 if ("".equals(deleteTerm)) {
                     JOptionPane.showMessageDialog(view, "Por Favor inserte el ID del paciente a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
                 } else {
-
                     deleteTableSearchTerms(deleteTerm);
-//                    updateTableSearchTerms(deleteTerm);
                 }
 
                 break;

@@ -133,7 +133,6 @@ public class AgregarPacienteController implements ActionListener {
                 } else {
                     try {
                         Paciente p = asignaPaciente();
-                        System.out.println(p.toString());
                         pacienteService.createPaciente(p);
 
                     } catch (JsonMappingException ex) {

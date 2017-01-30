@@ -152,8 +152,7 @@ public class AgregarCitaController implements ActionListener {
                                 "Error", JOptionPane.ERROR_MESSAGE);
                         break;
                     }
-                    cita = new Cita(paciente, cons, fecha, true);
-                    System.out.println(cita.toString());
+                    cita = new Cita(paciente, cons, fecha, true);                    
                     citaService.createCita(cita);
                 } catch (Exception ex) {
                     Logger.getLogger(AgregarCitaController.class.getName()).log(Level.SEVERE, null, ex);

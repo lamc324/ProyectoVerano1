@@ -116,8 +116,7 @@ public class AgregarConsultorioController implements ActionListener {
 
                     try {
                         Consultorio c = asignaConsultorio();
-                        consultorioService.createConsultorio(c);
-                        System.out.println(c.toString());
+                        consultorioService.createConsultorio(c);                        
                     } catch (JsonMappingException ex) {
                         Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     } catch (IOException ex) {
@@ -126,10 +125,8 @@ public class AgregarConsultorioController implements ActionListener {
                         Logger.getLogger(AgregarConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-
                 JOptionPane.showMessageDialog(view, "Consultorio Agregado", "", JOptionPane.INFORMATION_MESSAGE);
-                view.setVisible(false);
-                System.out.println("aceptar");
+                view.setVisible(false);                
                 break;
             case "clicCancelar":
                 view.setVisible(false);

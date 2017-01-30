@@ -31,9 +31,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.controller.CitasController;
@@ -55,6 +57,8 @@ public class CitasView extends JFrame {
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JButton eliminarButton = new JButton("Eliminar Cita", imagenEliminar);
     JComboBox consultorioBox = new JComboBox();
+    JTextField searchTermTextField = new JTextField(10);
+    JLabel nombreLabel = new JLabel("ID:");
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
 
@@ -78,6 +82,8 @@ public class CitasView extends JFrame {
         consultorioBox.setName("box");
         agregarCitaButton.setName("Agregar Cita");
         eliminarButton.setName("eliminar");
+        searchTermTextField.setName("texto");
+        nombreLabel.setName("label");
 
         for (String consultorio : consultorios) {
             consultorioBox.addItem(consultorio);
@@ -85,6 +91,7 @@ public class CitasView extends JFrame {
 
         // Set the view layout
         JPanel ctrlPane = new JPanel();
+        JPanel ctrlPane1 = new JPanel();
         JPanel ctrlPane2 = new JPanel();
         JPanel ctrlPane3 = new JPanel();
 
@@ -93,13 +100,16 @@ public class CitasView extends JFrame {
         agregarCitaButton.setBackground(Color.WHITE);
         eliminarButton.setBackground(Color.WHITE);
 
-        ctrlPane.setName("ctrlPanel1");
+        ctrlPane.setName("ctrlPanel");
+        ctrlPane1.setName("ctrlPanel");
         ctrlPane2.setName("ctrlPanel2");
         ctrlPane3.setName("ctrlPanel3");
         ctrlPane.add(consultorioBox);
-        ctrlPane.add(buscarButton);
-        ctrlPane.add(agregarCitaButton);
-        ctrlPane.add(eliminarButton);
+        ctrlPane.add(buscarButton);       
+        ctrlPane1.add(nombreLabel);
+        ctrlPane1.add(searchTermTextField);
+        ctrlPane1.add(agregarCitaButton);
+        ctrlPane1.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -110,6 +120,7 @@ public class CitasView extends JFrame {
 
         ctrlPane3.setLayout(new BoxLayout(ctrlPane3, BoxLayout.Y_AXIS));
         ctrlPane3.add(ctrlPane);
+        ctrlPane3.add(ctrlPane1);
         ctrlPane3.add(tableScrollPane);
         ctrlPane3.add(ctrlPane2);
 
@@ -122,7 +133,7 @@ public class CitasView extends JFrame {
         setVisible(true);
 
         //Controller        
-        CitasController controller = new CitasController(consultorioBox, tableModel, this);
+        CitasController controller = new CitasController(searchTermTextField, consultorioBox, tableModel, this);
         buscarButton.setActionCommand("clicBuscar");
         buscarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");

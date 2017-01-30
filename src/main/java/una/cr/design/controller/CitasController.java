@@ -30,6 +30,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 import una.cr.design.patterns.view.AgregarCitaView;
 import una.cr.design.patterns.view.CitasView;
@@ -43,12 +44,13 @@ import una.cr.design.service.ConsultorioService;
 public class CitasController implements ActionListener {
 
     private JComboBox consultorioBox = new JComboBox();
-    private final DefaultTableModel tableModel;
-    private final CitaService citaService;
-    private final ConsultorioService consultorioService;
-    private final Object[][] cita;
-    private final Object[][] consultorio;
-    private final CitasView view;
+    private JTextField searchTermTextField;
+    private DefaultTableModel tableModel;
+    private CitaService citaService;
+    private ConsultorioService consultorioService;
+    private Object[][] cita;
+    private Object[][] consultorio;
+    private CitasView view;
 
     /**
      * Constructor del controller con parametros
@@ -61,7 +63,7 @@ public class CitasController implements ActionListener {
      * @throws IOException
      * @throws ParseException
      */
-    public CitasController(JComboBox consultorioBox,
+    public CitasController(JTextField searchTermTextField, JComboBox consultorioBox,
             DefaultTableModel tableModel, CitasView view) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException, Exception {
         super();
@@ -70,7 +72,7 @@ public class CitasController implements ActionListener {
         consultorioService = new ConsultorioService();
         cita = citaService.loadCitaObjWrapper();
         consultorio = consultorioService.loadConsultorioObjWrapper();
-
+        this.searchTermTextField = searchTermTextField;
         this.consultorioBox = consultorioBox;
         this.tableModel = tableModel;
 
@@ -109,10 +111,18 @@ public class CitasController implements ActionListener {
                 } catch (Exception ex) {
                     Logger.getLogger(CitasController.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            case "clicEliminar":
+                String deleteTerm = searchTermTextField.getText();
+                try {
+                    deleteTableSearchTerms(deleteTerm);
+                } catch (Exception es) {
+                    JOptionPane.showMessageDialog(view, "Por Favor inserte el ID del paciente a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+                break;
         }
     }
 
-    //Actualiza la tabla conforme a la busqueda
+//Actualiza la tabla conforme a la busqueda
     private void updateTableSearchTerms(String searchTerm) {
         if (searchTerm != null && !"".equals(searchTerm)
                 && cita != null && cita.length >= 1) {
@@ -132,6 +142,17 @@ public class CitasController implements ActionListener {
                     "No se encontraron citas con el consultorio seleccionado", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
+        }
+    }
+
+    private void deleteTableSearchTerms(String deleteTerm) {
+        try {
+            int borrar = Integer.parseInt(deleteTerm);
+            citaService.deleteCita(borrar);
+            JOptionPane.showMessageDialog(view, "Cita Eliminada", "", JOptionPane.INFORMATION_MESSAGE);
+
+        } catch (Exception e) {
+
         }
     }
 
