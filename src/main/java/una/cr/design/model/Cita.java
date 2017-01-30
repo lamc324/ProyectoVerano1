@@ -29,7 +29,7 @@ public class Cita {
 
     @JsonProperty("idCita")
     private int id_cita;
-    
+
     @JsonProperty("paciente")
     private Paciente paciente;
 
@@ -62,8 +62,6 @@ public class Cita {
         this.fecha = fecha;
         this.confirmar = confirmar;
     }
-    
-    
 
     public int getId_cita() {
         return id_cita;
@@ -100,9 +98,10 @@ public class Cita {
     public void setConfirmar(boolean confirmar) {
         this.confirmar = confirmar;
     }
-    
+
     /**
      * Verifica el estado de confirmacion de la cita
+     *
      * @return aux
      */
     public String confirmado() {

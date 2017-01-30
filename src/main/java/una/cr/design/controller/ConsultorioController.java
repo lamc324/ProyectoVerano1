@@ -86,15 +86,15 @@ public class ConsultorioController implements ActionListener, KeyListener {
                 String searchTerm = searchTermTextField.getText().toLowerCase();
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
-                }                 
-                    try {
-                        consultorios = consultorioService.loadConsultorioObjWrapper();
-                    } catch (IOException ex) {
-                        Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (Exception ex) {
-                        Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                
+                }
+                try {
+                    consultorios = consultorioService.loadConsultorioObjWrapper();
+                } catch (IOException ex) {
+                    Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
                 updateTableSearchTerms(" ");
                 break;
             case "clicAgregar":

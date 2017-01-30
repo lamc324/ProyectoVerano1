@@ -72,7 +72,6 @@ public class CitasController implements ActionListener {
         consultorio = consultorioService.loadConsultorioObjWrapper();
 
         this.consultorioBox = consultorioBox;
-//        this.consultorioBox.addKeyListener(this);
         this.tableModel = tableModel;
 
         // Load the table with the list of students
@@ -88,7 +87,6 @@ public class CitasController implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-
         switch (e.getActionCommand()) {
             case "clicBuscar":
                 String aux = (String) consultorioBox.getSelectedItem();
@@ -107,7 +105,6 @@ public class CitasController implements ActionListener {
                 AgregarCitaView cita;
                 try {
                     cita = new AgregarCitaView();
-                    view.setVisible(false);
                     cita.setVisible(true);
                 } catch (Exception ex) {
                     Logger.getLogger(CitasController.class.getName()).log(Level.SEVERE, null, ex);
@@ -132,16 +129,26 @@ public class CitasController implements ActionListener {
             tableModel.setDataVector(newData, Constants.CITAS_TABLE_HEADER);
         } else {
             JOptionPane.showMessageDialog(null,
-                    "Search term is empty", "Error",
+                    "No se encontraron citas con el consultorio seleccionado", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(cita, Constants.CITAS_TABLE_HEADER);
         }
     }
 
+    /**
+     * Actualiza el comboBox con la lista completa de consultorios 
+     * Valida si hay al menos un consultorio dentro
+     *
+     */
     private void updateComboBox() {
-        for (Object[] obj : consultorio) {
-            String fullText = obj[1].toString();
-            consultorioBox.addItem(fullText);
+
+        // Si por defecto el comboBox solo tiene el string que indica a elegir el consultorio, no va a 
+        // añadir consultorios para evitar agregar valores nulos
+        if (consultorio != null) {
+            for (Object[] obj : consultorio) {
+                String fullText = obj[1].toString();
+                consultorioBox.addItem(fullText);
+            }
         }
     }
 

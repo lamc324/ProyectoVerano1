@@ -33,6 +33,7 @@ public class Application {
 
     /**
      * MainClass
+     *
      * @param args
      * @throws com.fasterxml.jackson.core.JsonGenerationException
      * @throws com.fasterxml.jackson.databind.JsonMappingException
@@ -40,9 +41,8 @@ public class Application {
      * @throws java.text.ParseException
      */
     public static void main(String[] args) throws JsonGenerationException,
-            JsonMappingException, IOException, ParseException, Exception{
-        MenuView p = new MenuView(); 
-
+            JsonMappingException, IOException, ParseException, Exception {
+        MenuView p = new MenuView();
 
     }
 }

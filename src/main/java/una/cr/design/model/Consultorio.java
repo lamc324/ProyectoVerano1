@@ -99,11 +99,13 @@ public class Consultorio {
         this.telefono = telefono;
     }
 
+    public String detalleConsultorio() {
+        return nombre + "\nDias:" + dias + "\nHorario de Atencion:\n" + horario;
+    }
+
     @Override
     public String toString() {
         return "Consultorio{" + "id_consultorio=" + id_consultorio + ", nombre=" + nombre + ", dias=" + dias + ", horario=" + horario + ", telefono=" + telefono + '}';
     }
 
-    
-    
 }

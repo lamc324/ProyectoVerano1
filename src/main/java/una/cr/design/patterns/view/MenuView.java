@@ -52,7 +52,6 @@ public class MenuView extends JFrame {
     JMenuItem mostrarCitas = new JMenuItem("Citas", imagenCitas);
     JMenuItem mostrarConsultorio = new JMenuItem("Consultorio", imagenConsultorio);
     JButton menuFondo = new JButton(imagenMenu);
-    
 
     /**
      * Constructor del view
@@ -84,15 +83,15 @@ public class MenuView extends JFrame {
         barraMenu.add(mostrarConsultorio);
         barraMenu.add(menuHelp);
 //        ctrlPane.add(barraMenu);
-        ctrlPane.add(menuFondo);        
+        ctrlPane.add(menuFondo);
         add(ctrlPane);
-        
+
         pack();
         setBounds(10, 20, 300, 200);
         this.setMinimumSize(new Dimension(750, 500));
         setLocationRelativeTo(null);
         setVisible(true);
-        
+
         //Controller        
         MenuController controller = new MenuController(this);
         mostrarPacientes.setActionCommand("clicMostrarPacientes");

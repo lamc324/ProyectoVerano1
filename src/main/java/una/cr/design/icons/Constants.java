@@ -24,7 +24,7 @@ package una.cr.design.icons;
  * @author Grupo Tango
  */
 public class Constants {
-   
+
     /**
      * Pacientes.json
      */
@@ -34,7 +34,7 @@ public class Constants {
      * Pacientes Table Header
      */
     public static final Object[] PACIENTES_TABLE_HEADER = {"Identificación", "Nombre", "Teléfono", "Dirección", "Fecha de Nacimiento", "Enfermedades", "Observaciones"};
-    
+
     /**
      * Consultorios.json
      */
@@ -44,7 +44,7 @@ public class Constants {
      * Consultorios Table Header
      */
     public static final Object[] CONSULTORIOS_TABLE_HEADER = {"ID", "Centro Médico", "Dias de Atención", "Horario", "Teléfono"};
-    
+
     /**
      * Citas.json
      */
@@ -54,11 +54,11 @@ public class Constants {
      * Citas Table Header
      */
     public static final Object[] CITAS_TABLE_HEADER = {"Id", "Paciente", "Consultorio", "Fecha", "Confirmado"};
-    
+
     public static final String WS_URL_PACIENTES = "http://localhost:8080/BackEndProyecto/rest/pacientes";
-    
+
     public static final String WS_URL_CONSULTORIOS = "http://localhost:8080/BackEndProyecto/rest/consultorios";
-    
+
     public static final String WS_URL_CITAS = "http://localhost:8080/BackEndProyecto/rest/citas";
 
 }

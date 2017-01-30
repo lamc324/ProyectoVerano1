@@ -47,17 +47,18 @@ public class PacientesService {
 
     /**
      * Carga el .JSON y envia un wrapper de los objetos
+     *
      * @return data
      * @throws JsonGenerationException
      * @throws JsonMappingException
      * @throws IOException
      */
-    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException, 
+    public Object[][] cargarPersonasObjWrapper() throws JsonGenerationException,
             JsonMappingException, IOException, Exception {
-        
+
         //Paciente[] pacientes = cargarPacientesDeArchivo();
         Paciente[] pacientes = loadJsonFromWebService();
-        
+
         Object[][] data = null;
         if (pacientes != null && pacientes.length > 0) {
             data = new Object[pacientes.length][7]; // Filas y Columnas
@@ -94,7 +95,7 @@ public class PacientesService {
         }
         return text;
     }
-    
+
     private Paciente[] loadJsonFromWebService() throws Exception {
         Paciente[] paciente;
         String jSonFile;
@@ -176,21 +177,15 @@ public class PacientesService {
 
         return isDeleted;
     }
-    
+
     public Paciente getPaciente(int id) throws Exception {
         Paciente[] p = loadJsonFromWebService();
         Paciente nuevo = new Paciente();
-        for(Paciente paciente : p){
-            if(paciente.getIdPaciente() == id){
+        for (Paciente paciente : p) {
+            if (paciente.getIdPaciente() == id) {
                 nuevo = paciente;
             }
         }
         return nuevo;
     }
-    
-//    public Paciente getListaPacientes(int row) throws Exception {
-//        Paciente[] p = loadJsonFromWebService();
-//        List<Paciente> pList = Arrays.asList(p);
-//        return pList.get(row);
-//    }
 }

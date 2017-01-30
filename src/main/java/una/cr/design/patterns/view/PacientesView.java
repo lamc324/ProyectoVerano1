@@ -129,7 +129,5 @@ public class PacientesView extends JFrame {
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
         searchTermTextField.addKeyListener(controller);
-        table.addMouseListener(controller);
     }
-
 }

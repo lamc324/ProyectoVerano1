@@ -51,6 +51,7 @@ public class Paciente implements Serializable {
 
     /**
      * Constructor con parametros
+     *
      * @param idPaciente
      * @param nombre
      * @param telefono
@@ -191,9 +192,10 @@ public class Paciente implements Serializable {
     public void setObservaciones(String observaciones) {
         this.observaciones = observaciones;
     }
-    
+
     /**
      * Retorna solo un elemento del array de enfermedades
+     *
      * @return enfermedad
      */
 //    public String getEnfermedad() {
@@ -203,7 +205,6 @@ public class Paciente implements Serializable {
 //        }
 //        return enfermedad;
 //    }
-
     /**
      *
      * @return toString

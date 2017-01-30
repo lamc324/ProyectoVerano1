@@ -43,7 +43,7 @@ import una.cr.design.service.PacientesService;
  *
  * @author Grupo Tango
  */
-public class PacientesController implements ActionListener, KeyListener, MouseListener {
+public class PacientesController implements ActionListener, KeyListener {
 
     private JTextField searchTermTextField = new JTextField(26);
     private DefaultTableModel tableModel;
@@ -156,19 +156,6 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
                     "No se encontró el paciente", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
-
-//try {
-//            if (deleteTerm != null && !"".equals(deleteTerm)
-//                    && pacientes != null && pacientes.length >= 1) {
-//                int borrar = Integer.parseInt(deleteTerm);
-//                pacientesService.deletePaciente(borrar);
-//                JOptionPane.showMessageDialog(view, "Paciente Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
-//            }
-//        } catch (Exception e) {
-//            JOptionPane.showMessageDialog(null,
-//                    "No se encontró el paciente", "Error",
-//                    JOptionPane.ERROR_MESSAGE);
-//        }
     }
 
     /**
@@ -202,38 +189,5 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
         } else {
             updateTableSearchTerms(" ");
         }
-    }
-
-    @Override
-    public void mouseClicked(MouseEvent e) {
-//       if(e.getClickCount() == 2){
-//           int row = this.table.getSelectedRow();
-//           AgregarCitaView agregarCita = new AgregarCitaView();
-//           try {
-//               this.editar(row);
-//           } catch (Exception ex) {
-//               Logger.getLogger(PacientesController.class.getName()).log(Level.SEVERE, null, ex);
-//           }
-//       }
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
     }
 }

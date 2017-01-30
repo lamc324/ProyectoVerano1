@@ -62,12 +62,13 @@ public class ConsultorioView extends JFrame {
 
     /**
      * Constructor del view
+     *
      * @throws JsonGenerationException
      * @throws JsonMappingException
      * @throws IOException
      * @throws ParseException
      */
-    public ConsultorioView() throws JsonGenerationException, JsonMappingException, 
+    public ConsultorioView() throws JsonGenerationException, JsonMappingException,
             IOException, ParseException, Exception {
 
         super("Consultorios");

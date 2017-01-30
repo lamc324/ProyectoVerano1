@@ -72,7 +72,7 @@ public class AgregarPacienteView extends JFrame {
         }
         phoneFormatter.setPlaceholderCharacter(' ');
         telefono = new JFormattedTextField(phoneFormatter);
-        
+
         nombre.setName("nombre");
         telefono.setName("telefono");
         direccion.setName("direccion");

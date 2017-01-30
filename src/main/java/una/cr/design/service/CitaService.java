@@ -40,6 +40,7 @@ public class CitaService {
 
     /**
      * Carga el .JSON y envia un wrapper de los objetos
+     *
      * @return data
      * @throws JsonGenerationException
      * @throws JsonMappingException
@@ -81,7 +82,7 @@ public class CitaService {
         }
         return text;
     }
-    
+
     private Cita[] loadJsonFromWebService() throws Exception {
         Cita[] cita;
         String jSonFile;
@@ -108,7 +109,7 @@ public class CitaService {
 
         return cita;
     }
-    
+
     public boolean createCita(Cita Cita) throws JsonGenerationException,
             JsonMappingException, IOException {
 
@@ -154,7 +155,7 @@ public class CitaService {
 
         return isDeleted;
     }
-    
+
     public boolean updateCita(Cita Cita) throws JsonGenerationException,
             JsonMappingException, IOException {
 
@@ -180,5 +181,5 @@ public class CitaService {
 
         return isCreated;
     }
-    
+
 }
