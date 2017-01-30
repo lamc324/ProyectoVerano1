@@ -68,6 +68,9 @@ public class AgregarCitaController implements ActionListener {
      * @param campoDescrip
      * @param view
      * @param datePicker
+     * @throws java.io.IOException
+     * @throws com.fasterxml.jackson.databind.JsonMappingException
+     * @throws java.lang.Exception
      */
     public AgregarCitaController(JTextField agregarId, JComboBox consultorioBox, JEditorPane campoDescrip, AgregarCitaView view, JDatePickerImpl datePicker) throws IOException, JsonMappingException, Exception {
         this.agregarId = agregarId;
@@ -177,6 +180,11 @@ public class AgregarCitaController implements ActionListener {
         }
     }
 
+    /**
+     *
+     * @param selectedDate
+     * @return
+     */
     public boolean fechaSeleccionada(Date selectedDate) {
         boolean result = false;
         Calendar fA = Calendar.getInstance();

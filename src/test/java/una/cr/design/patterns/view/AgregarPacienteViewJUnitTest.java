@@ -17,6 +17,9 @@ import una.cr.design.patterns.view.AgregarPacienteView;
  */
 public class AgregarPacienteViewJUnitTest {
 
+    /**
+     *
+     */
     public AgregarPacienteViewJUnitTest() {
     }
 

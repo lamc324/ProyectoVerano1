@@ -118,7 +118,7 @@ public class ConsultorioService {
     /**
      * Create student
      *
-     * @param paciente
+     * @param consultorio
      * @return
      * @throws JsonGenerationException
      * @throws JsonMappingException
@@ -150,6 +150,11 @@ public class ConsultorioService {
         return isCreated;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public boolean deleteConsultorio(int id) {
         boolean isDeleted = false;
 
@@ -170,6 +175,12 @@ public class ConsultorioService {
         return isDeleted;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public Consultorio getConsultorio(int id) throws Exception {
         Consultorio[] p = loadJsonFromWebService();
         Consultorio nuevo = new Consultorio();
@@ -181,6 +192,12 @@ public class ConsultorioService {
         return nuevo;
     }
 
+    /**
+     *
+     * @param nombre
+     * @return
+     * @throws Exception
+     */
     public Consultorio getConsultorioNombre(String nombre) throws Exception {
         Consultorio[] p = loadJsonFromWebService();
         Consultorio nuevo = new Consultorio();

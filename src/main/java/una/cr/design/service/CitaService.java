@@ -110,6 +110,14 @@ public class CitaService {
         return cita;
     }
 
+    /**
+     *
+     * @param Cita
+     * @return
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
     public boolean createCita(Cita Cita) throws JsonGenerationException,
             JsonMappingException, IOException {
 
@@ -136,6 +144,11 @@ public class CitaService {
         return isCreated;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public boolean deleteCita(int id) {
         boolean isDeleted = false;
 
@@ -156,6 +169,14 @@ public class CitaService {
         return isDeleted;
     }
 
+    /**
+     *
+     * @param Cita
+     * @return
+     * @throws JsonGenerationException
+     * @throws JsonMappingException
+     * @throws IOException
+     */
     public boolean updateCita(Cita Cita) throws JsonGenerationException,
             JsonMappingException, IOException {
 

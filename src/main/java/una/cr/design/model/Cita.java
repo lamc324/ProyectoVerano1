@@ -48,6 +48,14 @@ public class Cita {
     public Cita() {
     }
 
+    /**
+     *
+     * @param id_cita
+     * @param paciente
+     * @param consultorio
+     * @param fecha
+     * @param confirmar
+     */
     public Cita(int id_cita, Paciente paciente, Consultorio consultorio, String fecha, boolean confirmar) {
         this.id_cita = id_cita;
         this.paciente = paciente;
@@ -56,6 +64,13 @@ public class Cita {
         this.confirmar = confirmar;
     }
 
+    /**
+     *
+     * @param paciente
+     * @param consultorio
+     * @param fecha
+     * @param confirmar
+     */
     public Cita(Paciente paciente, Consultorio consultorio, String fecha, boolean confirmar) {
         this.paciente = paciente;
         this.consultorio = consultorio;
@@ -63,38 +78,74 @@ public class Cita {
         this.confirmar = confirmar;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getId_cita() {
         return id_cita;
     }
 
+    /**
+     *
+     * @param id_cita
+     */
     public void setId_cita(int id_cita) {
         this.id_cita = id_cita;
     }
 
+    /**
+     *
+     * @return
+     */
     public Paciente getPaciente() {
         return paciente;
     }
 
+    /**
+     *
+     * @param paciente
+     */
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
 
+    /**
+     *
+     * @return
+     */
     public Consultorio getConsultorio() {
         return consultorio;
     }
 
+    /**
+     *
+     * @param consultorio
+     */
     public void setConsultorio(Consultorio consultorio) {
         this.consultorio = consultorio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getFecha() {
         return fecha;
     }
 
+    /**
+     *
+     * @return
+     */
     public boolean isConfirmar() {
         return confirmar;
     }
 
+    /**
+     *
+     * @param confirmar
+     */
     public void setConfirmar(boolean confirmar) {
         this.confirmar = confirmar;
     }
@@ -114,6 +165,10 @@ public class Cita {
         return aux;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Cita{" + "id_cita=" + id_cita + ", id_paciente=" + paciente + ", id_consultorio=" + consultorio + ", fecha=" + fecha + ", confirmado=" + confirmar + '}';

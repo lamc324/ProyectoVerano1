@@ -136,8 +136,8 @@ public class CitasController implements ActionListener {
     }
 
     /**
-     * Actualiza el comboBox con la lista completa de consultorios 
-     * Valida si hay al menos un consultorio dentro
+     * Actualiza el comboBox con la lista completa de consultorios Valida si hay
+     * al menos un consultorio dentro
      *
      */
     private void updateComboBox() {
@@ -151,5 +151,4 @@ public class CitasController implements ActionListener {
             }
         }
     }
-
 }

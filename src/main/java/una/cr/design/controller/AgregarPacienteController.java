@@ -131,7 +131,6 @@ public class AgregarPacienteController implements ActionListener {
                 if (caseNull == true) {
                     break;
                 } else {
-
                     try {
                         Paciente p = asignaPaciente();
                         System.out.println(p.toString());
@@ -144,15 +143,12 @@ public class AgregarPacienteController implements ActionListener {
                     } catch (Exception ex) {
                         Logger.getLogger(AgregarPacienteController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
                 }
                 JOptionPane.showMessageDialog(view, "Paciente agregado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
-
                 break;
             case "clicCancelar":
                 view.setVisible(false);
-
                 break;
         }
     }

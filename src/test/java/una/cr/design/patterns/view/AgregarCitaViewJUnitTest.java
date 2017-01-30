@@ -14,6 +14,9 @@ import org.junit.Test;
  */
 public class AgregarCitaViewJUnitTest {
 
+    /**
+     *
+     */
     public AgregarCitaViewJUnitTest() {
     }
 

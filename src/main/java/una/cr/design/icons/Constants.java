@@ -55,10 +55,19 @@ public class Constants {
      */
     public static final Object[] CITAS_TABLE_HEADER = {"Id", "Paciente", "Consultorio", "Fecha", "Confirmado"};
 
+    /**
+     *
+     */
     public static final String WS_URL_PACIENTES = "http://localhost:8080/BackEndProyecto/rest/pacientes";
 
+    /**
+     *
+     */
     public static final String WS_URL_CONSULTORIOS = "http://localhost:8080/BackEndProyecto/rest/consultorios";
 
+    /**
+     *
+     */
     public static final String WS_URL_CITAS = "http://localhost:8080/BackEndProyecto/rest/citas";
 
 }

@@ -44,6 +44,14 @@ public class Consultorio {
     public Consultorio() {
     }
 
+    /**
+     *
+     * @param idConsultorio
+     * @param nombre
+     * @param diasConsulta
+     * @param horarioAtencion
+     * @param telefono
+     */
     public Consultorio(int idConsultorio, String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.id_consultorio = idConsultorio;
         this.nombre = nombre;
@@ -52,6 +60,13 @@ public class Consultorio {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @param nombre
+     * @param diasConsulta
+     * @param horarioAtencion
+     * @param telefono
+     */
     public Consultorio(String nombre, String diasConsulta, String horarioAtencion, String telefono) {
         this.nombre = nombre;
         this.dias = diasConsulta;
@@ -59,50 +74,98 @@ public class Consultorio {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @return
+     */
     public int getIdConsultorio() {
         return id_consultorio;
     }
 
+    /**
+     *
+     * @param idConsultorio
+     */
     public void setIdConsultorio(int idConsultorio) {
         this.id_consultorio = idConsultorio;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getNombre() {
         return nombre;
     }
 
+    /**
+     *
+     * @param nombre
+     */
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getDiasConsulta() {
         return dias;
     }
 
+    /**
+     *
+     * @param diasConsulta
+     */
     public void setDiasConsulta(String diasConsulta) {
         this.dias = diasConsulta;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getHorarioAtencion() {
         return horario;
     }
 
+    /**
+     *
+     * @param horarioAtencion
+     */
     public void setHorarioAtencion(String horarioAtencion) {
         this.horario = horarioAtencion;
     }
 
+    /**
+     *
+     * @return
+     */
     public String getTelefono() {
         return telefono;
     }
 
+    /**
+     *
+     * @param telefono
+     */
     public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
+    /**
+     *
+     * @return
+     */
     public String detalleConsultorio() {
         return nombre + "\nDias:" + dias + "\nHorario de Atencion:\n" + horario;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String toString() {
         return "Consultorio{" + "id_consultorio=" + id_consultorio + ", nombre=" + nombre + ", dias=" + dias + ", horario=" + horario + ", telefono=" + telefono + '}';

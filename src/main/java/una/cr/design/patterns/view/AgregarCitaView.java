@@ -62,6 +62,7 @@ public class AgregarCitaView extends JFrame {
 
     /**
      * Constructor del view
+     * @throws java.lang.Exception
      */
     public AgregarCitaView() throws Exception {
         super("Agregar Cita");

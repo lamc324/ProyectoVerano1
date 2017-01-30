@@ -50,7 +50,7 @@ public class AgregarConsultorioController implements ActionListener {
      *
      * @param nombre
      * @param dias
-     * @param fechaAtencion
+     * @param horario
      * @param telefonoContacto
      * @param view
      */
@@ -78,6 +78,10 @@ public class AgregarConsultorioController implements ActionListener {
         return informacion;
     }
 
+    /**
+     *
+     * @return
+     */
     public Consultorio asignaConsultorio() {
         Consultorio c = new Consultorio();
         c.setNombre(nombre.getText());

@@ -158,6 +158,11 @@ public class PacientesService {
         return isCreated;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
     public boolean deletePaciente(int id) {
         boolean isDeleted = false;
 
@@ -178,6 +183,12 @@ public class PacientesService {
         return isDeleted;
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public Paciente getPaciente(int id) throws Exception {
         Paciente[] p = loadJsonFromWebService();
         Paciente nuevo = new Paciente();

@@ -71,6 +71,15 @@ public class Paciente implements Serializable {
         this.observaciones = observaciones;
     }
 
+    /**
+     *
+     * @param nombre
+     * @param telefono
+     * @param direccion
+     * @param fechaNacimiento
+     * @param enfermedades
+     * @param observaciones
+     */
     public Paciente(String nombre, String telefono, String direccion, String fechaNacimiento,
             String enfermedades, String observaciones) {
         this.nombre = nombre;
@@ -91,7 +100,7 @@ public class Paciente implements Serializable {
 
     /**
      *
-     * @param idPaciente
+     * @param id_Paciente
      */
     public void setIdPaciente(int id_Paciente) {
         this.id_paciente = id_Paciente;
