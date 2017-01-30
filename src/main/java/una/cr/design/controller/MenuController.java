@@ -114,34 +114,12 @@ public class MenuController implements ActionListener {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (Exception ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                System.out.println("Consultorio");
+                }                
                 break;
             case "clicSalir":
                 System.exit(0);
                 break;
-            case "clicAyuda": /**
-             * ********************************************************
-             */
-            {
-                try {
-                    Paciente p = pacienteService.getPaciente(1);
-                    Paciente p2 = setAllP(p);
-                    Consultorio c = consultorioService.getConsultorio(4);
-                    Consultorio c2 = setAllC(c);
-                    
-                    
-                    Cita cp = new Cita(p,c, "6667", true);
-                    citaService.createCita(cp);
-                } catch (JsonMappingException ex) {
-                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (IOException ex) {
-                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (Exception ex) {
-                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            }
-
+            case "clicAyuda": 
             JOptionPane.showMessageDialog(null,
                     "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
                     + "Escuela de Informática 2017"

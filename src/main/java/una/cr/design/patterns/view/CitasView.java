@@ -47,11 +47,13 @@ public class CitasView extends JFrame {
     ImageIcon imagenAgregar = new ImageIcon("Agregar.png");
     ImageIcon imagenBuscar = new ImageIcon("Buscar.png");
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
+    ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
 
     String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
-    JButton agregarCitaButton = new JButton("Nueva Cita");
+    JButton agregarCitaButton = new JButton("Nueva Cita", imagenAgregar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
+    JButton eliminarButton = new JButton("Eliminar Cita", imagenEliminar);
     JComboBox consultorioBox = new JComboBox();
     JTable table = new JTable();
     DefaultTableModel tableModel = new DefaultTableModel();
@@ -75,6 +77,7 @@ public class CitasView extends JFrame {
         cerrarButton.setName("cerrar");
         consultorioBox.setName("box");
         agregarCitaButton.setName("Agregar Cita");
+        eliminarButton.setName("eliminar");
 
         for (String consultorio : consultorios) {
             consultorioBox.addItem(consultorio);
@@ -87,6 +90,8 @@ public class CitasView extends JFrame {
 
         buscarButton.setBackground(Color.WHITE);
         cerrarButton.setBackground(Color.WHITE);
+        agregarCitaButton.setBackground(Color.WHITE);
+        eliminarButton.setBackground(Color.WHITE);
 
         ctrlPane.setName("ctrlPanel1");
         ctrlPane2.setName("ctrlPanel2");
@@ -94,6 +99,7 @@ public class CitasView extends JFrame {
         ctrlPane.add(consultorioBox);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarCitaButton);
+        ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -123,5 +129,7 @@ public class CitasView extends JFrame {
         cerrarButton.addActionListener(controller);
         agregarCitaButton.setActionCommand("clicAgregar");
         agregarCitaButton.addActionListener(controller);
+        eliminarButton.setActionCommand("clicEliminar");
+        eliminarButton.addActionListener(controller);
     }
 }

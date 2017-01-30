@@ -1,8 +1,8 @@
 package una.cr.design.patterns.view;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.FrameFixture;
-import org.assertj.swing.fixture.JPanelFixture;
+//import org.assertj.swing.edt.GuiActionRunner;
+//import org.assertj.swing.fixture.FrameFixture;
+//import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;

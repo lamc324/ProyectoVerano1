@@ -55,13 +55,14 @@ public class ConsultorioService {
         Object[][] data = null;
 
         if (consultorio != null && consultorio.length > 0) {
-            data = new Object[consultorio.length][4]; // filas y columnas
+            data = new Object[consultorio.length][5]; // filas y columnas
             int i = 0;
             for (Consultorio consultorios : consultorio) {
-                data[i][0] = checkIfNull(consultorios.getNombre());
-                data[i][1] = checkIfNull(consultorios.getDiasConsulta());
-                data[i][2] = checkIfNull(consultorios.getHorarioAtencion());
-                data[i][3] = checkIfNull(consultorios.getTelefono());
+                data[i][0] = checkIfNull(consultorios.getIdConsultorio());
+                data[i][1] = checkIfNull(consultorios.getNombre());
+                data[i][2] = checkIfNull(consultorios.getDiasConsulta());
+                data[i][3] = checkIfNull(consultorios.getHorarioAtencion());
+                data[i][4] = checkIfNull(consultorios.getTelefono());
                 i++;
             }
         }

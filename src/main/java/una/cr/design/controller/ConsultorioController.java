@@ -86,8 +86,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
                 String searchTerm = searchTermTextField.getText().toLowerCase();
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
-                }
-                 {
+                }                 
                     try {
                         consultorios = consultorioService.loadConsultorioObjWrapper();
                     } catch (IOException ex) {
@@ -95,7 +94,7 @@ public class ConsultorioController implements ActionListener, KeyListener {
                     } catch (Exception ex) {
                         Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                }
+                
                 updateTableSearchTerms(" ");
                 break;
             case "clicAgregar":
@@ -104,7 +103,11 @@ public class ConsultorioController implements ActionListener, KeyListener {
 
                 break;
             case "clicEliminar":
-                System.out.println("eliminar");
+                String deleteTerm = searchTermTextField.getText().toLowerCase();
+                if (!"".equals(deleteTerm)) {
+                    deleteTableSearchTerms(deleteTerm);
+                }
+                updateTableSearchTerms(deleteTerm);
                 break;
             case "clicCerrar":
                 view.setVisible(false);
@@ -130,9 +133,24 @@ public class ConsultorioController implements ActionListener, KeyListener {
             tableModel.setDataVector(newData, Constants.CONSULTORIOS_TABLE_HEADER);
         } else {
             JOptionPane.showMessageDialog(null,
-                    "El campo de bÃºsqueda esta vacÃ­o", "Error",
+                    "El campo de búsqueda esta vacío", "Error",
                     JOptionPane.ERROR_MESSAGE);
             tableModel.setDataVector(consultorios, Constants.CONSULTORIOS_TABLE_HEADER);
+        }
+    }
+
+    private void deleteTableSearchTerms(String deleteTerm) {
+        try {
+            if (deleteTerm != null && !"".equals(deleteTerm)
+                    && consultorios != null && consultorios.length >= 1) {
+                int borrar = Integer.parseInt(deleteTerm);
+                consultorioService.deleteConsultorio(borrar);
+                JOptionPane.showMessageDialog(view, "Consultorio Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null,
+                    "No se encontró el consultorio", "Error",
+                    JOptionPane.ERROR_MESSAGE);
         }
     }
 

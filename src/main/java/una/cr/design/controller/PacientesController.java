@@ -28,6 +28,8 @@ import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -44,11 +46,11 @@ import una.cr.design.service.PacientesService;
 public class PacientesController implements ActionListener, KeyListener, MouseListener {
 
     private JTextField searchTermTextField = new JTextField(26);
-    private final DefaultTableModel tableModel;
-    private final JTable table;
-    private final Object[][] pacientes;
-    private final PacientesView view;
-    private final PacientesService pacientesService;
+    private DefaultTableModel tableModel;
+    private JTable table;
+    private Object[][] pacientes;
+    private PacientesView view;
+    private PacientesService pacientesService;
 
     /**
      * Constructor del controller con parametros
@@ -88,14 +90,22 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
                 if (!"".equals(searchTerm)) {
                     updateTableSearchTerms(searchTerm);
                 }
-                updateTableSearchTerms(searchTerm);
+                try {
+                    pacientes = pacientesService.cargarPersonasObjWrapper();
+                } catch (IOException ex) {
+                    Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                    Logger.getLogger(ConsultorioController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+                updateTableSearchTerms(" ");
                 break;
             case "clicAgregar":
                 AgregarPacienteView viewAgregarPaciente = new AgregarPacienteView();
                 viewAgregarPaciente.setVisible(true);
                 break;
             case "clicEliminar":
-                String deleteTerm = searchTermTextField.getText().toLowerCase();
+                String deleteTerm = searchTermTextField.getText().toLowerCase();                
                 if (!"".equals(deleteTerm)) {
                     deleteTableSearchTerms(deleteTerm);
                 }
@@ -125,8 +135,8 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
             tableModel.setDataVector(newData, Constants.PACIENTES_TABLE_HEADER);
         } else {
             JOptionPane.showMessageDialog(null,
-                    "El campo de b√∫squeda esta vac√≠o", "Error",
-                    JOptionPane.ERROR_MESSAGE);
+                    "No se encontrÛ el paciente", "Error",
+                    JOptionPane.INFORMATION_MESSAGE);
             tableModel.setDataVector(pacientes, Constants.PACIENTES_TABLE_HEADER);
         }
     }
@@ -141,7 +151,7 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
             }
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
-                    "No se encontr√≥ el paciente", "Error",
+                    "No se encontrÛ el paciente", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
     }

@@ -33,7 +33,7 @@ public class Constants {
     /**
      * Pacientes Table Header
      */
-    public static final Object[] PACIENTES_TABLE_HEADER = {"IdentificaciÃ³n", "Nombre", "TelÃ©fono", "DirecciÃ³n", "Fecha de Nacimiento", "Enfermedades", "Observaciones"};
+    public static final Object[] PACIENTES_TABLE_HEADER = {"Identificación", "Nombre", "Teléfono", "Dirección", "Fecha de Nacimiento", "Enfermedades", "Observaciones"};
     
     /**
      * Consultorios.json
@@ -43,7 +43,7 @@ public class Constants {
     /**
      * Consultorios Table Header
      */
-    public static final Object[] CONSULTORIOS_TABLE_HEADER = {"Centro MÃ©dico", "Dias de AtenciÃ³n", "Horario", "TelÃ©fono"};
+    public static final Object[] CONSULTORIOS_TABLE_HEADER = {"ID", "Centro Médico", "Dias de Atención", "Horario", "Teléfono"};
     
     /**
      * Citas.json

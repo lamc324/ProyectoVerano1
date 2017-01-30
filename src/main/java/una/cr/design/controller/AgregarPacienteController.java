@@ -146,7 +146,7 @@ public class AgregarPacienteController implements ActionListener {
                     }
 
                 }
-                JOptionPane.showMessageDialog(view, "Paciente agregado!", "Informacion", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(view, "Paciente agregado", "Informacion", JOptionPane.INFORMATION_MESSAGE);
                 view.setVisible(false);
 
                 break;

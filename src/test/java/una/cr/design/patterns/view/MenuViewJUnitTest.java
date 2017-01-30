@@ -1,8 +1,8 @@
 
 package una.cr.design.patterns.view;
 
-import org.assertj.swing.edt.GuiActionRunner;
-import org.assertj.swing.fixture.FrameFixture;
+//import org.assertj.swing.edt.GuiActionRunner;
+//import org.assertj.swing.fixture.FrameFixture;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class MenuViewJUnitTest {
     
-    private FrameFixture window;
+//    private FrameFixture window;
 
     /**
      *

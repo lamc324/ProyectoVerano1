@@ -51,12 +51,12 @@ public class ConsultorioView extends JFrame {
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
 
     JTextField searchTermTextField = new JTextField(26);
-    JButton buscarButton = new JButton("Actualizar Tabla", imagenBuscar);
+    JButton buscarButton = new JButton("Actualizar", imagenBuscar);
     JButton agregarButton = new JButton("Agregar", imagenAgregar);
     JButton eliminarButton = new JButton("Eliminar", imagenEliminar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);
     JTable table = new JTable();
-    JLabel nombreLabel = new JLabel("Nombre del Consultorio:");
+    JLabel nombreLabel = new JLabel("Nombre o ID:");
     DefaultTableModel tableModel = new DefaultTableModel();
 
     /**
@@ -90,7 +90,7 @@ public class ConsultorioView extends JFrame {
         ctrlPane.add(searchTermTextField);
         ctrlPane.add(buscarButton);
         ctrlPane.add(agregarButton);
-        //ctrlPane.add(eliminarButton);
+        ctrlPane.add(eliminarButton);
         ctrlPane2.add(cerrarButton);
 
         JScrollPane tableScrollPane = new JScrollPane(table);
@@ -118,8 +118,8 @@ public class ConsultorioView extends JFrame {
         buscarButton.addActionListener(controller);
         agregarButton.setActionCommand("clicAgregar");
         agregarButton.addActionListener(controller);
-//        eliminarButton.setActionCommand("clicEliminar");
-//        eliminarButton.addActionListener(controller);
+        eliminarButton.setActionCommand("clicEliminar");
+        eliminarButton.addActionListener(controller);
         cerrarButton.setActionCommand("clicCerrar");
         cerrarButton.addActionListener(controller);
         searchTermTextField.addKeyListener(controller);
