@@ -177,6 +177,17 @@ public class PacientesService {
         return isDeleted;
     }
     
+    public Paciente getPaciente(int id) throws Exception {
+        Paciente[] p = loadJsonFromWebService();
+        Paciente nuevo = new Paciente();
+        for(Paciente paciente : p){
+            if(paciente.getIdPaciente() == id){
+                nuevo = paciente;
+            }
+        }
+        return nuevo;
+    }
+    
 //    public Paciente getListaPacientes(int row) throws Exception {
 //        Paciente[] p = loadJsonFromWebService();
 //        List<Paciente> pList = Arrays.asList(p);

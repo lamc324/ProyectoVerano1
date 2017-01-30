@@ -53,7 +53,7 @@ public class CitaService {
             int i = 0;
             for (Cita citas : cita) {
                 data[i][0] = checkIfNull(citas.getId_cita());
-                data[i][1] = checkIfNull(citas.getPaciente().getNombre());
+                data[i][1] = checkIfNull(citas.getPaciente().getIdPaciente());
                 data[i][2] = checkIfNull(citas.getConsultorio().getNombre());
                 data[i][3] = checkIfNull(citas.getFecha());
                 data[i][4] = checkIfNull(citas.confirmado());
@@ -109,6 +109,76 @@ public class CitaService {
         return cita;
     }
     
+    public boolean createCita(Cita Cita) throws JsonGenerationException,
+            JsonMappingException, IOException {
+
+        boolean isCreated = true;
+        ObjectMapper mapper = new ObjectMapper();
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_CITAS);
+
+        String jsonInString = mapper.writeValueAsString(Cita);
+
+        //POST del JSON
+        ClientResponse response = webResource.type(MediaType.APPLICATION_JSON_TYPE)
+                .post(ClientResponse.class, jsonInString);
+
+        if (response.getStatus() != 200) {
+            isCreated = false;
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return isCreated;
+    }
+
+    public boolean deleteCita(int id) {
+        boolean isDeleted = false;
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_CITAS.concat("/").concat(String.valueOf(id)));
+
+        //POST del JSON
+        ClientResponse response = webResource.delete(ClientResponse.class);
+
+        if (response.getStatus() != 200) {
+            isDeleted = false;
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return isDeleted;
+    }
     
+    public boolean updateCita(Cita Cita) throws JsonGenerationException,
+            JsonMappingException, IOException {
+
+        boolean isCreated = true;
+        ObjectMapper mapper = new ObjectMapper();
+
+        Client client = Client.create();
+
+        WebResource webResource = client
+                .resource(Constants.WS_URL_CITAS);
+
+        String jsonInString = mapper.writeValueAsString(Cita);
+
+        //POST del JSON
+        ClientResponse response = webResource.type(MediaType.APPLICATION_JSON_TYPE)
+                .put(ClientResponse.class, jsonInString);
+
+        if (response.getStatus() != 200) {
+            isCreated = false;
+            throw new RuntimeException("Failed : HTTP error code : "
+                    + response.getStatus());
+        }
+
+        return isCreated;
+    }
     
 }

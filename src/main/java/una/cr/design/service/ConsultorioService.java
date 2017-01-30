@@ -167,4 +167,15 @@ public class ConsultorioService {
 
         return isDeleted;
     }
+    
+    public Consultorio getConsultorio(int id) throws Exception {
+        Consultorio[] p = loadJsonFromWebService();
+        Consultorio nuevo = new Consultorio();
+        for(Consultorio consultorio : p){
+            if(consultorio.getIdConsultorio()== id){
+                nuevo = consultorio;
+            }
+        }
+        return nuevo;
+    }
 }

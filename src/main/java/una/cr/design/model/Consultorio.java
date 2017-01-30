@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class Consultorio {
 
-    @JsonProperty("id_consultorio")
+    @JsonProperty("idConsultorio")
     private int id_consultorio;
     @JsonProperty("nombre")
     private String nombre;

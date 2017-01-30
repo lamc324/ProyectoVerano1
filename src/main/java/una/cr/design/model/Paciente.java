@@ -28,7 +28,7 @@ import java.io.Serializable;
  */
 public class Paciente implements Serializable {
 
-    @JsonProperty("id_paciente")
+    @JsonProperty("idPaciente")
     private int id_paciente;
     @JsonProperty("nombre")
     private String nombre;

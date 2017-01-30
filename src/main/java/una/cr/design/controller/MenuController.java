@@ -28,10 +28,16 @@ import java.text.ParseException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import una.cr.design.model.Cita;
+import una.cr.design.model.Consultorio;
+import una.cr.design.model.Paciente;
 import una.cr.design.patterns.view.CitasView;
 import una.cr.design.patterns.view.ConsultorioView;
 import una.cr.design.patterns.view.MenuView;
 import una.cr.design.patterns.view.PacientesView;
+import una.cr.design.service.CitaService;
+import una.cr.design.service.ConsultorioService;
+import una.cr.design.service.PacientesService;
 
 /**
  *
@@ -40,6 +46,9 @@ import una.cr.design.patterns.view.PacientesView;
 public class MenuController implements ActionListener {
 
     private final MenuView view;
+    private final CitaService citaService;
+    private final ConsultorioService consultorioService;
+    private final PacientesService pacienteService;
 
     /**
      * Constructor del controller con parametro del view
@@ -53,10 +62,14 @@ public class MenuController implements ActionListener {
     public MenuController(MenuView view) throws JsonGenerationException,
             JsonMappingException, IOException, ParseException, Exception {
         this.view = view;
+        this.citaService = new CitaService();
+        this.consultorioService = new ConsultorioService();
+        this.pacienteService = new PacientesService();
     }
 
     /**
      * Obtiene el actionCommand del evento e implementa una accion especifica
+     *
      * @param e
      */
     @Override
@@ -73,8 +86,8 @@ public class MenuController implements ActionListener {
                 } catch (IOException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (Exception ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
             case "clicMostrarCitas":
                 CitasView viewCitas;
@@ -86,8 +99,8 @@ public class MenuController implements ActionListener {
                 } catch (IOException | ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (Exception ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }
 
                 break;
             case "clicMostrarConsultorios":
@@ -100,26 +113,69 @@ public class MenuController implements ActionListener {
                 } catch (IOException | ParseException ex) {
                     Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (Exception ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 System.out.println("Consultorio");
                 break;
             case "clicSalir":
                 System.exit(0);
                 break;
-            case "clicAyuda":
-                JOptionPane.showMessageDialog(null,
-                        "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
-                        + "Escuela de Informática 2017"
-                        +  "\nEstudiantes:"
-                        +  "\nJohn Herrera Jimenez"
-                        +  "\nLuis Alonso Morgan Campos"
-                        +  "\nKevin Venegas Loria"
-                        +  "\nCaleb Villata Quesada"
-                        +  "\nJose David Matamoros Trejos","",
-                        JOptionPane.INFORMATION_MESSAGE);
-                break;
+            case "clicAyuda": /**
+             * ********************************************************
+             */
+            {
+                try {
+                    Paciente p = pacienteService.getPaciente(1);
+                    Paciente p2 = setAllP(p);
+                    Consultorio c = consultorioService.getConsultorio(4);
+                    Consultorio c2 = setAllC(c);
+                    
+                    
+                    Cita cp = new Cita(p,c, "6667", true);
+                    citaService.createCita(cp);
+                } catch (JsonMappingException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (Exception ex) {
+                Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            }
+
+            /**
+             * ********************************************************
+             */
+            JOptionPane.showMessageDialog(null,
+                    "Equipo Tango \nUniversidad Nacional de Costa Rica\n"
+                    + "Escuela de Informática 2017"
+                    + "\nEstudiantes:"
+                    + "\nJohn Herrera Jimenez"
+                    + "\nLuis Alonso Morgan Campos"
+                    + "\nKevin Venegas Loria"
+                    + "\nCaleb Villata Quesada"
+                    + "\nJose David Matamoros Trejos", "",
+                    JOptionPane.INFORMATION_MESSAGE);
+            break;
         }
     }
 
+    public Paciente setAllP(Paciente p){
+        Paciente paciente = new Paciente();
+        paciente.setNombre(p.getNombre());
+        paciente.setTelefono(p.getTelefono());
+        paciente.setDireccion(p.getDireccion());
+        paciente.setFechaNacimiento(p.getFechaNacimiento());
+        paciente.setEnfermedades(p.getEnfermedades());
+        paciente.setObservaciones(p.getObservaciones());
+        return paciente;
+    }
+    
+    public Consultorio setAllC(Consultorio c){
+        Consultorio consultorio = new Consultorio();
+        consultorio.setNombre(c.getNombre());
+        consultorio.setDiasConsulta(c.getDiasConsulta());
+        consultorio.setHorarioAtencion(c.getHorarioAtencion());
+        consultorio.setTelefono(c.getTelefono());
+        return consultorio;
+    }
 }

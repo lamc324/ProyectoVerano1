@@ -56,6 +56,15 @@ public class Cita {
         this.confirmar = confirmar;
     }
 
+    public Cita(Paciente paciente, Consultorio consultorio, String fecha, boolean confirmar) {
+        this.paciente = paciente;
+        this.consultorio = consultorio;
+        this.fecha = fecha;
+        this.confirmar = confirmar;
+    }
+    
+    
+
     public int getId_cita() {
         return id_cita;
     }
