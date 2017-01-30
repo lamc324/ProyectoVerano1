@@ -105,11 +105,15 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
                 viewAgregarPaciente.setVisible(true);
                 break;
             case "clicEliminar":
-                String deleteTerm = searchTermTextField.getText().toLowerCase();                
-                if (!"".equals(deleteTerm)) {
+                String deleteTerm = searchTermTextField.getText();
+                if ("".equals(deleteTerm)) {
+                    JOptionPane.showMessageDialog(view, "Por Favor inserte el ID del paciente a eliminar", "Error", JOptionPane.ERROR_MESSAGE);
+                } else {
+
                     deleteTableSearchTerms(deleteTerm);
+//                    updateTableSearchTerms(deleteTerm);
                 }
-                updateTableSearchTerms(deleteTerm);
+
                 break;
             case "clicCerrar":
                 view.setVisible(false);
@@ -143,17 +147,28 @@ public class PacientesController implements ActionListener, KeyListener, MouseLi
 
     private void deleteTableSearchTerms(String deleteTerm) {
         try {
-            if (deleteTerm != null && !"".equals(deleteTerm)
-                    && pacientes != null && pacientes.length >= 1) {
-                int borrar = Integer.parseInt(deleteTerm);
-                pacientesService.deletePaciente(borrar);
-                JOptionPane.showMessageDialog(view, "Paciente Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
-            }
+            int borrar = Integer.parseInt(deleteTerm);
+            pacientesService.deletePaciente(borrar);
+            JOptionPane.showMessageDialog(view, "Paciente Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
+
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null,
                     "No se encontró el paciente", "Error",
                     JOptionPane.ERROR_MESSAGE);
         }
+
+//try {
+//            if (deleteTerm != null && !"".equals(deleteTerm)
+//                    && pacientes != null && pacientes.length >= 1) {
+//                int borrar = Integer.parseInt(deleteTerm);
+//                pacientesService.deletePaciente(borrar);
+//                JOptionPane.showMessageDialog(view, "Paciente Eliminado", "", JOptionPane.INFORMATION_MESSAGE);
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null,
+//                    "No se encontró el paciente", "Error",
+//                    JOptionPane.ERROR_MESSAGE);
+//        }
     }
 
     /**

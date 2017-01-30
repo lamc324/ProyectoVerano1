@@ -49,7 +49,7 @@ public class CitasView extends JFrame {
     ImageIcon imagenCerrar = new ImageIcon("Cerrar.png");
     ImageIcon imagenEliminar = new ImageIcon("Eliminar.png");
 
-    String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
+    String[] consultorios = {"Elegir Consultorio de preferencia: "};
     JButton buscarButton = new JButton("Buscar", imagenBuscar);
     JButton agregarCitaButton = new JButton("Nueva Cita", imagenAgregar);
     JButton cerrarButton = new JButton("Cerrar", imagenCerrar);

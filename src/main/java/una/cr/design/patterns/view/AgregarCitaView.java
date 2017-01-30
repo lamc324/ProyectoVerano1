@@ -43,7 +43,7 @@ import una.cr.design.controller.AgregarCitaController;
  */
 public class AgregarCitaView extends JFrame {
 
-    String[] consultorios = {"Elegir Consultorio de preferencia: ", "Hospital CIMA", "Centro Medico del Este"};
+    String[] consultorios = {"Elegir Consultorio de preferencia: "};
     String[] horas = {"Elegir hora de atencion: ", "8:00", "8:30", "9:00", "9:30", "10:00", "10:30",
         "11:00", "11:30", "12:00"};
     String[] descripConsultorios = {"Hospital CIMA\nHorario de Atencion:\nLunes y Martes de 8 am a 8 pm",

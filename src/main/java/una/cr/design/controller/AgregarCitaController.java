@@ -124,7 +124,7 @@ public class AgregarCitaController implements ActionListener {
 
     private void updateComboBox() {
         for (Object[] obj : consultorio) {
-            String fullText = obj[0].toString();
+            String fullText = obj[1].toString();
             consultorioBox.addItem(fullText);
         }
     }
